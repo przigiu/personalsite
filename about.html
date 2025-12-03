@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giulia Peruzzi - Portfolio</title>
+    <title>Giulia Peruzzi - About</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
                     <!-- Logo will go here -->
                 </div>
                 <div class="nav-links">
-                    <a href="about.html">About</a>
+                    <a href="#about">About</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                     <button class="theme-toggle" aria-label="Toggle theme">
@@ -85,124 +85,70 @@
         </div>
         <nav class="mobile-nav-links">
             <a href="about.html">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
         </nav>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="about-hero">
         <div class="container">
-            <p class="author-name">Giulia Peruzzi</p>
-            <h1 class="hero-title">
-                I design digital products that are
-                <span class="highlight">intentional</span>, <span class="highlight">precise</span>, and made
-                to <nobr>bring <span class="highlight">joy</span></nobr>
-            </h1>
+            <h1>Giulia Peruzzi</h1>
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back To Home
+            </a>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- Intro Section -->
+    <section class="about-intro">
         <div class="container">
-            <h2 class="section-number">03_WORKS</h2>
+            <h2 class="section-number">05_ABOUT ME</h2>
+            <p class="intro-text">I'm Giulia Peruzzi, a UI/UX designer with a passion for creating digital experiences that are both beautiful and functional. I believe design should solve problems while bringing joy to users.</p>
+        </div>
+    </section>
 
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: url('assets/pexels-noah-erickson-97554-404280.jpg') lightgray 50% / cover no-repeat;"></div>
-                    <h3 class="project-title">Project Name</h3>
-                    <p class="project-description">Project overview in a few words</p>
-                    <div class="project-tags">
-                        <span class="tag">UI</span>
-                        <span class="tag">ecommerce</span>
-                        <span class="tag">tech</span>
-                    </div>
+    <!-- Details Section -->
+    <section class="about-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-column">
+                    <h2>BACKGROUND</h2>
+                    <p>With over 5 years of experience in marketing and creative direction at D2C and B2B companies, I've built a <strong>foundation in connecting people to products</strong> through strategic storytelling and visuals. My transition into UX/UI design <strong>bridges brand thinking with user experience</strong>, allowing me to create solutions that are both intentionally crafted and business-minded.</p>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: url('assets/pexels-nanadua11-8623280.jpg') lightgray 50% / cover no-repeat;"></div>
-                    <h3 class="project-title">Project Name</h3>
-                    <p class="project-description">Project overview in a few words</p>
-                    <div class="project-tags">
-                        <span class="tag">UI</span>
-                        <span class="tag">ecommerce</span>
-                        <span class="tag">tech</span>
-                    </div>
+                <div class="detail-column">
+                    <h2>APPROACH</h2>
+                    <p>I believe <strong>beauty in function isn't a luxury, it's essential</strong>. I approach every project with intention and attention to detail. Understanding how design shapes experience allows me to craft solutions that are not only beautiful but also functional. My marketing background gives me a strategic lens for balancing user needs with business goals, creating cohesive touch points across the entire journey.</p>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: url('assets/pexels-melvin-buezo-1253763-2529148.jpg') lightgray 50% / cover no-repeat;"></div>
-                    <h3 class="project-title">Project Name</h3>
-                    <p class="project-description">Project overview in a few words</p>
-                    <div class="project-tags">
-                        <span class="tag">UI</span>
-                        <span class="tag">ecommerce</span>
-                        <span class="tag">tech</span>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: url('assets/pexels-noah-erickson-97554-404280.jpg') lightgray 50% / cover no-repeat;"></div>
-                    <h3 class="project-title">Project Name</h3>
-                    <p class="project-description">Project overview in a few words</p>
-                    <div class="project-tags">
-                        <span class="tag">UI</span>
-                        <span class="tag">ecommerce</span>
-                        <span class="tag">tech</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="view-all">
-                <a href="#" class="view-all-link">View All Projects</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="about">
+    <!-- Expertise Section -->
+    <section class="about-expertise">
         <div class="container">
-            <h2 class="section-number">04_SERVICES</h2>
-
-            <div class="services-grid">
-                <!-- Web Services -->
-                <div class="service-column">
-                    <h3 class="service-title">Web</h3>
-                    <ul class="service-list">
-                        <li>Website design</li>
-                        <li>Website content creation</li>
-                        <li>Blogs and articles</li>
-                    </ul>
-                </div>
-
-                <!-- Branding Services -->
-                <div class="service-column">
-                    <h3 class="service-title">Branding</h3>
-                    <ul class="service-list">
-                        <li>Brand strategy</li>
-                        <li>Brand story</li>
-                        <li>Visual identity</li>
-                        <li>Graphic Design</li>
-                        <li>Logo and icons design</li>
-                        <li>Events Planning</li>
-                    </ul>
-                </div>
-
-                <!-- Marketing Services -->
-                <div class="service-column">
-                    <h3 class="service-title">Marketing</h3>
-                    <ul class="service-list">
-                        <li>Marketing strategy</li>
-                        <li>Creative direction</li>
-                        <li>Email marketing campaigns</li>
-                        <li>Product photography</li>
-                    </ul>
-                </div>
+            <h2 class="section-number">EXPERTISE</h2>
+            <div class="expertise-grid">
+                <span class="expertise-tag">UX/UI Design</span>
+                <span class="expertise-tag">Visual Design</span>
+                <span class="expertise-tag">Brand Strategy</span>
+                <span class="expertise-tag">Creative Direction</span>
+                <span class="expertise-tag">User Journey</span>
+                <span class="expertise-tag">Content Strategy</span>
+                <span class="expertise-tag">Design Systems</span>
+                <span class="expertise-tag">E-commerce Systems</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Beyond Work Section -->
+    <section class="about-beyond">
+        <div class="container">
+            <h2 class="section-number">BEYOND WORK</h2>
+            <p>When I'm not designing, you'll find me exploring architecture, experimenting with graphics, or searching for the perfect cup of tea. I believe that inspiration comes from everywhere, and these pursuits often influence my design thinking.</p>
         </div>
     </section>
 
@@ -213,7 +159,7 @@
                 <div class="footer-left">
                     <div class="footer-logo">Giulia Peruzzi</div>
                     <nav class="footer-nav">
-                        <a href="about.html">About</a>
+                        <a href="#about">About</a>
                         <a href="#projects">Projects</a>
                         <a href="#contact">Contact</a>
                     </nav>
