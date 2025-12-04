@@ -93,12 +93,7 @@ a {
     font-weight: 500;
     line-height: 160%; /* 28.8px */
     letter-spacing: 0.36px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
-    text-underline-position: from-font;
+    text-decoration: none;
     text-transform: capitalize;
     transition: color 0.3s ease;
 }
@@ -141,8 +136,7 @@ a {
     font-weight: 500;
     line-height: 160%;
     letter-spacing: 0.36px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+    text-decoration: none;
     text-transform: capitalize;
     transition: color 0.3s ease;
 }
@@ -284,8 +278,7 @@ body[data-theme="light"] .mobile-menu-icon {
     font-weight: 500 !important;
     line-height: 160% !important;
     letter-spacing: 0.48px !important;
-    text-decoration: underline !important;
-    text-decoration-style: solid !important;
+    text-decoration: none !important;
     text-transform: capitalize !important;
     text-align: left !important;
     transition: color 0.3s ease;
@@ -453,6 +446,7 @@ body[data-theme="light"] .mobile-menu-icon {
 
 .view-all {
     text-align: center;
+    display: none; /* Hidden on desktop and tablet */
 }
 
 .view-all-link {
@@ -462,8 +456,7 @@ body[data-theme="light"] .mobile-menu-icon {
     font-weight: 500;
     line-height: 160%;
     letter-spacing: 0.36px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+    text-decoration: none;
     text-transform: capitalize;
     transition: color 0.3s ease;
 }
@@ -550,8 +543,7 @@ body[data-theme="light"] .mobile-menu-icon {
     font-weight: 500;
     line-height: 160%;
     letter-spacing: 0.36px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+    text-decoration: none;
     text-transform: capitalize;
     transition: color 0.3s ease;
 }
@@ -615,8 +607,7 @@ body[data-theme="light"] .mobile-menu-icon {
     font-weight: 500;
     line-height: 160%;
     letter-spacing: 0.36px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+    text-decoration: none;
     text-transform: capitalize;
     transition: color 0.3s ease;
     display: flex;
@@ -669,11 +660,11 @@ body[data-theme="light"] .mobile-menu-icon {
     gap: 8px;
     color: var(--text-primary);
     font-family: Roboto;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 160%;
-    letter-spacing: 0.4px;
-    text-decoration: underline;
+    letter-spacing: 0.36px;
+    text-decoration: none;
     text-transform: capitalize;
     opacity: 0.7;
     transition: opacity 0.3s ease, color 0.3s ease;
@@ -1045,6 +1036,11 @@ body[data-theme="light"] .expertise-tag {
         margin-top: 0;
     }
 
+    .view-all {
+        display: block;
+        margin-top: 60px;
+    }
+
     .service-column {
         display: flex;
         flex-direction: column;
@@ -1094,12 +1090,7 @@ body[data-theme="light"] .expertise-tag {
         font-weight: 600;
         line-height: 160%;
         letter-spacing: 0.32px;
-        text-decoration-line: underline;
-        text-decoration-style: solid;
-        text-decoration-skip-ink: auto;
-        text-decoration-thickness: auto;
-        text-underline-offset: auto;
-        text-underline-position: from-font;
+        text-decoration: none;
         text-transform: capitalize;
     }
 
@@ -1114,12 +1105,7 @@ body[data-theme="light"] .expertise-tag {
         font-weight: 600;
         line-height: 160%;
         letter-spacing: 0.32px;
-        text-decoration-line: underline;
-        text-decoration-style: solid;
-        text-decoration-skip-ink: auto;
-        text-decoration-thickness: auto;
-        text-underline-offset: auto;
-        text-underline-position: from-font;
+        text-decoration: none;
         text-transform: capitalize;
     }
 
