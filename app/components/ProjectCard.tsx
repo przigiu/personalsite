@@ -32,9 +32,9 @@ export default function ProjectCard({
   return (
     <article className={`flex flex-col h-[246px] gap-2 justify-end pb-[19px] ${className}`}>
       {href ? <Link href={href}>{imageContainer}</Link> : imageContainer}
-      <div className="flex justify-between items-start px-0.5">
-        <p className="font-medium text-[14px] tracking-[1px] text-black/75 uppercase leading-[10.37px]">{title}</p>
-        <p className="font-normal text-[12px] leading-[1.2] text-black/40 text-right w-[182px] whitespace-pre-line">{caption}</p>
+      <div className="flex justify-between items-center px-0.5">
+        <p className="font-medium text-[13px] tracking-[1px] text-black/75 uppercase leading-[10.37px]">{title}</p>
+        <p className="font-normal text-[12px] leading-[1.2] text-[rgba(0,0,0,0.57)] text-right w-[182px] shrink-0">{caption}</p>
       </div>
     </article>
   );

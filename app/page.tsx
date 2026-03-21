@@ -8,14 +8,14 @@ import Footer from "@/app/components/Footer";
 
 const gridProjects = {
   row1: [
-    { imageSrc: "/images/missivio.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "AI-first email marketing for non-marketing founders", imageHeight: "h-[199px]", href: "/projects/missivio" },
-    { imageSrc: "/images/doordash.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "A feature that solves app-drop rate and helps with discovery", imageHeight: "h-[184px]" },
-    { imageSrc: "/images/brightwave.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Web design for NYC based modeling agency", overlayColor: "bg-[rgba(0,81,255,0.2)]", imageHeight: "h-[162px]" },
-    { imageSrc: "/images/stopbugging.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design for local\nbusiness", imageHeight: "flex-1" },
+    { imageSrc: "/images/missivio-v2.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", imageHeight: "h-[208px]", href: "/projects/missivio" },
+    { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", imageHeight: "h-[208px]" },
+    { imageSrc: "/images/brightwave-v2.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Brand & Web Design, Startup", imageHeight: "h-[208px]" },
+    { imageSrc: "/images/stopbugging-v2.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design, B2C", imageHeight: "h-[208px]" },
   ],
   row2: [
-    { imageSrc: "/images/stopbugging.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Web design for photographer portfolio work", overlayColor: "bg-black", imageHeight: "h-[196px]" },
-    { imageSrc: "/images/doordash.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Native iOS mobile app for discoverability and retention", overlayColor: "bg-[#7d03a6]", imageHeight: "h-[184px]" },
+    { imageSrc: "/images/roberta.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Brand & Web Design, Portfolio", imageHeight: "h-[208px]" },
+    { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", imageHeight: "h-[208px]" },
   ],
 };
 
@@ -24,7 +24,7 @@ const listProjects = [
     title: "MISSIVIO",
     number: "01",
     description: "AI-first email marketing for non-marketing founders",
-    tags: "Zero to MVP, SaaS, Tag-3",
+    tags: "Product Design, Web App MVP",
     imageSrc: "/images/missivio-list.jpg",
     imageAlt: "Missivio project preview",
     href: "/projects/missivio",
@@ -33,7 +33,7 @@ const listProjects = [
     title: "DOORDASH",
     number: "02",
     description: "A feature that solves app-drop rate and helps with discovery",
-    tags: "Design Strategy, Service Design, Tag-3",
+    tags: "Feature Design, Mobile App",
     imageSrc: "/images/doordash-list.jpg",
     imageAlt: "DoorDash project preview",
   },
@@ -41,36 +41,33 @@ const listProjects = [
     title: "BRIGHTWAVE",
     number: "03",
     description: "Web design for a NYC based modeling agency",
-    tags: "Zero to One, Web Design, Tag-3",
+    tags: "Brand & Web Design, Startup",
     imageSrc: "/images/brightwave-list.jpg",
     imageAlt: "Brightwave project preview",
-    overlayColor: "bg-[rgba(0,81,255,0.2)]",
   },
   {
     title: "STOPBUGGING",
     number: "04",
     description: "Web design for a local business",
-    tags: "Zero to One, Web Design, Tag-3",
+    tags: "Web design, B2C",
     imageSrc: "/images/stopbugging-list.jpg",
     imageAlt: "StopBugging project preview",
   },
   {
     title: "ROBERTA",
-    number: "04",
+    number: "05",
     description: "Web design for a local business",
-    tags: "Zero to One, Web Design, Tag-3",
-    imageSrc: "/images/stopbugging-list.jpg",
+    tags: "Brand & Web Design, Portfolio",
+    imageSrc: "/images/roberta-list.jpg",
     imageAlt: "Roberta project preview",
-    overlayColor: "bg-black",
   },
   {
     title: "BRAZILY",
-    number: "04",
+    number: "06",
     description: "Native iOS mobile app for discoverability and retention",
-    tags: "Design Vision, iOS App, Tag-3",
-    imageSrc: "/images/stopbugging-list.jpg",
+    tags: "Product Design, iOS App",
+    imageSrc: "/images/brazily-list.jpg",
     imageAlt: "Brazily project preview",
-    overlayColor: "bg-[#7d03a6]",
   },
 ];
 
@@ -93,16 +90,16 @@ export default function Home() {
           {viewMode === "grid" ? (
             <>
               {/* Project Grid Row 1 */}
-              <section aria-label="Featured projects" className="flex flex-col sm:flex-row gap-3 px-[22px] pb-[69px]">
+              <section aria-label="Featured projects" className="flex flex-col sm:flex-row gap-3 px-[12px] pb-[69px]">
                 {gridProjects.row1.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="flex-1" />
+                  <ProjectCard key={p.title} {...p} className="w-[300px] shrink-0" />
                 ))}
               </section>
 
               {/* Project Grid Row 2 */}
-              <section aria-label="Additional projects" className="flex flex-col sm:flex-row gap-3 px-[22px] pb-[69px]">
+              <section aria-label="Additional projects" className="flex flex-col sm:flex-row gap-3 px-[12px] pb-[69px]">
                 {gridProjects.row2.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="sm:w-[300px] sm:flex-none" />
+                  <ProjectCard key={p.title} {...p} className="w-[300px] shrink-0" />
                 ))}
               </section>
             </>
@@ -120,15 +117,15 @@ export default function Home() {
         </div>
 
         {/* About Section */}
-        <section aria-labelledby="about-heading" className="px-[22px] py-3 pb-[115px]">
+        <section aria-labelledby="about-heading" className="px-[12px] py-3 pb-[115px]">
           <hr className="border-0 h-px bg-black/15 w-full mb-[6px]" />
           <div className="flex flex-col sm:flex-row gap-4 pt-[6px]">
-            <p className="font-medium text-[14px] text-black/75 leading-[13.82px] sm:w-[619px] shrink-0">ABOUT</p>
+            <p className="font-medium text-[13px] text-black/75 leading-[13.82px] sm:w-[619px] shrink-0">ABOUT</p>
             <div className="flex-1 flex flex-col gap-[13.715px]">
-              <h1 id="about-heading" className="font-bold text-[16px] text-black/75 leading-[13.82px]">
+              <h1 id="about-heading" className="font-bold text-[14px] text-black/75 leading-[13.82px]">
                 Design that feels intentional.
               </h1>
-              <div className="text-[14px] leading-[1.4] text-black/75 space-y-4">
+              <div className="text-[13px] leading-[1.4] text-black/75 space-y-4">
                 <p>
                   I&apos;ve always noticed when things are made well. Before I had the vocabulary for it, I was drawn to objects, spaces, and interfaces that just worked. Not because they were flashy, but because someone had thought carefully about every decision.
                 </p>

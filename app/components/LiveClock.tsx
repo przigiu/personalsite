@@ -12,5 +12,5 @@ export default function LiveClock() {
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
-  return <time className="font-normal text-[11.5px] leading-[14px] text-black/40">{time}</time>;
+  return <time className="font-normal text-[13px] leading-[14px] text-black/40">{time}</time>;
 }
