@@ -92,14 +92,14 @@ export default function Home() {
               {/* Project Grid Row 1 */}
               <section aria-label="Featured projects" className="flex flex-col sm:flex-row gap-3 px-[12px] pb-[69px]">
                 {gridProjects.row1.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="w-[300px] shrink-0" />
+                  <ProjectCard key={p.title} {...p} className="w-[305px] shrink-0" />
                 ))}
               </section>
 
               {/* Project Grid Row 2 */}
               <section aria-label="Additional projects" className="flex flex-col sm:flex-row gap-3 px-[12px] pb-[69px]">
                 {gridProjects.row2.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="w-[300px] shrink-0" />
+                  <ProjectCard key={p.title} {...p} className="w-[305px] shrink-0" />
                 ))}
               </section>
             </>
