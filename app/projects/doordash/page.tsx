@@ -1,0 +1,393 @@
+import Image from "next/image";
+import Link from "next/link";
+import Footer from "@/app/components/Footer";
+
+export default function DoorDashPage() {
+  return (
+    <div className="min-h-screen">
+      {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
+      <header className="flex flex-col pt-[24px] pb-[91px] px-[12px] bg-[#f9f9f9]">
+        <div className="flex flex-row w-full items-start gap-4">
+          {/* Left group */}
+          <div className="flex flex-row items-start gap-3">
+            {/* Name block */}
+            <div className="w-[306px] flex flex-col gap-0.5">
+              <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
+              <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
+            </div>
+            {/* Back link */}
+            <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
+              ← BACK
+            </Link>
+          </div>
+          {/* Right nav */}
+          <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
+            <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
+            <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* ─── 2. PROJECT HEADER ─────────────────────────────────────── */}
+      <section className="px-[12px] pt-[6px]">
+        <div className="flex flex-row gap-4 items-start">
+          {/* Left column */}
+          <div className="w-[302px] flex flex-col">
+            <h1 className="font-medium text-[14px] tracking-[1.5px] uppercase leading-[10.37px] text-black/75">
+              DOORDASH
+            </h1>
+            <span className="font-normal text-[11px] leading-[13.82px] text-black/40">02</span>
+          </div>
+          {/* Right column */}
+          <div className="w-[622px] flex flex-col gap-6 pb-[38px]">
+            {/* Description */}
+            <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              Users don&apos;t trust food delivery apps enough to order from a new restaurant without checking TikTok first. I designed a feature to bring that proof into DoorDash.
+            </p>
+            {/* Tags */}
+            <div className="flex flex-row gap-6">
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Role</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">Solo designer</span>
+              </div>
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Year</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">2026</span>
+              </div>
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Project</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">Feature addition, Concept</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
+      <div className="px-[12px] mt-4">
+        <div className="relative w-full h-[460px]">
+          <Image
+            src="/images/doordash/hero.jpg"
+            alt="DoorDash hero"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
+      <section className="px-[12px] pt-[24px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col">
+            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+              Food delivery apps are built for ordering, not for deciding.
+            </h2>
+            <div className="h-[13.715px]" />
+            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p>
+                Users regularly browse DoorDash for ten minutes, abandon it to check TikTok for authentic food videos, and only return to place the order once they&apos;ve been inspired. Every single person I interviewed had developed this exact workflow, and none of them thought twice about it, even if it adds over 2 hours to their routine.
+              </p>
+              <br />
+              <p>
+                The question I set out to answer was whether that friction could be eliminated by bringing the video content into DoorDash, at the moment the decision is actually happening.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. RESEARCH IMAGE GALLERY ─────────────────────────────── */}
+      <section className="px-[12px] mt-[40px]">
+        {/* Two images side by side */}
+        <div className="flex flex-row gap-3">
+          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+            <Image
+              src="/images/doordash/empathy-map.jpg"
+              alt="Empathy map"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+            <Image
+              src="/images/doordash/user-flow.jpg"
+              alt="User flow"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {/* Captions */}
+        <div className="pl-[317px] mt-4 flex flex-row justify-between">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+            Empathy map helped define the user subconscious state and core needs.
+          </p>
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+            A comparison between the current user flow (top), discovered during research, and the user flow (bottom) with the new feature.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
+      <section className="px-[12px] pt-[40px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
+          </div>
+          {/* Content */}
+          <div className="w-[622px] flex flex-col gap-[91px]">
+            {/* Subsection 1 */}
+            <div className="flex flex-col">
+              <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+                Spotting the gap in the market
+              </h2>
+              <div className="h-[13.715px]" />
+              <div className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p>
+                  Before talking to users, <strong className="font-semibold">I audited seven platforms across food delivery, short-form video, and social discovery</strong> (including Uber Eats, DoorDash, Grubhub, BiteSight, WhattaEat, Instacart, and Slice).
+                </p>
+                <br /><br />
+                <p>
+                  The pattern that emerged was consistent: platforms that had experimented with video either positioned it as paid advertising (which erodes the trust signal that makes video valuable in the first place) or surfaced it separately from the ordering flow, where it gets ignored. <strong className="font-semibold">No major delivery platform had integrated authentic, community-sourced video into the moment where a user is actively trying to make a decision.</strong> That gap became the foundation for my design.
+                </p>
+              </div>
+            </div>
+            {/* Subsection 2 */}
+            <div className="flex flex-col">
+              <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+                An annoying, but necessary, multi-app work flow
+              </h2>
+              <div className="h-[13.715px]" />
+              <div className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p>
+                  I conducted <strong className="font-semibold">five semi-structured interviews</strong> with regular food delivery users (people ordering at least once a week, across a range of household types and ordering habits).
+                </p>
+                <br /><br />
+                <p>
+                  I focused not on what they wished the apps would do, but on what they actually did in a recent session. <strong className="font-semibold">Decision paralysis showed up in all five interviews.</strong>
+                </p>
+                <br /><br />
+                <p>
+                  Every participant had spent significant time, sometimes over two hours, cross-referencing multiple apps before committing to a new restaurant: <strong className="font-semibold">browse DoorDash, cross-check on TikTok, come back to order.</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7. USER PERSONAS ──────────────────────────────────────── */}
+      <section className="px-[12px] py-[91px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USER PERSONAS</span>
+          </div>
+          {/* Content */}
+          <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <p>
+              From the interviews, I defined two distinct user profiles by the specific tension they experience while ordering:
+            </p>
+            <br /><br />
+            <p>
+              <strong className="font-semibold italic">Casey (user persona)</strong> is a professional who orders 2/3 times a week and spends hours cross-referencing TikTok, Google Maps, Instagram, and Yelp before trying a new restaurant. She distrusts curated in-app photos and actively looks for content that feels authentic. Her core question is: <em>Is this restaurant actually worth trusting?</em>
+            </p>
+            <br /><br />
+            <p>
+              <strong className="font-semibold italic">Jordan (user persona)</strong> orders 4/5 times a week, managing most of her household&apos;s meals. She would like to try new and trendy food, but the pressure to land on something her kids will eat means she often chooses to cook instead. Her core question is: <em>Will this work for everyone at the table tonight?</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 8. FIRST ITERATION + USABILITY TESTING ────────────────── */}
+      <section className="px-[12px] pb-[91px]">
+        <div className="flex flex-col gap-[64px]">
+
+          {/* Block A: Mid-fi to Hi-fi image */}
+          <div>
+            <div className="relative w-full h-[622px]">
+              <Image
+                src="/images/doordash/mid-fi-to-hi-fi.jpg"
+                alt="Mid-fi to High-fi progression"
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Caption */}
+            <div className="pl-[317px] mt-4">
+              <p className="italic text-[12px] leading-[1.2] text-black/75">
+                <strong className="font-semibold italic">Mid-fi to High-fi progression</strong> of feature placement: user testing proved that initial concept disrupted users&apos; existing mental model.
+              </p>
+            </div>
+          </div>
+
+          {/* Block B: FIRST ITERATION body */}
+          <div>
+            <div className="flex flex-row gap-3 items-start">
+              {/* Label */}
+              <div className="w-[305px] flex flex-col">
+                <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FIRST ITERATION</span>
+              </div>
+              {/* Content */}
+              <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                <p>
+                  My initial instinct was to position <strong className="font-semibold">a video feed as a replacement for the restaurant card list.</strong>
+                </p>
+                <br /><br />
+                <p>
+                  Research had shown that users weren&apos;t frustrated by what happened after they chose a restaurant, as the paralysis happened during selection. A video-first surface felt like the right fix. <strong className="font-semibold">Mid-fidelity testing challenged that assumption quickly.</strong> Users were familiar with the card layout and pushed back when it disappeared: &apos;What happens if I don&apos;t want to watch a video?&apos;
+                </p>
+                <br /><br />
+                <p>
+                  It became clear the feed needed to be an addition, not a replacement: a new default view after a category tap, with the card list still accessible via a toggle for users who prefer it.
+                </p>
+                <br /><br />
+                <p>
+                  <strong className="font-semibold">The video overlay was designed to carry the information both personas need</strong> to make a decision without leaving the feed: every card shows the restaurant name, price range, estimated delivery time, and distance. TikTok-sourced content displays the TikTok logo, a deliberate trust signal communicating that the content was not commissioned by the restaurant or by DoorDash. When applicable, a text badge reading &apos;Kids menu available&apos; appears directly on the card, positioned for Jordan and anyone else navigating the same constraint.
+                </p>
+                <br /><br />
+                <p>
+                  When a user taps through from a video to the restaurant page, a &apos;Just Watched&apos; callout persists at the top, maintaining the thread between what they saw and where they&apos;ve landed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Block C: Usability Testing */}
+          <div>
+            {/* Full-width image */}
+            <div className="relative w-full h-[622px]">
+              <Image
+                src="/images/doordash/usability-testing.jpg"
+                alt="Usability testing panel"
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Caption */}
+            <div className="pl-[317px] mt-4">
+              <p className="italic text-[12px] leading-[1.2] text-black/75">
+                The evolution of the right side panel: from feeling dismissal, being too crowded, to just perfect.
+              </p>
+            </div>
+            {/* USABILITY TESTING label + content */}
+            <div className="pt-[40px]">
+              <div className="flex flex-row gap-3 items-start">
+                {/* Label */}
+                <div className="w-[305px] flex flex-col">
+                  <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
+                </div>
+                {/* Content */}
+                <div className="w-[622px] flex flex-col gap-12">
+                  {/* Round 1 */}
+                  <div className="flex flex-col">
+                    <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 1, mid-fidelity</h2>
+                    <div className="h-[13.715px]" />
+                    <div className="font-normal text-[13px] leading-[1.4] text-black/75">
+                      <p>
+                        All four participants engaged authentically with the videos and expressed real appetite to order. But the path from &apos;I saw something I want&apos; to &apos;I know how to get it&apos; broke down in specific ways.
+                      </p>
+                      <ul className="list-disc ml-4 mt-2">
+                        <li>
+                          Users who tapped through from a video to a restaurant&apos;s menu had no visible path back to the video that had brought them there.
+                        </li>
+                        <li>
+                          the kid-friendly symbol (a smiley face) was not recognized by a single participant without being told what it meant, and the content source badge was being skipped entirely.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Round 2 */}
+                  <div className="flex flex-col">
+                    <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 2, high-fidelity</h2>
+                    <div className="h-[13.715px]" />
+                    <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                      After adding a video tag to individual menu items, as well as a kid-friendly spelled-out badge, the revised design was tested against each of those findings. All issues were resolved, and the feature was described as native to DoorDash.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── 9. FINAL SCREENS GALLERY ──────────────────────────────── */}
+      <section className="px-[12px] mt-[16px]">
+        {/* Two images side by side */}
+        <div className="flex flex-row gap-3">
+          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+            <Image
+              src="/images/doordash/final-overlay-card.jpg"
+              alt="Final screen overlay card"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+            <Image
+              src="/images/doordash/final-video-indicator.jpg"
+              alt="Final screen red video indicator"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {/* Captions */}
+        <div className="pl-[317px] mt-4 flex flex-row justify-between">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+            Overlay card with restaurant information presents now a complete spelled out tag after testing.
+          </p>
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+            Updated coloring (from grey to red) to give visual prominence to video indicator.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── 10. LEARNINGS ─────────────────────────────────────────── */}
+      <section className="px-[12px] pt-[40px] pb-[91px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col">
+            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+              Adding the right information at the right moment
+            </h2>
+            <div className="h-[13.715px]" />
+            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p>
+                Decision paralysis isn&apos;t solved by adding more information. It&apos;s solved by adding the right kind of proof at the right moment: before the user has to commit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 11. NEXT PROJECT LINK ─────────────────────────────────── */}
+      <div className="px-[11px] w-full text-right">
+        <Link href="/projects/brightwave" className="font-normal text-[14px] leading-[14px] text-black/75">
+          NEXT PROJECT: BRIGHTWAVE →
+        </Link>
+      </div>
+
+      {/* ─── 12. FOOTER ────────────────────────────────────────────── */}
+      <Footer />
+    </div>
+  );
+}

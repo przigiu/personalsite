@@ -34,7 +34,7 @@ export default function ProjectCard({
       {href ? <Link href={href}>{imageContainer}</Link> : imageContainer}
       <div className="flex justify-between items-center px-0.5">
         <p className="font-medium text-[13px] tracking-[1px] text-black/75 uppercase leading-[10.37px]">{title}</p>
-        <p className="font-normal text-[12px] leading-[1.2] text-[rgba(0,0,0,0.57)] text-right w-[182px] shrink-0">{caption}</p>
+        <p className="font-normal text-[12px] leading-[1.2] text-black/[0.57] text-right w-[182px] shrink-0">{caption}</p>
       </div>
     </article>
   );

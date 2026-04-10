@@ -51,7 +51,7 @@ export default function ProjectListItem({
       {/* Col 3 — tags */}
       <div className="w-[306px] flex flex-col shrink-0">
         <p className="font-semibold text-[12px] text-black/75 leading-[13.82px]">Project</p>
-        <p className="font-normal text-[12px] text-[rgba(0,0,0,0.57)] leading-[1.2]">{tags}</p>
+        <p className="font-normal text-[12px] text-black/[0.57] leading-[1.2]">{tags}</p>
       </div>
 
       {/* Col 4 — image */}

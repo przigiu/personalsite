@@ -70,6 +70,7 @@ export default function MissivioPage() {
             src="/images/missivio/hero.jpg"
             alt="Missivio hero"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -115,6 +116,7 @@ export default function MissivioPage() {
             src="/images/missivio/gallery-full.jpg"
             alt="Missivio gallery full width"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -135,6 +137,7 @@ export default function MissivioPage() {
               src="/images/missivio/gallery-left-1.jpg"
               alt="Qualitative research"
               fill
+              sizes="50vw"
               className="object-cover"
             />
           </div>
@@ -143,6 +146,7 @@ export default function MissivioPage() {
               src="/images/missivio/gallery-right-1.jpg"
               alt="User flows"
               fill
+              sizes="50vw"
               className="object-cover"
             />
           </div>
@@ -246,6 +250,7 @@ export default function MissivioPage() {
             src="/images/missivio/iteration.jpg"
             alt="Iteration of right side panel"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -344,6 +349,7 @@ export default function MissivioPage() {
               src="/images/missivio/gallery-left-2.jpg"
               alt="Initial concept of onboarding flow, mid-fidelity"
               fill
+              sizes="50vw"
               className="object-cover"
             />
           </div>
@@ -352,6 +358,7 @@ export default function MissivioPage() {
               src="/images/missivio/gallery-right-2.jpg"
               alt="Final dashboard design"
               fill
+              sizes="50vw"
               className="object-cover"
             />
           </div>

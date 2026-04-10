@@ -14,7 +14,7 @@ Portfolio site for Giulia, a Product & UX Designer. Features a homepage with gri
 - **Primary text:** rgba(0,0,0,0.75)
 - **Muted text:** rgba(0,0,0,0.4) (captions, footer, section labels)
 - **Dividers:** rgba(0,0,0,0.15), 1px height
-- **Content padding:** px-[22px] horizontal, footer px-[11px]
+- **Content padding:** px-[12px] horizontal
 - **Section spacing:** pb-[91px] between major sections, pb-[69px] for project grids
 
 ## Project Structure
@@ -31,10 +31,18 @@ app/
     ProjectListItem.tsx # List view project row
   projects/
     missivio/page.tsx # Missivio case study page
+    doordash/page.tsx # DoorDash case study page
 public/
-  images/             # Homepage project images + icons
+  images/             # Project images (see naming convention below) + icons
   images/missivio/    # Missivio case study images
+  images/doordash/    # DoorDash case study images
 ```
+
+## Image Naming Convention
+Each project has up to three image variants in `public/images/`:
+- `{name}.jpg` — used in grid view (row 2 projects) or as base image
+- `{name}-v2.jpg` — used in grid view (row 1 projects)
+- `{name}-list.jpg` — used in list view
 
 ## Component Conventions
 - Function components with default exports
@@ -46,8 +54,8 @@ public/
 ## Page Patterns
 
 ### Homepage
-- Grid view: 4-column card row + 2-card row
-- List view: horizontal rows with title, number, description, tags, image
+- Grid view: 4-column card row (Missivio, DoorDash, Brightwave, StopBugging) + 2-card row (Roberta, Brazily)
+- List view: horizontal rows with number, title, description, tags, image (6 projects total)
 - Toggle between views with fade animation (`animate-fade-in` class)
 - About section and footer shared between both views
 

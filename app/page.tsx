@@ -9,7 +9,7 @@ import Footer from "@/app/components/Footer";
 const gridProjects = {
   row1: [
     { imageSrc: "/images/missivio-v2.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", imageHeight: "h-[208px]", href: "/projects/missivio" },
-    { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", imageHeight: "h-[208px]" },
+    { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", imageHeight: "h-[208px]", href: "/projects/doordash" },
     { imageSrc: "/images/brightwave-v2.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Brand & Web Design, Startup", imageHeight: "h-[208px]" },
     { imageSrc: "/images/stopbugging-v2.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design, B2C", imageHeight: "h-[208px]" },
   ],
@@ -36,6 +36,7 @@ const listProjects = [
     tags: "Feature Design, Mobile App",
     imageSrc: "/images/doordash-list.jpg",
     imageAlt: "DoorDash project preview",
+    href: "/projects/doordash",
   },
   {
     title: "BRIGHTWAVE",
