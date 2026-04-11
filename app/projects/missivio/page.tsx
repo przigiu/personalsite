@@ -178,12 +178,12 @@ export default function MissivioPage() {
             <br /><br />
             <ul className="list-disc ml-4">
               <li className="mb-4">
-                <strong className="font-semibold italic">Sarah (user persona):</strong>{" "}
-                B2B services owner, overwhelmed by marketing decisions. Doesn&apos;t want to learn email marketing. Instead, wants someone to make the decisions so she can focus on running her business.
+                <strong className="font-semibold">Delegation thinkers:</strong>{" "}
+                owners who didn&apos;t want to learn email marketing. They wanted the decisions made for them so they could focus on running their business.
               </li>
               <li>
-                <strong className="font-semibold italic">Alex (user persona): </strong>
-                D2C brand operator who won&apos;t sacrifice brand authenticity. Doesn&apos;t have time to become a marketing expert, but wants to understand the logic overtime and feel confident in every decision.
+                <strong className="font-semibold">Confidence-seekers:</strong>{" "}
+                operators who wouldn&apos;t follow a tool blindly, but didn&apos;t have time to become experts either. They needed to understand the logic behind each action, not just execute it.
               </li>
             </ul>
             <br /><br />
@@ -207,17 +207,13 @@ export default function MissivioPage() {
           {/* Content */}
           <div className="flex flex-col">
             <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
-              Constraints shaped every design decision
+              The AI proposes, never acts.
             </h2>
             <div className="h-[13.715px]" />
             <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
-                The product was built around{" "}
-                <strong className="font-semibold">one non-negotiable principle: the AI proposes, never acts.</strong>{" "}
-                Every output requires explicit user approval before anything goes live.
+                Every output requires explicit user approval before anything goes live. Scope was defined early to keep the experience focused:
               </p>
-              <br /><br />
-              <p>Scope was defined early to keep the experience focused:</p>
               <br /><br />
               <ul className="list-disc ml-4">
                 <li className="mb-4">
@@ -238,6 +234,11 @@ export default function MissivioPage() {
                   AI interactions were designed to be concise and purposeful, not conversationally deep
                 </li>
               </ul>
+              <p className="mt-6 font-normal text-[13px] leading-[1.4] text-black/75">
+                Every constraint above served one shift:{" "}
+                <strong className="font-semibold">the AI speaks first.</strong>{" "}
+                A traditional dashboard that asked <em>what would you like to do?</em> was built, tested, and failed immediately. For someone who doesn&apos;t know what they should be doing, that&apos;s paralysis with better UI.
+              </p>
             </div>
           </div>
         </div>
@@ -257,7 +258,7 @@ export default function MissivioPage() {
         {/* Caption */}
         <div className="pl-[317px] mt-4">
           <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
-            The evolution of the right side panel: from feeling dismissal, being too crowded, to just perfect.
+            The evolution of the right side panel: from feeling dismissive, being too crowded, to just perfect.
           </p>
         </div>
 
@@ -282,14 +283,20 @@ export default function MissivioPage() {
                 </p>
               </div>
               {/* Round 2 */}
-              <div className="flex flex-col">
-                <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 2, high-fidelity</h2>
-                <div className="h-[13.715px]" />
+              <div className="flex flex-col gap-12">
+                <div className="flex flex-col">
+                  <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 2, high-fidelity</h2>
+                  <div className="h-[13.715px]" />
+                  <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                    The structural problems were solved. A new one emerged:{" "}
+                    <strong className="font-semibold">the AI reasoning panels were too text-dense to read.</strong>{" "}
+                    The platform&apos;s core value proposition was present but invisible. Users who did engage with it responded strongly: the content was right, the format was wrong.
+                  </p>
+                </div>
                 <p className="font-normal text-[13px] leading-[1.4] text-black/75">
-                  The structural problems were solved. A new one emerged:{" "}
-                  <strong className="font-semibold">the AI reasoning panels were too text-dense to read. </strong>
-                  The platform&apos;s core value proposition was present but invisible. Users who did engage with it responded strongly:{" "}
-                  <strong className="font-semibold">the content was right, the format was wrong.</strong>
+                  The fix wasn&apos;t more content: it was less, better formatted. Dense reasoning panels were broken into scannable steps:{" "}
+                  <strong className="font-semibold">recommendation first, rationale second, optional depth third.</strong>{" "}
+                  The information didn&apos;t change. The cognitive load did.
                 </p>
               </div>
             </div>
@@ -310,7 +317,7 @@ export default function MissivioPage() {
             <div className="flex flex-col">
               <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Solving for visibility</h2>
               <div className="h-[13.715px]" />
-              <p className="font-normal text-[13px] leading-[1.2] text-black/75">
+              <p className="font-normal text-[13px] leading-[1.4] text-black/75">
                 Round 2 taught me that the right content shown in
                 <strong className="font-semibold"> the wrong format is indistinguishable from the wrong content.</strong>{" "}
                 Every final iteration was about making the AI&apos;s reasoning accessible.
@@ -320,7 +327,7 @@ export default function MissivioPage() {
             <div className="flex flex-col">
               <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">The defining iteration</h2>
               <div className="h-[13.715px]" />
-              <div className="font-normal text-[13px] leading-[1.2] text-black/75">
+              <div className="font-normal text-[13px] leading-[1.4] text-black/75">
                 <p>
                   The mid-fidelity dashboard was a traditional overview with AI features inside it. That structure implicitly told users:{" "}
                   <em>you&apos;re in charge, what would you like to do?</em>
@@ -334,6 +341,12 @@ export default function MissivioPage() {
                   I rebuilt the dashboard around an AI-led conversational handoff.{" "}
                   <strong className="font-semibold">The AI speaks first. The user responds. Every screen that follows has context because the AI already established purpose.</strong>
                 </p>
+                <br />
+                <p>
+                  The measure of success wasn&apos;t task completion. It was whether a user could, unprompted, explain <em>why</em> they&apos;d just done something.{" "}
+                  <strong className="font-semibold">In post-testing debrief, 5 out of 5 users could.</strong>{" "}
+                  That was the benchmark set in research. The final design met it.
+                </p>
               </div>
             </div>
           </div>
@@ -341,7 +354,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 12. FINAL IMAGE GALLERY ───────────────────────────────── */}
-      <section className="px-[12px] mt-[16px]">
+      <section className="px-[12px] mt-[40px]">
         {/* Two images */}
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
@@ -369,7 +382,7 @@ export default function MissivioPage() {
             Initial concept of onboarding flow, mid-fidelity.
           </p>
           <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
-            Final dashboard design focuses on User/Ai interaction
+            Final dashboard design focuses on User/AI interaction
           </p>
         </div>
       </section>
@@ -395,7 +408,7 @@ export default function MissivioPage() {
               <br />
               <p>
                 Every assumption I brought from my professional experience still had to be tested, challenged, and sometimes discarded.{" "}
-                <strong className="font-semibold">That tension between knowing the issue and the iteration process is what I&apos;ll carry into every design project after this.</strong>
+                <strong className="font-semibold">The tension between professional instinct and what users actually showed me is what I&apos;ll carry into every project after this.</strong>
               </p>
             </div>
             {/* View Full Study link */}

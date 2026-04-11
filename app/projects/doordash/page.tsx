@@ -65,12 +65,12 @@ export default function DoorDashPage() {
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
       <div className="px-[12px] mt-4">
-        <div className="relative w-full h-[460px]">
+        <div className="relative w-full h-[460px] bg-[#e6e6e6]">
           <Image
-            src="/images/doordash/hero.jpg"
+            src="/images/doordash/empathy-map.jpg"
             alt="DoorDash hero"
             fill
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </div>
@@ -103,12 +103,12 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 5. RESEARCH IMAGE GALLERY ─────────────────────────────── */}
-      <section className="px-[12px] mt-[40px]">
+      <section className="px-[12px] mt-[80px]">
         {/* Two images side by side */}
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
             <Image
-              src="/images/doordash/empathy-map.jpg"
+              src="/images/doordash/user-flow.jpg"
               alt="Empathy map"
               fill
               sizes="50vw"
@@ -117,7 +117,7 @@ export default function DoorDashPage() {
           </div>
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
             <Image
-              src="/images/doordash/user-flow.jpg"
+              src="/images/doordash/mid-fi-to-hi-fi.jpg"
               alt="User flow"
               fill
               sizes="50vw"
@@ -130,7 +130,7 @@ export default function DoorDashPage() {
           <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
             Empathy map helped define the user subconscious state and core needs.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-[390px] leading-[1.2] text-black/75">
             A comparison between the current user flow (top), discovered during research, and the user flow (bottom) with the new feature.
           </p>
         </div>
@@ -151,15 +151,13 @@ export default function DoorDashPage() {
                 Spotting the gap in the market
               </h2>
               <div className="h-[13.715px]" />
-              <div className="font-normal text-[13px] leading-[1.4] text-black/75">
-                <p>
-                  Before talking to users, <strong className="font-semibold">I audited seven platforms across food delivery, short-form video, and social discovery</strong> (including Uber Eats, DoorDash, Grubhub, BiteSight, WhattaEat, Instacart, and Slice).
-                </p>
+              <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                Before talking to users, <strong className="font-semibold">I audited seven platforms across food delivery, short-form video, and social discovery</strong> (including Uber Eats, DoorDash, Grubhub, BiteSight, WhattaEat, Instacart, and Slice).
                 <br /><br />
-                <p>
-                  The pattern that emerged was consistent: platforms that had experimented with video either positioned it as paid advertising (which erodes the trust signal that makes video valuable in the first place) or surfaced it separately from the ordering flow, where it gets ignored. <strong className="font-semibold">No major delivery platform had integrated authentic, community-sourced video into the moment where a user is actively trying to make a decision.</strong> That gap became the foundation for my design.
-                </p>
-              </div>
+                The pattern that emerged was consistent: platforms that had experimented with video either positioned it as paid advertising (which erodes the trust signal that makes video valuable in the first place) or surfaced it separately from the ordering flow, where it gets ignored.
+                <br /><br />
+                <strong className="font-semibold">No major delivery platform had integrated authentic, community-sourced video into the moment where a user is actively trying to make a decision.</strong> That gap became the foundation for my design.
+              </p>
             </div>
             {/* Subsection 2 */}
             <div className="flex flex-col">
@@ -167,19 +165,13 @@ export default function DoorDashPage() {
                 An annoying, but necessary, multi-app work flow
               </h2>
               <div className="h-[13.715px]" />
-              <div className="font-normal text-[13px] leading-[1.4] text-black/75">
-                <p>
-                  I conducted <strong className="font-semibold">five semi-structured interviews</strong> with regular food delivery users (people ordering at least once a week, across a range of household types and ordering habits).
-                </p>
+              <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                I conducted <strong className="font-semibold">five semi-structured interviews</strong> with regular food delivery users (people ordering at least once a week, across a range of household types and ordering habits).
                 <br /><br />
-                <p>
-                  I focused not on what they wished the apps would do, but on what they actually did in a recent session. <strong className="font-semibold">Decision paralysis showed up in all five interviews.</strong>
-                </p>
+                I focused not on what they wished the apps would do, but on what they actually did in a recent session. <strong className="font-semibold">Decision paralysis showed up in all five interviews.</strong>
                 <br /><br />
-                <p>
-                  Every participant had spent significant time, sometimes over two hours, cross-referencing multiple apps before committing to a new restaurant: <strong className="font-semibold">browse DoorDash, cross-check on TikTok, come back to order.</strong>
-                </p>
-              </div>
+                Every participant had spent significant time, sometimes over two hours, cross-referencing multiple apps before committing to a new restaurant: <strong className="font-semibold">browse DoorDash, cross-check on TikTok, come back to order.</strong>
+              </p>
             </div>
           </div>
         </div>
@@ -195,16 +187,21 @@ export default function DoorDashPage() {
           {/* Content */}
           <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
             <p>
-              From the interviews, I defined two distinct user profiles by the specific tension they experience while ordering:
+              From the interviews, two distinct tension profiles emerged. Defined not by demographics, but by the specific anxiety they experience while ordering:
             </p>
             <br /><br />
-            <p>
-              <strong className="font-semibold italic">Casey (user persona)</strong> is a professional who orders 2/3 times a week and spends hours cross-referencing TikTok, Google Maps, Instagram, and Yelp before trying a new restaurant. She distrusts curated in-app photos and actively looks for content that feels authentic. Her core question is: <em>Is this restaurant actually worth trusting?</em>
-            </p>
-            <br /><br />
-            <p>
-              <strong className="font-semibold italic">Jordan (user persona)</strong> orders 4/5 times a week, managing most of her household&apos;s meals. She would like to try new and trendy food, but the pressure to land on something her kids will eat means she often chooses to cook instead. Her core question is: <em>Will this work for everyone at the table tonight?</em>
-            </p>
+            <ul className="list-disc ml-4">
+              <li className="mb-4">
+                <strong className="font-semibold">Authenticity-seekers</strong>{" "}
+                (Casey): frequent orderers who distrust curated in-app photos and actively cross-reference TikTok, Google Maps, and Yelp before trying somewhere new. Their core question:{" "}
+                <em>is this restaurant actually worth trusting?</em>
+              </li>
+              <li>
+                <strong className="font-semibold">Household decision-makers</strong>{" "}
+                (Jordan): high-frequency orderers managing meals for others. Drawn to new restaurants, but the pressure of landing on something everyone will eat often pushes them back to familiar choices. Their core question:{" "}
+                <em>will this work for everyone at the table tonight?</em>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -217,7 +214,7 @@ export default function DoorDashPage() {
           <div>
             <div className="relative w-full h-[622px]">
               <Image
-                src="/images/doordash/mid-fi-to-hi-fi.jpg"
+                src="/images/doordash/usability-testing.jpg"
                 alt="Mid-fi to High-fi progression"
                 fill
                 className="object-cover"
@@ -225,7 +222,7 @@ export default function DoorDashPage() {
             </div>
             {/* Caption */}
             <div className="pl-[317px] mt-4">
-              <p className="italic text-[12px] leading-[1.2] text-black/75">
+              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
                 <strong className="font-semibold italic">Mid-fi to High-fi progression</strong> of feature placement: user testing proved that initial concept disrupted users&apos; existing mental model.
               </p>
             </div>
@@ -239,27 +236,17 @@ export default function DoorDashPage() {
                 <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FIRST ITERATION</span>
               </div>
               {/* Content */}
-              <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
-                <p>
-                  My initial instinct was to position <strong className="font-semibold">a video feed as a replacement for the restaurant card list.</strong>
-                </p>
+              <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                My initial instinct was to position <strong className="font-semibold">a video feed as a replacement for the restaurant card list.</strong>
                 <br /><br />
-                <p>
-                  Research had shown that users weren&apos;t frustrated by what happened after they chose a restaurant, as the paralysis happened during selection. A video-first surface felt like the right fix. <strong className="font-semibold">Mid-fidelity testing challenged that assumption quickly.</strong> Users were familiar with the card layout and pushed back when it disappeared: &apos;What happens if I don&apos;t want to watch a video?&apos;
-                </p>
+                Research had shown that users weren&apos;t frustrated by what happened after they chose a restaurant, as the paralysis happened during selection. A video-first surface felt like the right fix. <strong className="font-semibold">Mid-fidelity testing challenged that assumption quickly.</strong> Users were familiar with the card layout and pushed back when it disappeared: &apos;What happens if I don&apos;t want to watch a video?&apos;
                 <br /><br />
-                <p>
-                  It became clear the feed needed to be an addition, not a replacement: a new default view after a category tap, with the card list still accessible via a toggle for users who prefer it.
-                </p>
+                It became clear the feed needed to be an addition, not a replacement: a new default view after a category tap, with the card list still accessible via a toggle for users who prefer it.
                 <br /><br />
-                <p>
-                  <strong className="font-semibold">The video overlay was designed to carry the information both personas need</strong> to make a decision without leaving the feed: every card shows the restaurant name, price range, estimated delivery time, and distance. TikTok-sourced content displays the TikTok logo, a deliberate trust signal communicating that the content was not commissioned by the restaurant or by DoorDash. When applicable, a text badge reading &apos;Kids menu available&apos; appears directly on the card, positioned for Jordan and anyone else navigating the same constraint.
-                </p>
+                <strong className="font-semibold">The video overlay was designed to carry the information both personas need</strong> to make a decision without leaving the feed: every card shows the restaurant name, price range, estimated delivery time, and distance. TikTok-sourced content displays the TikTok logo, a deliberate trust signal communicating that the content was not commissioned by the restaurant or by DoorDash. When applicable, a text badge reading &apos;Kids menu available&apos; appears directly on the card, positioned for Jordan and anyone else navigating the same constraint.
                 <br /><br />
-                <p>
-                  When a user taps through from a video to the restaurant page, a &apos;Just Watched&apos; callout persists at the top, maintaining the thread between what they saw and where they&apos;ve landed.
-                </p>
-              </div>
+                When a user taps through from a video to the restaurant page, a &apos;Just Watched&apos; callout persists at the top, maintaining the thread between what they saw and where they&apos;ve landed.
+              </p>
             </div>
           </div>
 
@@ -268,7 +255,7 @@ export default function DoorDashPage() {
             {/* Full-width image */}
             <div className="relative w-full h-[622px]">
               <Image
-                src="/images/doordash/usability-testing.jpg"
+                src="/images/doordash/final-overlay-card.jpg"
                 alt="Usability testing panel"
                 fill
                 className="object-cover"
@@ -276,8 +263,8 @@ export default function DoorDashPage() {
             </div>
             {/* Caption */}
             <div className="pl-[317px] mt-4">
-              <p className="italic text-[12px] leading-[1.2] text-black/75">
-                The evolution of the right side panel: from feeling dismissal, being too crowded, to just perfect.
+              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+                The entire flow: user opens the app (left), look up for pizza, click on the video tab to explore videos, and land on the restaurant page for checkout.
               </p>
             </div>
             {/* USABILITY TESTING label + content */}
@@ -302,7 +289,7 @@ export default function DoorDashPage() {
                           Users who tapped through from a video to a restaurant&apos;s menu had no visible path back to the video that had brought them there.
                         </li>
                         <li>
-                          the kid-friendly symbol (a smiley face) was not recognized by a single participant without being told what it meant, and the content source badge was being skipped entirely.
+                          The kid-friendly symbol (a smiley face) was not recognized by a single participant without being told what it meant, and the content source badge was being skipped entirely.
                         </li>
                       </ul>
                     </div>
@@ -312,7 +299,13 @@ export default function DoorDashPage() {
                     <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 2, high-fidelity</h2>
                     <div className="h-[13.715px]" />
                     <p className="font-normal text-[13px] leading-[1.4] text-black/75">
-                      After adding a video tag to individual menu items, as well as a kid-friendly spelled-out badge, the revised design was tested against each of those findings. All issues were resolved, and the feature was described as native to DoorDash.
+                      After adding a video tag to individual menu items and replacing the icon with a spelled-out badge, each Round 1 issue was directly retested.{" "}
+                      <strong className="font-semibold">The feature was described as native to DoorDash</strong>,{" "}
+                      a signal that the visual design had landed within the existing product language rather than on top of it.
+                      <br /><br />
+                      The detail that resonated most was the &apos;Just Watched&apos; callout.{" "}
+                      <strong className="font-semibold">Users responded to the continuity it created</strong>:{" "}
+                      the thread between what they&apos;d seen in the feed and where they&apos;d landed felt intentional rather than accidental. That connection, it turned out, was doing as much trust-building as the video itself.
                     </p>
                   </div>
                 </div>
@@ -329,7 +322,7 @@ export default function DoorDashPage() {
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
             <Image
-              src="/images/doordash/final-overlay-card.jpg"
+              src="/images/doordash/final-video-indicator.jpg"
               alt="Final screen overlay card"
               fill
               sizes="50vw"
@@ -338,7 +331,7 @@ export default function DoorDashPage() {
           </div>
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
             <Image
-              src="/images/doordash/final-video-indicator.jpg"
+              src="/images/doordash/hero.jpg"
               alt="Final screen red video indicator"
               fill
               sizes="50vw"
@@ -358,7 +351,7 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 10. LEARNINGS ─────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[40px] pb-[91px]">
+      <section className="px-[12px] pt-[91px] pb-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -373,6 +366,16 @@ export default function DoorDashPage() {
             <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Decision paralysis isn&apos;t solved by adding more information. It&apos;s solved by adding the right kind of proof at the right moment: before the user has to commit.
+              </p>
+              <br />
+              <p>
+                But the more lasting lesson was about mental models.{" "}
+                <strong className="font-semibold">Users had spent years navigating food delivery through a card list. Replacing it (even with something objectively more useful) felt like something being taken away.</strong>{" "}
+                The video feed only worked once it sat alongside the familiar pattern, not in place of it.
+              </p>
+              <br />
+              <p>
+                I&apos;ll carry that into every feature addition after this project.
               </p>
             </div>
           </div>
