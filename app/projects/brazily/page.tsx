@@ -1,0 +1,388 @@
+import Link from "next/link";
+import Footer from "@/app/components/Footer";
+
+export default function BrazilyPage() {
+  return (
+    <div className="min-h-screen">
+      {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
+      <header className="flex flex-col pt-[24px] pb-[91px] px-[12px] bg-[#f9f9f9]">
+        <div className="flex flex-row w-full items-start gap-4">
+          {/* Left group */}
+          <div className="flex flex-row items-start gap-3">
+            {/* Name block */}
+            <div className="w-[306px] flex flex-col gap-0.5">
+              <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
+              <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
+            </div>
+            {/* Back link */}
+            <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
+              ← BACK
+            </Link>
+          </div>
+          {/* Right nav */}
+          <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
+            <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
+            <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* ─── 2. PROJECT HEADER ─────────────────────────────────────── */}
+      <section className="px-[12px] pt-[6px]">
+        <div className="flex flex-row gap-4 items-start">
+          {/* Left column */}
+          <div className="w-[302px] flex flex-col">
+            <h1 className="font-medium text-[14px] tracking-[1.5px] uppercase leading-[10.37px] text-black/75">
+              BRAZILY
+            </h1>
+            <span className="font-normal text-[11px] leading-[13.82px] text-black/40">04</span>
+          </div>
+          {/* Right column */}
+          <div className="w-[622px] flex flex-col gap-6 pb-[38px]">
+            {/* Description */}
+            <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              A failed App Store submission and an invisible freemium model were the starting point. What followed was a full design engagement and a workflow built around Claude Code and Figma MCP.
+            </p>
+            {/* Tags */}
+            <div className="flex flex-row gap-6">
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Role</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">UX/UI Designer</span>
+              </div>
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Year</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">2026</span>
+              </div>
+              <div className="flex-1 flex flex-col">
+                <span className="font-semibold text-[12px] leading-[13.82px] text-black/75">Project</span>
+                <span className="font-normal text-[12px] leading-[13.82px] text-black/75">Product design, iOS app</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
+      <div className="px-[12px] mt-4">
+        <div className="relative w-full h-[460px]">
+          {/* TODO: Add hero image when asset is available */}
+        </div>
+      </div>
+
+      {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
+      <section className="px-[12px] pt-[24px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col">
+            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p>
+                Brazily Fitness&apos;s first iOS app was rejected by the App Store. Built on a web view-based tool, it hit Apple&apos;s policy restrictions before a single user could download it. That rejection forced a conversation around building <strong className="font-semibold">a real native app</strong>, and created an opportunity to fix what wasn&apos;t working underneath too.
+              </p>
+              <br />
+              <p>
+                Despite strong content and an engaged community, <strong className="font-semibold">mobile bounce rates were high</strong>. <strong className="font-semibold">The freemium model was invisible</strong> in the UI. New visitors had no orientation path. The drop-off problem wasn&apos;t content quality, it was navigation.
+              </p>
+              <br />
+              <p>
+                This case study focuses less on the design decisions themselves and more on how I worked: specifically, <strong className="font-semibold">how I used Claude, Claude Code, and Figma MCP</strong> to run a faster, more rigorous, and more iterative process than I could have otherwise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. SETTING UP CLAUDE ──────────────────────────────────── */}
+      <section className="px-[12px] pt-[24px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex-shrink-0">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">SETTING UP CLAUDE</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col gap-[24px]">
+            {/* Heading + body */}
+            <div className="flex flex-col">
+              <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Building the infrastructure first</h2>
+              <div className="h-[13.715px]" />
+              <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                Before the first screen was designed, I built a set of <strong className="font-semibold">custom and reusable Claude skills</strong>, that I now carry into every engagement.
+              </p>
+            </div>
+
+            {/* Callout box */}
+            <div className="border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-[642px]">
+              <span className="font-normal text-[12px] uppercase text-[#656565] leading-[1.4]">What is a Claude skill?</span>
+              <p className="font-normal text-[12px] leading-[20px] text-[#656565]">
+                A custom instruction set that defines how Claude should behave for a specific type of task. It encodes the methodology, fidelity standards, notation rules, and design principles for a specific type of task.
+              </p>
+            </div>
+
+            {/* Skill cards */}
+            <div className="flex flex-wrap gap-[14px] w-[642px]">
+              {/* wireframe-generator */}
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+                <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
+                  wireframe-generator
+                </span>
+                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  Defines layout logic, content hierarchy, and fidelity level for mobile screens. Rather than producing generic placeholders, it generates layouts that match the project&apos;s navigation architecture and content model, with realistic labels and interaction states built in.
+                </p>
+              </div>
+
+              {/* ux-design-collaboration */}
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+                <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
+                  ux-design-collaboration
+                </span>
+                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  Keeps iterative screen work grounded in established project decisions. When working through multiple screen variations in a single session, this skill ensures each iteration builds on what was decided before rather than drifting or restarting from defaults.
+                </p>
+              </div>
+
+              {/* competitor-analysis */}
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+                <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
+                  competitor-analysis
+                </span>
+                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  Structures competitive findings into <strong className="font-semibold">UX-relevant gaps</strong> rather than simple feature comparisons. Instead of a table of what each platform has, it produces analysis around what each platform fails to do for the user, which is the actual useful output for design decision-making.
+                </p>
+              </div>
+
+              {/* user-testing-report */}
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+                <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
+                  user-testing-report
+                </span>
+                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  Shapes usability findings into a <strong className="font-semibold">stakeholder-ready narrative</strong>. It prioritizes findings by severity, connects observations to design implications, and frames everything in language a client without a design background can evaluate and respond to.
+                </p>
+              </div>
+
+              {/* frontend-design */}
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+                <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
+                  frontend-design
+                </span>
+                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  Ensures any <strong className="font-semibold">HTML/CSS output</strong> generated through Claude Code meets a quality bar for visual structure, component hierarchy, and layout logic. This is essential for wireframe exploration, where generated screens need to be evaluable as real design options, not just functional markup.
+                </p>
+              </div>
+            </div>
+
+            {/* Closing text + GitHub link */}
+            <div className="flex flex-col">
+              <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                I&apos;ve open-sourced all of these skills so other designers can use and build on them.
+              </p>
+              <div className="pt-[12px]">
+                <a href="#" className="font-normal text-[14px] leading-[13.82px] underline text-black/75">
+                  View the Github repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Media block placeholder — two stacked images */}
+        <div className="flex justify-center pt-[91px]">
+          <div className="w-[463px] h-[711px] flex flex-col gap-[8px] overflow-hidden">
+            <div className="w-full h-[420px] bg-[#f4f4f4]" />
+            <div className="w-full flex-1 bg-[#f4f4f4]" />
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
+      <section className="px-[12px] py-[91px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col">
+            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+              Finding the real problem
+            </h2>
+            <div className="h-[13.715px]" />
+            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p>
+                I ran a <strong className="font-semibold">full platform audit</strong>, a <strong className="font-semibold">competitor analysis</strong> across Zumba and SHiNE Dance Fitness, and a synthesis of user behavior patterns. Using the competitor-analysis skill, Claude helped me move from raw observations to a structured framework that surfaced design gaps, compressing what would otherwise be several working sessions into one focused output I could act on and present to the client.
+              </p>
+              <br />
+              <p>
+                The finding that shaped everything: <strong className="font-semibold">the drop-off problem was navigation, not content quality.</strong> Users couldn&apos;t orient themselves. The platform expected users to arrive with a mental model they hadn&apos;t been given.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7. CONTENT SECTION WITH IMAGES ────────────────────────── */}
+      <section className="px-[12px] pb-[91px]">
+        <div className="flex flex-col gap-[64px]">
+
+          {/* Block A: Full-width image + caption */}
+          <div>
+            <div className="relative w-full h-[622px] bg-[#f4f4f4]">
+              {/* Placeholder — replace with <Image> when asset is available */}
+            </div>
+            <div className="pl-[317px] mt-4">
+              <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+                Qualitative research was used to identify core need.
+              </p>
+            </div>
+          </div>
+
+          {/* Block B: DESIGN DECISION label + content */}
+          <div className="flex flex-row gap-3 items-start">
+            {/* Label */}
+            <div className="w-[305px] flex-shrink-0">
+              <span className="font-medium text-[12px] leading-[13.82px] text-black/40">DESIGN DECISION</span>
+            </div>
+            {/* Content */}
+            <div className="flex flex-col">
+              <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                <p>
+                  <strong className="font-semibold">The &ldquo;Course&rdquo; screen</strong> is where the most consequential design work happened.
+                </p>
+                <br />
+                <p>
+                  The original platform didn&apos;t organize content: users who came through a direct link weren&apos;t aware of membership-exclusive content, and the ones that did had a hard time finding it.
+                </p>
+                <br />
+                <p>
+                  After creating an <strong className="font-semibold">user-friendly path</strong> to courses, I explored organizing content by dance style with free and locked classes coexisting within each section. The logic was sound: users come to Brazily to learn a specific style, not for a tier structure. But the owner pushed back: the sequence of videos matters to how the content is taught, and breaking it apart by style would disrupt that progression.
+                </p>
+                <br />
+                <p>
+                  The final model kept the <strong className="font-semibold">open layout with all lessons visible</strong>, grouped by course (March 2026, April 2026), preserving the pedagogical order while still solving the original problem: users could see what was available, what was accessible, and where they were in the content. This also <strong className="font-semibold">made the freemium model visible</strong> for the first time.
+                </p>
+                <br />
+                <p>
+                  <strong className="font-semibold">Navigation architecture</strong> followed the same logic: single scroll, no tabs, with a chip row for filtering. Simple enough for a new visitor, functional enough for an active member.
+                </p>
+                <br />
+                <p>
+                  To explore visual direction, I used the wireframe-generator and frontend-design skills with <strong className="font-semibold">Claude Code and Figma MCP</strong> to generate different hypotheses about how to balance content density, brand, and navigability, choosing between three real options on the same afternoon.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Block C: Second full-width image + caption */}
+          <div>
+            <div className="relative w-full h-[622px] bg-[#f4f4f4]">
+              {/* Placeholder — replace with <Image> when asset is available */}
+            </div>
+            <div className="pl-[317px] mt-4">
+              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+                The evolution of the right side panel: from feeling dismissal, being too crowded, to just perfect.
+              </p>
+            </div>
+          </div>
+
+          {/* Block D+E: "Other places AI shaped the work" + "What AI did and didn't do" */}
+          <div className="flex flex-row gap-3 items-start">
+            <div className="w-[305px] flex-shrink-0" />
+            <div className="w-[622px] flex flex-col gap-[48px]">
+              {/* "Other places AI shaped the work" */}
+              <div className="flex flex-col">
+                <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Other places AI shaped the work</h2>
+                <div className="h-[13.715px]" />
+                <ul className="list-disc ml-4 font-normal text-[13px] leading-[1.4] text-black/75">
+                  <li className="mb-4">
+                    <strong className="font-semibold">Information architecture and user flows</strong>
+                    <br />
+                    The app serves <strong className="font-semibold">three user types</strong> with different onboarding paths and permissions. Using the ux-design-collaboration skill, I stress-tested the IA with Claude by working through edge cases, access logic, and bifurcation points. We <strong className="font-semibold">iterated on user flow diagrams</strong> using a strict notation system (YES/NO decision diamonds, parallelograms for data input, fill color distinguishing system vs. user actions), which I then translated into Figma.
+                  </li>
+                  <li className="mb-4">
+                    <strong className="font-semibold">Copy and microcopy</strong>
+                    <br />
+                    UX copy was <strong className="font-semibold">iterated throughout</strong>, not added at the end: the onboarding instructional text, the locked content messaging, were all pressure-tested and traceable to a user behavior or research finding.
+                  </li>
+                  <li>
+                    <strong className="font-semibold">Client communication</strong>
+                    <br />
+                    Mariana is a business owner, not a designer. I used Claude to help draft walkthrough scripts and frame rationale in language she could evaluate. The user-testing-report skill shaped usability findings as a <strong className="font-semibold">narrative that led to decisions</strong>, not a list of observations, which made every revision round faster.
+                  </li>
+                </ul>
+              </div>
+
+              {/* "What AI did and didn't do" */}
+              <div className="flex flex-col">
+                <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">What AI did and didn&apos;t do</h2>
+                <div className="h-[13.715px]" />
+                <div className="font-normal text-[13px] leading-[1.4] text-black/75">
+                  <p className="font-semibold">AI accelerated:</p>
+                  <ul className="list-disc ml-4 mb-4">
+                    <li>Synthesis and research structuring</li>
+                    <li>Iteration velocity across wireframes and copy</li>
+                    <li>Documentation and edge case review</li>
+                    <li>Translation of decisions into artifacts</li>
+                  </ul>
+                  <p className="font-semibold">AI did not:</p>
+                  <ul className="list-disc ml-4 mb-4">
+                    <li>Identify the core navigation problem</li>
+                    <li>Decide how to structure the content model</li>
+                    <li>Determine how locked and free content should coexist visually</li>
+                    <li>Figure out what the brand needed emotionally</li>
+                  </ul>
+                  <p>
+                    Those required understanding the business, the users, and the constraints. The shift wasn&apos;t &ldquo;AI does more.&rdquo; It was &ldquo;I spend less time on what doesn&apos;t require design judgment, so I have more time on what does.&rdquo;
+                  </p>
+                  <br />
+                  <p>
+                    A project of this scope would typically require a larger team or a much longer timeline. <strong className="font-semibold">The AI-augmented workflow is why it didn&apos;t.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── 8. LEARNINGS ──────────────────────────────────────────── */}
+      <section className="px-[12px] pt-[40px] pb-[91px]">
+        <div className="flex flex-row gap-3 items-start">
+          {/* Label */}
+          <div className="w-[305px] flex flex-col">
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col">
+            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+              AI is redefining the design process
+            </h2>
+            <div className="h-[13.715px]" />
+            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p>
+                The thing this project made undeniable: when you know how to use it, <strong className="font-semibold">AI changes the shape of an engagement entirely</strong>. Research, IA, wireframing, and copy no longer need to run sequentially: with the right configuration, they run in parallel.
+              </p>
+              <br />
+              <p>
+                <strong className="font-semibold">The key word is configuration</strong>. Generic prompting gets generic output. The custom skills I built are what made the difference between AI as a novelty and AI as actual infrastructure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 9. NEXT PROJECT LINK ──────────────────────────────────── */}
+      <div className="px-[11px] w-full text-right">
+        <Link href="/projects/doordash" className="font-normal text-[14px] leading-[14px] text-black/75">
+          NEXT PROJECT: DOORDASH →
+        </Link>
+      </div>
+
+      {/* ─── 10. FOOTER ────────────────────────────────────────────── */}
+      <Footer />
+    </div>
+  );
+}

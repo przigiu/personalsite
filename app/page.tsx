@@ -15,7 +15,7 @@ const gridProjects = {
   ],
   row2: [
     { imageSrc: "/images/roberta.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Brand & Web Design, Portfolio", imageHeight: "h-[208px]" },
-    { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", imageHeight: "h-[208px]" },
+    { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", imageHeight: "h-[208px]", href: "/projects/brazily" },
   ],
 };
 
@@ -69,6 +69,7 @@ const listProjects = [
     tags: "Product Design, iOS App",
     imageSrc: "/images/brazily-list.jpg",
     imageAlt: "Brazily project preview",
+    href: "/projects/brazily",
   },
 ];
 
@@ -137,7 +138,7 @@ export default function Home() {
                   <strong className="font-semibold">Moving into UX felt inevitable</strong>. And the marketing background turned out to be the most useful thing I brought with me. I understand how a product sits inside a business: what it needs to communicate, who it needs to reach, and what&apos;s at stake when it fails. That strategic lens means I&apos;m always balancing user needs with business goals, not treating them as opposites.
                 </p>
                 <p>
-                  My process starts in research because that&apos;s where the real problems live. Structure follows evidence — because <strong className="font-semibold">beauty in function isn&apos;t a luxury, i</strong>t&apos;s what makes people trust a product enough to use it.
+                  My process starts in research because that&apos;s where the real problems live. Structure follows evidence — because <strong className="font-semibold">beauty in function isn&apos;t a luxury,</strong> it&apos;s what makes people trust a product enough to use it.
                 </p>
               </div>
             </div>

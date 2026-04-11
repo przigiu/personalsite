@@ -8,6 +8,7 @@ Portfolio site for Giulia, a Product & UX Designer. Features a homepage with gri
 - **Styling:** Tailwind CSS v4 (via PostCSS)
 - **Language:** TypeScript (strict)
 - **Font:** Inter (400, 500, 600, 700) via `next/font/google`, CSS variable `--font-inter`
+- **Monospace Font:** DM Mono (400) via `next/font/google`, CSS variable `--font-dm-mono`, mapped to Tailwind `font-mono`
 
 ## Design Tokens
 - **Page background:** #f9f9f9 (set on body via CSS variable `--background`)
@@ -20,7 +21,7 @@ Portfolio site for Giulia, a Product & UX Designer. Features a homepage with gri
 ## Project Structure
 ```
 app/
-  layout.tsx          # Root layout with Inter font
+  layout.tsx          # Root layout with Inter + DM Mono fonts
   page.tsx            # Homepage ("use client" — grid/list toggle)
   globals.css         # CSS vars, body styles, fade-in animation
   components/
@@ -32,6 +33,7 @@ app/
   projects/
     missivio/page.tsx # Missivio case study page
     doordash/page.tsx # DoorDash case study page
+    brazily/page.tsx  # Brazily case study page
 public/
   images/             # Project images (see naming convention below) + icons
   images/missivio/    # Missivio case study images
@@ -83,6 +85,14 @@ Each project has up to three image variants in `public/images/`:
 - Right research caption: `w-[390px]` (wider than standard w-[305px])
 - First Iteration + Usability Testing share one `<section>` with `flex flex-col gap-[64px]`
 - Final screens gallery: `mt-[16px]`
+
+### Brazily (`app/projects/brazily/page.tsx`)
+- Hero image: full-width `h-[460px]` placeholder (no image asset yet)
+- Sections: The Problem, Setting Up Claude, Research, Content with images (Design Decision), Learnings
+- Setting Up Claude: callout box (`border-t border-[#c8c8c8]`, `#656565` text), 5 skill cards (`w-[314px] bg-[#f0f0f0] rounded-[16px]`), DM Mono badges (`font-mono text-[#cc4949]`), media block placeholder (two stacked images `w-[463px] h-[711px]`)
+- Content section uses `flex flex-col gap-[64px]` between major blocks
+- "Other places AI shaped the work" + "What AI did and didn't do" grouped with `gap-[48px]`
+- First image caption: `w-[305px]`, second: `w-[622px]`
 
 ## Figma Source
 - File key: `yYH6EOPoV2U1jaA4RwhciM`

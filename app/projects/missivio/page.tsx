@@ -267,7 +267,7 @@ export default function MissivioPage() {
           <div className="flex flex-row gap-3 items-start">
             {/* Label */}
             <div className="w-[305px] flex flex-col">
-              <span className="font-normal text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
+              <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
             </div>
             {/* Content */}
             <div className="w-[622px] flex flex-col gap-12">
@@ -309,7 +309,7 @@ export default function MissivioPage() {
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
-            <span className="font-normal text-[12px] leading-[13.82px] text-black/40">FINAL DESIGN</span>
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FINAL DESIGN</span>
           </div>
           {/* Content */}
           <div className="w-[622px] flex flex-col gap-12">
@@ -392,7 +392,7 @@ export default function MissivioPage() {
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
-            <span className="font-normal text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
+            <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           {/* Content */}
           <div className="flex flex-col">
