@@ -70,7 +70,7 @@ export default function BrazilyPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[24px]">
+      <section className="px-[12px] pt-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -96,17 +96,17 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 5. SETTING UP CLAUDE ──────────────────────────────────── */}
-      <section className="px-[12px] pt-[24px]">
+      <section className="px-[12px] pt-[64px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex-shrink-0">
+          <div className="w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">SETTING UP CLAUDE</span>
           </div>
           {/* Content */}
           <div className="flex flex-col gap-[24px]">
             {/* Heading + body */}
             <div className="flex flex-col">
-              <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Building the infrastructure first</h2>
+              <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">Building the infrastructure first</h2>
               <div className="h-[13.715px]" />
               <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
                 Before the first screen was designed, I built a set of <strong className="font-semibold">custom and reusable Claude skills</strong>, that I now carry into every engagement.
@@ -124,51 +124,51 @@ export default function BrazilyPage() {
             {/* Skill cards */}
             <div className="flex flex-wrap gap-[14px] w-[642px]">
               {/* wireframe-generator */}
-              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                 <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                   wireframe-generator
                 </span>
-                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="font-normal text-[13px] leading-[1.6] text-black/75">
                   Defines layout logic, content hierarchy, and fidelity level for mobile screens. Rather than producing generic placeholders, it generates layouts that match the project&apos;s navigation architecture and content model, with realistic labels and interaction states built in.
                 </p>
               </div>
 
               {/* ux-design-collaboration */}
-              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                 <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                   ux-design-collaboration
                 </span>
-                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="font-normal text-[13px] leading-[1.6] text-black/75">
                   Keeps iterative screen work grounded in established project decisions. When working through multiple screen variations in a single session, this skill ensures each iteration builds on what was decided before rather than drifting or restarting from defaults.
                 </p>
               </div>
 
               {/* competitor-analysis */}
-              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                 <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                   competitor-analysis
                 </span>
-                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="font-normal text-[13px] leading-[1.6] text-black/75">
                   Structures competitive findings into <strong className="font-semibold">UX-relevant gaps</strong> rather than simple feature comparisons. Instead of a table of what each platform has, it produces analysis around what each platform fails to do for the user, which is the actual useful output for design decision-making.
                 </p>
               </div>
 
               {/* user-testing-report */}
-              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                 <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                   user-testing-report
                 </span>
-                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="font-normal text-[13px] leading-[1.6] text-black/75">
                   Shapes usability findings into a <strong className="font-semibold">stakeholder-ready narrative</strong>. It prioritizes findings by severity, connects observations to design implications, and frames everything in language a client without a design background can evaluate and respond to.
                 </p>
               </div>
 
               {/* frontend-design */}
-              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[16px]">
+              <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                 <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                   frontend-design
                 </span>
-                <p className="font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="font-normal text-[13px] leading-[1.6] text-black/75">
                   Ensures any <strong className="font-semibold">HTML/CSS output</strong> generated through Claude Code meets a quality bar for visual structure, component hierarchy, and layout logic. This is essential for wireframe exploration, where generated screens need to be evaluable as real design options, not just functional markup.
                 </p>
               </div>
@@ -180,8 +180,12 @@ export default function BrazilyPage() {
                 I&apos;ve open-sourced all of these skills so other designers can use and build on them.
               </p>
               <div className="pt-[12px]">
-                <a href="#" className="font-normal text-[14px] leading-[13.82px] underline text-black/75">
-                  View the Github repo
+                <a href="#" className="inline-flex items-center gap-[6px] font-normal text-[14px] leading-[13.82px] text-black/75 border-b border-black/75">
+                  View the
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[14px] h-[14px] shrink-0">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  Github repo
                 </a>
               </div>
             </div>
@@ -206,7 +210,7 @@ export default function BrazilyPage() {
           </div>
           {/* Content */}
           <div className="flex flex-col">
-            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+            <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">
               Finding the real problem
             </h2>
             <div className="h-[13.715px]" />
@@ -242,7 +246,7 @@ export default function BrazilyPage() {
           {/* Block B: DESIGN DECISION label + content */}
           <div className="flex flex-row gap-3 items-start">
             {/* Label */}
-            <div className="w-[305px] flex-shrink-0">
+            <div className="w-[305px] flex flex-col">
               <span className="font-medium text-[12px] leading-[13.82px] text-black/40">DESIGN DECISION</span>
             </div>
             {/* Content */}
@@ -293,7 +297,7 @@ export default function BrazilyPage() {
             <div className="w-[622px] flex flex-col gap-[48px]">
               {/* "Other places AI shaped the work" */}
               <div className="flex flex-col">
-                <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Other places AI shaped the work</h2>
+                <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">Other places AI shaped the work</h2>
                 <div className="h-[13.715px]" />
                 <ul className="list-disc ml-4 font-normal text-[13px] leading-[1.4] text-black/75">
                   <li className="mb-4">
@@ -316,7 +320,7 @@ export default function BrazilyPage() {
 
               {/* "What AI did and didn't do" */}
               <div className="flex flex-col">
-                <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">What AI did and didn&apos;t do</h2>
+                <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">What AI did and didn&apos;t do</h2>
                 <div className="h-[13.715px]" />
                 <div className="font-normal text-[13px] leading-[1.4] text-black/75">
                   <p className="font-semibold">AI accelerated:</p>
@@ -357,7 +361,7 @@ export default function BrazilyPage() {
           </div>
           {/* Content */}
           <div className="flex flex-col">
-            <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
+            <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">
               AI is redefining the design process
             </h2>
             <div className="h-[13.715px]" />

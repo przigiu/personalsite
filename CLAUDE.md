@@ -67,9 +67,10 @@ Each project has up to three image variants in `public/images/`:
 - Image galleries: full-width (h-460px and h-622px) and side-by-side (2x w-622px)
 - Captions: italic 12px, pl-317px
 - All body text: `font-normal text-[13px] leading-[1.4] text-black/75` — use `leading-[1.4]` consistently, never `leading-[1.2]`
-- Section headings: `font-bold text-[14px] leading-[13.82px] text-black/75`
+- Section headings: `font-bold text-[14px] leading-[13.82px] text-black/75` (Missivio/DoorDash); Brazily uses `text-[15px]`
 - Spacer between heading and body: `<div className="h-[13.715px]" />`
 - Reuses shared Footer component
+- **CRITICAL — section label columns:** Always use `<div className="w-[305px] flex flex-col">` for the label column, never just `flex-shrink-0`. Without `flex flex-col`, the `<span>` is inline in a block container and the inherited body line-height strut pushes the label text down, breaking alignment with the heading.
 
 ### Missivio (`app/projects/missivio/page.tsx`)
 - Hero image: `object-cover`
@@ -88,8 +89,15 @@ Each project has up to three image variants in `public/images/`:
 
 ### Brazily (`app/projects/brazily/page.tsx`)
 - Hero image: full-width `h-[460px]` placeholder (no image asset yet)
-- Sections: The Problem, Setting Up Claude, Research, Content with images (Design Decision), Learnings
-- Setting Up Claude: callout box (`border-t border-[#c8c8c8]`, `#656565` text), 5 skill cards (`w-[314px] bg-[#f0f0f0] rounded-[16px]`), DM Mono badges (`font-mono text-[#cc4949]`), media block placeholder (two stacked images `w-[463px] h-[711px]`)
+- Sections: The Problem (`pt-[91px]`), Setting Up Claude (`pt-[64px]`), Research (`py-[91px]`), Content with images (Design Decision, `pb-[91px]`), Learnings (`pt-[40px] pb-[91px]`)
+- Section subheadings use `font-bold text-[15px] leading-[13.82px] text-black/75` (Brazily uses 15px, not the standard 14px)
+- Setting Up Claude content column uses `flex flex-col gap-[24px]` between blocks; heading group uses `flex flex-col` with `h-[13.715px]` spacer
+- Skill cards: `w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]`
+- Skill card badges: `bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949]`
+- Skill card body text: `leading-[1.6]` (not the standard 1.4)
+- Callout box: `border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-[642px]` with `#656565` text
+- GitHub CTA: `inline-flex items-center gap-[6px] border-b border-black/75` — uses `border-b` (not `underline`) so the line runs continuously under the inline GitHub SVG logo
+- Media block placeholder (two stacked images): `w-[463px] h-[711px] flex flex-col gap-[8px]`, placed after the flex row inside the Setting Up Claude section
 - Content section uses `flex flex-col gap-[64px]` between major blocks
 - "Other places AI shaped the work" + "What AI did and didn't do" grouped with `gap-[48px]`
 - First image caption: `w-[305px]`, second: `w-[622px]`
