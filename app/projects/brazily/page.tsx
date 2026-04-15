@@ -1,40 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
+import ProjectNavbar from "@/app/components/ProjectNavbar";
 
 export default function BrazilyPage() {
   return (
     <div className="min-h-screen">
       {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
-      <header className="flex flex-col pt-[24px] pb-[91px] px-[12px] bg-[#f9f9f9]">
-        <div className="flex flex-row w-full items-start gap-4">
-          <div className="flex flex-row items-start gap-3">
-            <div className="w-[306px] flex flex-col gap-0.5">
-              <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
-              <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
-            </div>
-            <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
-              ← BACK
-            </Link>
-          </div>
-          <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
-            <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
-            <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
-          </nav>
-        </div>
-      </header>
+      <ProjectNavbar />
 
       {/* ─── 2. PROJECT HEADER ─────────────────────────────────────── */}
       <section className="px-[12px] pt-[6px]">
-        <div className="flex flex-row gap-4 items-start">
-          <div className="w-[302px] flex flex-col">
+        <div className="flex flex-col gap-4 md:flex-row items-start">
+          <div className="w-full md:w-[302px] flex flex-col">
             <h1 className="font-medium text-[14px] tracking-[1.5px] uppercase leading-[10.37px] text-black/75">
               BRAZILY
             </h1>
             <span className="font-normal text-[11px] leading-[13.82px] text-black/40">04</span>
           </div>
-          <div className="w-[622px] flex flex-col gap-6 pb-[38px]">
-            <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+          <div className="w-full md:w-[622px] flex flex-col gap-6 pb-[38px]">
+            <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               A failed App Store submission and an invisible freemium model were the starting point. What followed was a full design engagement and a workflow built around Claude Code and Figma MCP.
             </p>
             <div className="flex flex-row gap-6">
@@ -56,8 +41,8 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
-      <div className="mt-4 flex justify-center">
-        <div className="relative w-[832px] h-[622px] bg-[#f3f3f3] overflow-hidden">
+      <div className="mt-4 flex justify-center px-[12px] md:px-0">
+        <div className="relative w-full md:w-[832px] h-[300px] md:h-[622px] bg-[#f3f3f3] overflow-hidden">
           <Image
             src="/images/brazily/hero.png"
             alt="Brazily app screens"
@@ -69,13 +54,13 @@ export default function BrazilyPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
-        <div className="flex flex-row gap-3 items-start">
-          <div className="w-[305px] flex flex-col">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
           </div>
           <div className="flex flex-col">
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Brazily Fitness&apos;s first iOS app was rejected by the App Store. Built on a web view-based tool, it hit Apple&apos;s policy restrictions before a single user could download it. That rejection forced a conversation around building <strong className="font-semibold">a real native app</strong>, and created an opportunity to fix what wasn&apos;t working underneath too.
               </p>
@@ -93,25 +78,25 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 5. SETTING UP CLAUDE ──────────────────────────────────── */}
-      <section className="px-[12px] pt-[64px]">
-        <div className="flex flex-row gap-3 items-start">
-          <div className="w-[305px] flex flex-col">
+      <section className="px-[12px] pt-[48px] md:pt-[64px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">SETTING UP CLAUDE</span>
           </div>
-          <div className="flex flex-col gap-[91px]">
+          <div className="flex flex-col gap-[48px] md:gap-[91px]">
 
             {/* Text content block */}
             <div className="flex flex-col gap-[24px]">
               <div className="flex flex-col">
                 <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">Building the infrastructure first</h2>
                 <div className="h-[13.715px]" />
-                <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
                   Before the first screen was designed, I built a set of <strong className="font-semibold">custom and reusable Claude skills</strong>, that I now carry into every engagement.
                 </p>
               </div>
 
               {/* Callout box */}
-              <div className="border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-[642px]">
+              <div className="border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-full md:w-[642px]">
                 <span className="font-normal text-[12px] uppercase text-[#656565] leading-[1.4]">What is a Claude skill?</span>
                 <p className="font-normal text-[12px] leading-[20px] text-[#656565]">
                   A custom instruction set that defines how Claude should behave for a specific type of task. It encodes the methodology, fidelity standards, notation rules, and design principles for a specific type of task.
@@ -119,8 +104,8 @@ export default function BrazilyPage() {
               </div>
 
               {/* Skill cards */}
-              <div className="flex flex-wrap gap-[14px] w-[642px]">
-                <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
+              <div className="flex flex-wrap gap-[14px] w-full md:w-[642px]">
+                <div className="w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                   <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                     wireframe-generator
                   </span>
@@ -129,7 +114,7 @@ export default function BrazilyPage() {
                   </p>
                 </div>
 
-                <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
+                <div className="w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                   <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                     ux-design-collaboration
                   </span>
@@ -138,7 +123,7 @@ export default function BrazilyPage() {
                   </p>
                 </div>
 
-                <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
+                <div className="w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                   <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                     competitor-analysis
                   </span>
@@ -147,7 +132,7 @@ export default function BrazilyPage() {
                   </p>
                 </div>
 
-                <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
+                <div className="w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                   <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                     user-testing-report
                   </span>
@@ -156,7 +141,7 @@ export default function BrazilyPage() {
                   </p>
                 </div>
 
-                <div className="w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
+                <div className="w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]">
                   <span className="bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949] self-start">
                     frontend-design
                   </span>
@@ -167,7 +152,7 @@ export default function BrazilyPage() {
               </div>
 
               {/* Closing text */}
-              <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
                 I&apos;ve open-sourced all of these skills so other designers can use and build on them.
               </p>
 
@@ -185,22 +170,22 @@ export default function BrazilyPage() {
 
             {/* Media block — two stacked images */}
             <div className="flex justify-center items-center">
-            <div className="w-[463px] flex flex-col gap-[8px] overflow-hidden">
-              <div className="relative w-full h-[420px]">
+            <div className="w-full md:w-[463px] flex flex-col gap-[8px] overflow-hidden">
+              <div className="relative w-full h-[260px] md:h-[420px]">
                 <Image
                   src="/images/brazily/setting-up-1.png"
                   alt=""
                   fill
-                  sizes="463px"
+                  sizes="(max-width: 768px) 100vw, 463px"
                   className="object-cover"
                 />
               </div>
-              <div className="relative w-full h-[420px]">
+              <div className="relative w-full h-[260px] md:h-[420px]">
                 <Image
                   src="/images/brazily/setting-up-2.png"
                   alt=""
                   fill
-                  sizes="463px"
+                  sizes="(max-width: 768px) 100vw, 463px"
                   className="object-cover"
                 />
               </div>
@@ -212,9 +197,9 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
-      <section className="px-[12px] py-[91px]">
-        <div className="flex flex-row gap-3 items-start">
-          <div className="w-[305px] flex flex-col">
+      <section className="px-[12px] py-[48px] md:py-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           <div className="flex flex-col">
@@ -222,7 +207,7 @@ export default function BrazilyPage() {
               Finding the real problem
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 I ran a <strong className="font-semibold">full platform audit</strong>, a <strong className="font-semibold">competitor analysis</strong> across Zumba and SHiNE Dance Fitness, and a synthesis of user behavior patterns. Using the competitor-analysis skill, Claude helped me move from raw observations to a structured framework that surfaced design gaps, compressing what would otherwise be several working sessions into one focused output I could act on and present to the client.
               </p>
@@ -236,12 +221,12 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 7. CONTENT SECTION WITH IMAGES ────────────────────────── */}
-      <section className="px-[12px] pb-[91px]">
+      <section className="px-[12px] pb-[48px] md:pb-[91px]">
         <div className="flex flex-col gap-[64px]">
 
           {/* BLOCK 1: Research GIF + caption + DESIGN DECISION */}
           <div className="flex flex-col gap-[16px]">
-            <div className="relative w-full h-[622px] bg-[#f4f4f4] overflow-hidden">
+            <div className="relative w-full h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/brazily/research.gif"
@@ -249,18 +234,18 @@ export default function BrazilyPage() {
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
-            <div className="pl-[317px]">
-              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+            <div className="pl-0 md:pl-[317px]">
+              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
                 From dashboard, passing to courses tab, to the actual video lesson.
               </p>
             </div>
             <div className="pt-[40px]">
-              <div className="flex flex-row gap-3 items-start">
-                <div className="w-[305px] flex flex-col">
+              <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+                <div className="w-full md:w-[305px] flex flex-col">
                   <span className="font-medium text-[12px] leading-[13.82px] text-black/40">DESIGN DECISION</span>
                 </div>
                 <div className="flex flex-col">
-                  <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+                  <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
                     <p>
                       <strong className="font-semibold">The &ldquo;Course&rdquo; screen</strong> is where the most consequential design work happened.
                     </p>
@@ -292,7 +277,7 @@ export default function BrazilyPage() {
 
           {/* BLOCK 2: Design Decision GIF + caption + Other places AI */}
           <div className="flex flex-col gap-[16px]">
-            <div className="relative w-full h-[622px] bg-[#f4f4f4] overflow-hidden">
+            <div className="relative w-full h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/brazily/design-decision.gif"
@@ -300,20 +285,20 @@ export default function BrazilyPage() {
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
-            <div className="pl-[317px]">
-              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+            <div className="pl-0 md:pl-[317px]">
+              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
                 The dashboard contains main elements like &lsquo;next lesson&rsquo;, community challenges, upcoming events and a prompt that showcase the freemium model. All these elements were marked as priority during research.
               </p>
             </div>
             <div className="pt-[40px]">
-              <div className="flex flex-row gap-3 items-start">
-                <div className="w-[305px] flex flex-col" />
+              <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+                <div className="hidden md:block md:w-[305px] md:flex-col" />
                 <div className="flex flex-col gap-[48px]">
 
                   {/* Other places AI shaped the work */}
                   <div className="flex flex-col gap-[13.715px]">
                     <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">Other places AI shaped the work</h2>
-                    <ul className="list-disc ml-[19.5px] text-black/75 w-[622px]">
+                    <ul className="list-disc ml-[19.5px] text-black/75 w-full md:w-[622px]">
                       <li className="mb-4">
                         <strong className="font-bold text-[13px] leading-[1.4]">Information architecture and user flows</strong>
                         <br />
@@ -335,7 +320,7 @@ export default function BrazilyPage() {
                   {/* What AI did and didn't do */}
                   <div className="flex flex-col gap-[13.715px]">
                     <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">What AI did and didn&apos;t do</h2>
-                    <div className="font-normal text-[13px] leading-[1.4] text-black/75 w-[622px]">
+                    <div className="font-normal text-[13px] leading-[1.4] text-black/75 w-full md:w-[622px]">
                       <p className="font-semibold">AI accelerated:</p>
                       <ul className="list-disc ml-[19.5px] mb-4 mt-[18.2px]">
                         <li>Synthesis and research structuring</li>
@@ -369,9 +354,9 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 8. LEARNINGS ──────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[40px] pb-[91px]">
-        <div className="flex flex-row gap-3 items-start">
-          <div className="w-[305px] flex flex-col">
+      <section className="px-[12px] pt-[40px] pb-[48px] md:pb-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-normal text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           <div className="flex flex-col">
@@ -379,7 +364,7 @@ export default function BrazilyPage() {
               AI is redefining the design process
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 The thing this project made undeniable: when you know how to use it, <strong className="font-semibold">AI changes the shape of an engagement entirely</strong>. Research, IA, wireframing, and copy no longer need to run sequentially: with the right configuration, they run in parallel.
               </p>

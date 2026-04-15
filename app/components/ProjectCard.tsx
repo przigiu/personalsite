@@ -24,7 +24,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const imageContainer = (
     <div className={`relative ${imageHeight} w-full overflow-hidden shrink-0`}>
-      <Image src={imageSrc} alt={imageAlt} fill className="object-cover" sizes="(max-width: 640px) 100vw, 25vw" />
+      <Image src={imageSrc} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 25vw" />
       {overlayColor && <div className={`absolute inset-0 ${overlayColor}`} />}
     </div>
   );

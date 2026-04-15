@@ -22,17 +22,10 @@ export default function ProjectListItem({
   overlayColor,
   href,
 }: ProjectListItemProps) {
-  const imageContainer = (
-    <div className="relative flex-1 h-[199px] overflow-hidden shrink-0">
-      <Image src={imageSrc} alt={imageAlt} fill className="object-cover" sizes="(max-width: 640px) 100vw, 25vw" />
-      {overlayColor && <div className={`absolute inset-0 ${overlayColor}`} />}
-    </div>
-  );
-
   const inner = (
-    <div className="flex flex-row gap-3 items-start pt-[6px]">
+    <div className="flex flex-col md:flex-row gap-3 items-start pt-[6px]">
       {/* Col 1 — title + number */}
-      <div className="w-[306px] flex flex-col shrink-0">
+      <div className="order-1 md:w-[306px] flex flex-col shrink-0">
         <p className="font-medium text-[13px] tracking-[1px] text-black/75 uppercase leading-[10.37px]">
           {title}
         </p>
@@ -41,21 +34,24 @@ export default function ProjectListItem({
         </p>
       </div>
 
+      {/* Image — after title on mobile, last on desktop */}
+      <div className="order-2 md:order-last relative w-full md:flex-1 h-[199px] overflow-hidden shrink-0">
+        <Image src={imageSrc} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 25vw" />
+        {overlayColor && <div className={`absolute inset-0 ${overlayColor}`} />}
+      </div>
+
       {/* Col 2 — description */}
-      <div className="w-[305px] flex flex-col shrink-0">
-        <p className="font-normal text-[13px] text-black/75 w-[182px] leading-[1.2]">
+      <div className="order-3 md:order-2 md:w-[305px] flex flex-col shrink-0">
+        <p className="font-normal text-[13px] text-black/75 md:w-[182px] leading-[1.2]">
           {description}
         </p>
       </div>
 
       {/* Col 3 — tags */}
-      <div className="w-[306px] flex flex-col shrink-0">
+      <div className="order-4 md:order-3 md:w-[306px] flex flex-col shrink-0 pb-[8px] md:pb-0">
         <p className="font-semibold text-[12px] text-black/75 leading-[13.82px]">Project</p>
         <p className="font-normal text-[12px] text-black/[0.57] leading-[1.2]">{tags}</p>
       </div>
-
-      {/* Col 4 — image */}
-      {imageContainer}
     </div>
   );
 

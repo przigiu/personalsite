@@ -1,47 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
+import ProjectNavbar from "@/app/components/ProjectNavbar";
 
 export default function MissivioPage() {
   return (
     <div className="min-h-screen">
       {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
-      <header className="flex flex-col pt-[24px] pb-[91px] px-[12px] bg-[#f9f9f9]">
-        <div className="flex flex-row w-full items-start gap-4">
-          {/* Left group */}
-          <div className="flex flex-row items-start gap-3">
-            {/* Name block */}
-            <div className="w-[306px] flex flex-col gap-0.5">
-              <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
-              <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
-            </div>
-            {/* Back link */}
-            <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
-              ← BACK
-            </Link>
-          </div>
-          {/* Right nav */}
-          <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
-            <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
-            <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
-          </nav>
-        </div>
-      </header>
+      <ProjectNavbar />
 
       {/* ─── 2. PROJECT HEADER ─────────────────────────────────────── */}
       <section className="px-[12px] pt-[6px]">
-        <div className="flex flex-row gap-4 items-start">
+        <div className="flex flex-col gap-4 md:flex-row items-start">
           {/* Left column */}
-          <div className="w-[302px] flex flex-col">
+          <div className="w-full md:w-[302px] flex flex-col">
             <h1 className="font-medium text-[14px] tracking-[1.5px] text-black/75 uppercase leading-[10.37px]">
               MISSIVIO
             </h1>
             <span className="font-normal text-[11px] text-black/40 leading-[13.82px]">01</span>
           </div>
           {/* Right column */}
-          <div className="w-[622px] flex flex-col gap-6 pb-[38px]">
+          <div className="w-full md:w-[622px] flex flex-col gap-6 pb-[38px]">
             {/* Description */}
-            <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               An AI-powered tool helping non-marketing-savvy business owners run email campaigns without needing a dedicated marketing team. Designed research-first, from zero to MVP.
             </p>
             {/* Tags */}
@@ -65,7 +46,7 @@ export default function MissivioPage() {
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
       <div className="px-[12px] mt-4">
-        <div className="relative w-full h-[622px]">
+        <div className="relative w-full h-[300px] md:h-[622px]">
           <Image
             src="/images/missivio/hero.jpg"
             alt="Missivio hero"
@@ -78,10 +59,10 @@ export default function MissivioPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
           </div>
           {/* Content */}
@@ -90,7 +71,7 @@ export default function MissivioPage() {
               Small business owners shouldn&apos;t require a marketing degree.
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Email marketing tools assume expertise most small business owners don&apos;t have. Without guidance on what to send, who to send it to, or why it matters - people don&apos;t just struggle, they stop.
               </p>
@@ -109,9 +90,9 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 5. IMAGE GALLERY SECTION 1 ────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
         {/* Full-width image */}
-        <div className="relative w-full h-[460px]">
+        <div className="relative w-full h-[240px] md:h-[460px]">
           <Image
             src="/images/missivio/gallery-full.jpg"
             alt="Missivio gallery full width"
@@ -121,8 +102,8 @@ export default function MissivioPage() {
           />
         </div>
         {/* Caption */}
-        <div className="pl-[317px] mt-4">
-          <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4">
+          <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
             Muted violet palette is distinct from blue/teal competitors, designed to reduce anxiety around marketing decisions.
           </p>
         </div>
@@ -131,46 +112,46 @@ export default function MissivioPage() {
       {/* ─── 6. TWO-IMAGE GALLERY ──────────────────────────────────── */}
       <section className="px-[12px] mt-[40px]">
         {/* Two images side by side */}
-        <div className="flex flex-row gap-3">
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+        <div className="flex flex-col gap-3 md:flex-row">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/missivio/gallery-left-1.jpg"
               alt="Qualitative research"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/missivio/gallery-right-1.jpg"
               alt="User flows"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
         </div>
         {/* Captions */}
-        <div className="pl-[317px] mt-4 flex flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Qualitative research was used to identify core need.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             User flows for Onboarding and Campaign Creation.
           </p>
         </div>
       </section>
 
       {/* ─── 7. RESEARCH ───────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[56px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[32px] md:pt-[56px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           {/* Content */}
-          <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+          <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
             <p>
               Five interviews with small business owners surfaced{" "}
               <strong className="font-semibold">one consistent theme: paralysis</strong>. Not feature confusion, but a more fundamental uncertainty about where to start.
@@ -198,10 +179,10 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 8. CONSTRAINTS ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">CONSTRAINTS</span>
           </div>
           {/* Content */}
@@ -210,7 +191,7 @@ export default function MissivioPage() {
               The AI proposes, never acts.
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Every output requires explicit user approval before anything goes live. Scope was defined early to keep the experience focused:
               </p>
@@ -245,8 +226,8 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 9. ITERATION IMAGE ────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
-        <div className="relative w-full h-[622px]">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
+        <div className="relative w-full h-[300px] md:h-[622px]">
           <Image
             src="/images/missivio/iteration.jpg"
             alt="Iteration of right side panel"
@@ -256,21 +237,21 @@ export default function MissivioPage() {
           />
         </div>
         {/* Caption */}
-        <div className="pl-[317px] mt-4">
-          <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4">
+          <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
             The evolution of the right side panel: from feeling dismissive, being too crowded, to just perfect.
           </p>
         </div>
 
         {/* ─── 10. USABILITY TESTING ─────────────────────────────────── */}
-        <div className="pt-[56px] pb-[91px]">
-          <div className="flex flex-row gap-3 items-start">
+        <div className="pt-[32px] md:pt-[56px] pb-[48px] md:pb-[91px]">
+          <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
             {/* Label */}
-            <div className="w-[305px] flex flex-col">
+            <div className="w-full md:w-[305px] flex flex-col">
               <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
             </div>
             {/* Content */}
-            <div className="w-[622px] flex flex-col gap-12">
+            <div className="w-full md:w-[622px] flex flex-col gap-12">
               {/* Round 1 */}
               <div className="flex flex-col">
                 <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 1, mid-fidelity</h2>
@@ -306,13 +287,13 @@ export default function MissivioPage() {
 
       {/* ─── 11. FINAL DESIGN ──────────────────────────────────────── */}
       <section className="px-[12px] pt-[12px]">
-        <div className="flex flex-row gap-3 items-start">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FINAL DESIGN</span>
           </div>
           {/* Content */}
-          <div className="w-[622px] flex flex-col gap-12">
+          <div className="w-full md:w-[622px] flex flex-col gap-12">
             {/* Solving for visibility */}
             <div className="flex flex-col">
               <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Solving for visibility</h2>
@@ -354,44 +335,44 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 12. FINAL IMAGE GALLERY ───────────────────────────────── */}
-      <section className="px-[12px] mt-[86px]">
+      <section className="px-[12px] mt-[48px] md:mt-[86px]">
         {/* Two images */}
-        <div className="flex flex-row gap-3">
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+        <div className="flex flex-col gap-3 md:flex-row">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/missivio/gallery-left-2.jpg"
               alt="Initial concept of onboarding flow, mid-fidelity"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/missivio/gallery-right-2.jpg"
               alt="Final dashboard design"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
         </div>
         {/* Captions */}
-        <div className="pl-[317px] mt-4 flex flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Initial concept of onboarding flow, mid-fidelity.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Final dashboard design focuses on User/AI interaction
           </p>
         </div>
       </section>
 
       {/* ─── 13. LEARNINGS ─────────────────────────────────────────── */}
-      <section className="px-[12px] pb-[91px] pt-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pb-[48px] md:pb-[91px] pt-[48px] md:pt-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           {/* Content */}
@@ -400,7 +381,7 @@ export default function MissivioPage() {
               Knowing the problem intimately is just a starting point
             </h2>
             <div className="h-[14px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Missivio started as a response to something I watched happen repeatedly in my career: capable people made helpless by tools that assumed too much. But what this project taught me is that{" "}
                 <strong className="font-semibold">knowing the problem isn&apos;t enough.</strong>

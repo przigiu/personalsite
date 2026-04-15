@@ -1,47 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer";
+import ProjectNavbar from "@/app/components/ProjectNavbar";
 
 export default function DoorDashPage() {
   return (
     <div className="min-h-screen">
       {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
-      <header className="flex flex-col pt-[24px] pb-[91px] px-[12px] bg-[#f9f9f9]">
-        <div className="flex flex-row w-full items-start gap-4">
-          {/* Left group */}
-          <div className="flex flex-row items-start gap-3">
-            {/* Name block */}
-            <div className="w-[306px] flex flex-col gap-0.5">
-              <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
-              <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
-            </div>
-            {/* Back link */}
-            <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
-              ← BACK
-            </Link>
-          </div>
-          {/* Right nav */}
-          <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
-            <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
-            <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
-          </nav>
-        </div>
-      </header>
+      <ProjectNavbar />
 
       {/* ─── 2. PROJECT HEADER ─────────────────────────────────────── */}
       <section className="px-[12px] pt-[6px]">
-        <div className="flex flex-row gap-4 items-start">
+        <div className="flex flex-col gap-4 md:flex-row items-start">
           {/* Left column */}
-          <div className="w-[302px] flex flex-col">
+          <div className="w-full md:w-[302px] flex flex-col">
             <h1 className="font-medium text-[14px] tracking-[1.5px] uppercase leading-[10.37px] text-black/75">
               DOORDASH
             </h1>
             <span className="font-normal text-[11px] leading-[13.82px] text-black/40">02</span>
           </div>
           {/* Right column */}
-          <div className="w-[622px] flex flex-col gap-6 pb-[38px]">
+          <div className="w-full md:w-[622px] flex flex-col gap-6 pb-[38px]">
             {/* Description */}
-            <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               Users don&apos;t trust food delivery apps enough to order from a new restaurant without checking TikTok first. I designed a feature to bring that proof into DoorDash.
             </p>
             {/* Tags */}
@@ -65,7 +46,7 @@ export default function DoorDashPage() {
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
       <div className="px-[12px] mt-4">
-        <div className="relative w-full h-[622px] bg-[#e6e6e6]">
+        <div className="relative w-full h-[300px] md:h-[622px] bg-[#e6e6e6]">
           <Image
             src="/images/doordash/empathy-map.jpg"
             alt="DoorDash hero"
@@ -77,10 +58,10 @@ export default function DoorDashPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
           </div>
           {/* Content */}
@@ -89,7 +70,7 @@ export default function DoorDashPage() {
               Food delivery apps are built for ordering, not for deciding.
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Users regularly browse DoorDash for ten minutes, abandon it to check TikTok for authentic food videos, and only return to place the order once they&apos;ve been inspired. Every single person I interviewed had developed this exact workflow, and none of them thought twice about it, even if it adds over 2 hours to their routine.
               </p>
@@ -103,48 +84,48 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 5. RESEARCH IMAGE GALLERY ─────────────────────────────── */}
-      <section className="px-[12px] pt-[91px]">
+      <section className="px-[12px] pt-[48px] md:pt-[91px]">
         {/* Two images side by side */}
-        <div className="flex flex-row gap-3">
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+        <div className="flex flex-col gap-3 md:flex-row">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/doordash/user-flow.jpg"
               alt="Empathy map"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/doordash/mid-fi-to-hi-fi.jpg"
               alt="User flow"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
         </div>
         {/* Captions */}
-        <div className="pl-[317px] mt-4 flex flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Empathy map helped define the user subconscious state and core needs.
           </p>
-          <p className="italic text-[12px] w-[390px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-full md:w-[390px] leading-[1.2] text-black/75">
             A comparison between the current user flow (top), discovered during research, and the user flow (bottom) with the new feature.
           </p>
         </div>
       </section>
 
       {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[56px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[32px] md:pt-[56px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           {/* Content */}
-          <div className="w-[622px] flex flex-col gap-[56px]">
+          <div className="w-full md:w-[622px] flex flex-col gap-[56px]">
             {/* Subsection 1 */}
             <div className="flex flex-col">
               <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
@@ -178,14 +159,14 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 7. USER PERSONAS ──────────────────────────────────────── */}
-      <section className="px-[12px] py-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] py-[48px] md:py-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USER PERSONAS</span>
           </div>
           {/* Content */}
-          <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+          <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
             <p>
               From the interviews, two distinct tension profiles emerged. Defined not by demographics, but by the specific anxiety they experience while ordering:
             </p>
@@ -212,7 +193,7 @@ export default function DoorDashPage() {
 
           {/* Block A: Mid-fi to Hi-fi image */}
           <div>
-            <div className="relative w-full h-[622px]">
+            <div className="relative w-full h-[300px] md:h-[622px]">
               <Image
                 src="/images/doordash/usability-testing.jpg"
                 alt="Mid-fi to High-fi progression"
@@ -221,22 +202,22 @@ export default function DoorDashPage() {
               />
             </div>
             {/* Caption */}
-            <div className="pl-[317px] mt-4">
-              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+            <div className="pl-0 md:pl-[317px] mt-4">
+              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
                 <strong className="font-semibold italic">Mid-fi to High-fi progression</strong> of feature placement: user testing proved that initial concept disrupted users&apos; existing mental model.
               </p>
             </div>
           </div>
 
           {/* Block B: FIRST ITERATION body */}
-          <div className="mt-[56px]">
-            <div className="flex flex-row gap-3 items-start">
+          <div className="mt-[32px] md:mt-[56px]">
+            <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
               {/* Label */}
-              <div className="w-[305px] flex flex-col">
+              <div className="w-full md:w-[305px] flex flex-col">
                 <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FIRST ITERATION</span>
               </div>
               {/* Content */}
-              <p className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+              <p className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
                 My initial instinct was to position <strong className="font-semibold">a video feed as a replacement for the restaurant card list.</strong>
                 <br /><br />
                 Research had shown that users weren&apos;t frustrated by what happened after they chose a restaurant, as the paralysis happened during selection. A video-first surface felt like the right fix. <strong className="font-semibold">Mid-fidelity testing challenged that assumption quickly.</strong> Users were familiar with the card layout and pushed back when it disappeared: &apos;What happens if I don&apos;t want to watch a video?&apos;
@@ -251,9 +232,9 @@ export default function DoorDashPage() {
           </div>
 
           {/* Block C: Usability Testing */}
-          <div className="mt-[91px]">
+          <div className="mt-[48px] md:mt-[91px]">
             {/* Full-width image */}
-            <div className="relative w-full h-[622px]">
+            <div className="relative w-full h-[300px] md:h-[622px]">
               <Image
                 src="/images/doordash/final-overlay-card.jpg"
                 alt="Usability testing panel"
@@ -262,20 +243,20 @@ export default function DoorDashPage() {
               />
             </div>
             {/* Caption */}
-            <div className="pl-[317px] mt-4">
-              <p className="italic text-[12px] w-[622px] leading-[1.2] text-black/75">
+            <div className="pl-0 md:pl-[317px] mt-4">
+              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
                 The entire flow: user opens the app (left), look up for pizza, click on the video tab to explore videos, and land on the restaurant page for checkout.
               </p>
             </div>
             {/* USABILITY TESTING label + content */}
-            <div className="pt-[56px]">
-              <div className="flex flex-row gap-3 items-start">
+            <div className="pt-[32px] md:pt-[56px]">
+              <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
                 {/* Label */}
-                <div className="w-[305px] flex flex-col">
+                <div className="w-full md:w-[305px] flex flex-col">
                   <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
                 </div>
                 {/* Content */}
-                <div className="w-[622px] flex flex-col gap-12">
+                <div className="w-full md:w-[622px] flex flex-col gap-12">
                   {/* Round 1 */}
                   <div className="flex flex-col">
                     <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">Round 1, mid-fidelity</h2>
@@ -317,44 +298,44 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 9. FINAL SCREENS GALLERY ──────────────────────────────── */}
-      <section className="px-[12px] mt-[91px]">
+      <section className="px-[12px] mt-[48px] md:mt-[91px]">
         {/* Two images side by side */}
-        <div className="flex flex-row gap-3">
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+        <div className="flex flex-col gap-3 md:flex-row">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/doordash/final-video-indicator.jpg"
               alt="Final screen overlay card"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
-          <div className="relative w-[622px] h-[460px] flex-shrink-0">
+          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
             <Image
               src="/images/doordash/hero.jpg"
               alt="Final screen red video indicator"
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
         </div>
         {/* Captions */}
-        <div className="pl-[317px] mt-4 flex flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Overlay card with restaurant information presents now a complete spelled out tag after testing.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
             Updated coloring (from grey to red) to give visual prominence to video indicator.
           </p>
         </div>
       </section>
 
       {/* ─── 10. LEARNINGS ─────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[91px] pb-[91px]">
-        <div className="flex flex-row gap-3 items-start">
+      <section className="px-[12px] pt-[48px] md:pt-[91px] pb-[48px] md:pb-[91px]">
+        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           {/* Content */}
@@ -363,7 +344,7 @@ export default function DoorDashPage() {
               Adding the right information at the right moment
             </h2>
             <div className="h-[13.715px]" />
-            <div className="w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
+            <div className="w-full md:w-[622px] font-normal text-[13px] leading-[1.4] text-black/75">
               <p>
                 Decision paralysis isn&apos;t solved by adding more information. It&apos;s solved by adding the right kind of proof at the right moment: before the user has to commit.
               </p>
