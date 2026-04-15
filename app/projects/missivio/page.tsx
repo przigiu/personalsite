@@ -65,7 +65,7 @@ export default function MissivioPage() {
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
       <div className="px-[12px] mt-4">
-        <div className="relative w-full h-[460px]">
+        <div className="relative w-full h-[622px]">
           <Image
             src="/images/missivio/hero.jpg"
             alt="Missivio hero"
@@ -78,7 +78,7 @@ export default function MissivioPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[24px]">
+      <section className="px-[12px] pt-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -109,7 +109,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 5. IMAGE GALLERY SECTION 1 ────────────────────────────── */}
-      <section className="px-[12px] pt-[24px]">
+      <section className="px-[12px] pt-[91px]">
         {/* Full-width image */}
         <div className="relative w-full h-[460px]">
           <Image
@@ -163,7 +163,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 7. RESEARCH ───────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[40px]">
+      <section className="px-[12px] pt-[56px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -198,7 +198,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 8. CONSTRAINTS ────────────────────────────────────────── */}
-      <section className="px-[12px] py-[91px]">
+      <section className="px-[12px] pt-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -245,7 +245,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 9. ITERATION IMAGE ────────────────────────────────────── */}
-      <section className="px-[12px] pt-[12px]">
+      <section className="px-[12px] pt-[91px]">
         <div className="relative w-full h-[622px]">
           <Image
             src="/images/missivio/iteration.jpg"
@@ -263,7 +263,7 @@ export default function MissivioPage() {
         </div>
 
         {/* ─── 10. USABILITY TESTING ─────────────────────────────────── */}
-        <div className="pt-[40px] pb-[91px]">
+        <div className="pt-[56px] pb-[91px]">
           <div className="flex flex-row gap-3 items-start">
             {/* Label */}
             <div className="w-[305px] flex flex-col">
@@ -305,7 +305,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 11. FINAL DESIGN ──────────────────────────────────────── */}
-      <section className="px-[12px] py-[12px]">
+      <section className="px-[12px] pt-[12px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -354,7 +354,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 12. FINAL IMAGE GALLERY ───────────────────────────────── */}
-      <section className="px-[12px] mt-[40px]">
+      <section className="px-[12px] mt-[86px]">
         {/* Two images */}
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
@@ -388,7 +388,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 13. LEARNINGS ─────────────────────────────────────────── */}
-      <section className="px-[12px] pb-[91px] pt-[40px]">
+      <section className="px-[12px] pb-[91px] pt-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">

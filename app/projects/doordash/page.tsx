@@ -65,7 +65,7 @@ export default function DoorDashPage() {
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
       <div className="px-[12px] mt-4">
-        <div className="relative w-full h-[460px] bg-[#e6e6e6]">
+        <div className="relative w-full h-[622px] bg-[#e6e6e6]">
           <Image
             src="/images/doordash/empathy-map.jpg"
             alt="DoorDash hero"
@@ -77,7 +77,7 @@ export default function DoorDashPage() {
       </div>
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[24px]">
+      <section className="px-[12px] pt-[91px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
@@ -103,7 +103,7 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 5. RESEARCH IMAGE GALLERY ─────────────────────────────── */}
-      <section className="px-[12px] mt-[80px]">
+      <section className="px-[12px] pt-[91px]">
         {/* Two images side by side */}
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
@@ -137,14 +137,14 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
-      <section className="px-[12px] pt-[40px]">
+      <section className="px-[12px] pt-[56px]">
         <div className="flex flex-row gap-3 items-start">
           {/* Label */}
           <div className="w-[305px] flex flex-col">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           {/* Content */}
-          <div className="w-[622px] flex flex-col gap-[91px]">
+          <div className="w-[622px] flex flex-col gap-[56px]">
             {/* Subsection 1 */}
             <div className="flex flex-col">
               <h2 className="font-bold text-[14px] leading-[13.82px] text-black/75">
@@ -207,8 +207,8 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 8. FIRST ITERATION + USABILITY TESTING ────────────────── */}
-      <section className="px-[12px] pb-[91px]">
-        <div className="flex flex-col gap-[64px]">
+      <section className="px-[12px]">
+        <div className="flex flex-col">
 
           {/* Block A: Mid-fi to Hi-fi image */}
           <div>
@@ -229,7 +229,7 @@ export default function DoorDashPage() {
           </div>
 
           {/* Block B: FIRST ITERATION body */}
-          <div>
+          <div className="mt-[56px]">
             <div className="flex flex-row gap-3 items-start">
               {/* Label */}
               <div className="w-[305px] flex flex-col">
@@ -251,7 +251,7 @@ export default function DoorDashPage() {
           </div>
 
           {/* Block C: Usability Testing */}
-          <div>
+          <div className="mt-[91px]">
             {/* Full-width image */}
             <div className="relative w-full h-[622px]">
               <Image
@@ -268,7 +268,7 @@ export default function DoorDashPage() {
               </p>
             </div>
             {/* USABILITY TESTING label + content */}
-            <div className="pt-[40px]">
+            <div className="pt-[56px]">
               <div className="flex flex-row gap-3 items-start">
                 {/* Label */}
                 <div className="w-[305px] flex flex-col">
@@ -317,7 +317,7 @@ export default function DoorDashPage() {
       </section>
 
       {/* ─── 9. FINAL SCREENS GALLERY ──────────────────────────────── */}
-      <section className="px-[12px] mt-[16px]">
+      <section className="px-[12px] mt-[91px]">
         {/* Two images side by side */}
         <div className="flex flex-row gap-3">
           <div className="relative w-[622px] h-[460px] flex-shrink-0">
