@@ -32,6 +32,14 @@ Three responsive states. Tablet uses `md:`, desktop uses a custom `desk:` breakp
 - Mobile and tablet use different layouts — do NOT assume `md:` means "desktop". Desktop layout triggers at `desk:`.
 - Figma source frames: 390px (mobile — node `638:221` grid, `638:3` list), 834px (tablet), 1280px (desktop).
 
+## Fluid Page Scaling (1280px → 1440px)
+Pages with the `fluid-page` class on their outer wrapper render at the 1280px design frame and visually scale up to fill viewports between 1280–1440px (then cap at 1.125× above 1440). Text columns stay visually centered. Below 1280px there is no scaling — normal responsive layout applies.
+
+- **Where the CSS lives:** inline `<style dangerouslySetInnerHTML>` in `app/layout.tsx`. **Do NOT move this CSS into `globals.css`** — Tailwind v4's CSS engine (Lightning CSS) silently strips any rule containing the non-standard `zoom` property, dropping the entire `@media` block at build time. Inline `<style>` bypasses that processing.
+- **How it works:** `width: 1280px; margin: 0 auto; zoom: calc(100vw / 1280px)` on the wrapper. At vw=1280, zoom=1; at vw=1440, zoom=1.125 (capped via a second `@media (min-width: 1440px)` rule).
+- **Applied to:** outer wrapper of `app/page.tsx` (homepage) and each `app/projects/*/page.tsx` (Missivio, DoorDash, Brazily).
+- **Caveats:** `zoom` is non-standard but supported in Chrome, Safari, Edge, and Firefox 126+ (May 2024). Fractional zoom values can cause minor sub-pixel rendering artifacts on text/borders. `100vw` includes scrollbar width in some browsers, which can cause minor overflow at the 1280 boundary.
+
 ## Project Structure
 ```
 app/

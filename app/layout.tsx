@@ -28,6 +28,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (min-width: 1280px) {
+            .fluid-page {
+              width: 1280px;
+              margin-left: auto;
+              margin-right: auto;
+              zoom: calc(100vw / 1280px);
+            }
+          }
+          @media (min-width: 1440px) {
+            .fluid-page {
+              zoom: 1.125;
+            }
+          }
+        ` }} />
+      </head>
       <body className={`${inter.variable} ${dmMono.variable} antialiased`} suppressHydrationWarning>
         <div className="max-w-[1440px] mx-auto">
           {children}
