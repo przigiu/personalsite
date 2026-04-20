@@ -103,7 +103,7 @@ export default function MissivioPage() {
         </div>
         {/* Caption */}
         <div className="pl-0 md:pl-[317px] mt-4">
-          <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
             Muted violet palette is distinct from blue/teal competitors, designed to reduce anxiety around marketing decisions.
           </p>
         </div>
@@ -143,11 +143,11 @@ export default function MissivioPage() {
           </div>
         </div>
         {/* Desktop captions */}
-        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Qualitative research was used to identify core need.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             User flows for Onboarding and Campaign Creation.
           </p>
         </div>
@@ -248,7 +248,7 @@ export default function MissivioPage() {
         </div>
         {/* Caption */}
         <div className="pl-0 md:pl-[317px] mt-4">
-          <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
             The evolution of the right side panel: from feeling dismissive, being too crowded, to just perfect.
           </p>
         </div>
@@ -378,11 +378,11 @@ export default function MissivioPage() {
           </div>
         </div>
         {/* Desktop captions */}
-        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Initial concept of onboarding flow, mid-fidelity.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Final dashboard design focuses on User/AI interaction
           </p>
         </div>

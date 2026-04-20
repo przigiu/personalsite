@@ -235,7 +235,7 @@ export default function BrazilyPage() {
               />
             </div>
             <div className="pl-0 md:pl-[317px]">
-              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+              <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
                 From dashboard, passing to courses tab, to the actual video lesson.
               </p>
             </div>
@@ -286,7 +286,7 @@ export default function BrazilyPage() {
               />
             </div>
             <div className="pl-0 md:pl-[317px]">
-              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+              <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
                 The dashboard contains main elements like &lsquo;next lesson&rsquo;, community challenges, upcoming events and a prompt that showcase the freemium model. All these elements were marked as priority during research.
               </p>
             </div>
@@ -298,7 +298,7 @@ export default function BrazilyPage() {
                   {/* Other places AI shaped the work */}
                   <div className="flex flex-col gap-[13.715px]">
                     <h2 className="font-bold text-[15px] leading-[13.82px] text-black/75">Other places AI shaped the work</h2>
-                    <ul className="list-disc ml-[19.5px] text-black/75 w-full md:w-[622px]">
+                    <ul className="list-disc ml-[19.5px] text-black/75 md:w-[622px]">
                       <li className="mb-4">
                         <strong className="font-bold text-[13px] leading-[1.4]">Information architecture and user flows</strong>
                         <br />

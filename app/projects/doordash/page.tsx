@@ -117,11 +117,11 @@ export default function DoorDashPage() {
           </div>
         </div>
         {/* Desktop captions */}
-        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Empathy map helped define the user subconscious state and core needs.
           </p>
-          <p className="italic text-[12px] w-[390px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[390px] leading-[1.2] text-black/75">
             A comparison between the current user flow (top), discovered during research, and the user flow (bottom) with the new feature.
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function DoorDashPage() {
             </div>
             {/* Caption */}
             <div className="pl-0 md:pl-[317px] mt-4">
-              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+              <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
                 <strong className="font-semibold italic">Mid-fi to High-fi progression</strong> of feature placement: user testing proved that initial concept disrupted users&apos; existing mental model.
               </p>
             </div>
@@ -254,7 +254,7 @@ export default function DoorDashPage() {
             </div>
             {/* Caption */}
             <div className="pl-0 md:pl-[317px] mt-4">
-              <p className="italic text-[12px] w-full md:w-[622px] leading-[1.2] text-black/75">
+              <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
                 The entire flow: user opens the app (left), look up for pizza, click on the video tab to explore videos, and land on the restaurant page for checkout.
               </p>
             </div>
@@ -341,11 +341,11 @@ export default function DoorDashPage() {
           </div>
         </div>
         {/* Desktop captions */}
-        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+        <div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Overlay card with restaurant information presents now a complete spelled out tag after testing.
           </p>
-          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">
             Updated coloring (from grey to red) to give visual prominence to video indicator.
           </p>
         </div>

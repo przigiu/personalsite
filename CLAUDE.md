@@ -35,10 +35,10 @@ Three responsive states. Tablet uses `md:`, desktop uses a custom `desk:` breakp
 ## Fluid Page Scaling (1280px → 1440px)
 Pages with the `fluid-page` class on their outer wrapper render at the 1280px design frame and visually scale up to fill viewports between 1280–1440px (then cap at 1.125× above 1440). Text columns stay visually centered. Below 1280px there is no scaling — normal responsive layout applies.
 
-- **Where the CSS lives:** inline `<style dangerouslySetInnerHTML>` in `app/layout.tsx`. **Do NOT move this CSS into `globals.css`** — Tailwind v4's CSS engine (Lightning CSS) silently strips any rule containing the non-standard `zoom` property, dropping the entire `@media` block at build time. Inline `<style>` bypasses that processing.
-- **How it works:** `width: 1280px; margin: 0 auto; zoom: calc(100vw / 1280px)` on the wrapper. At vw=1280, zoom=1; at vw=1440, zoom=1.125 (capped via a second `@media (min-width: 1440px)` rule).
+- **Where the CSS lives:** inline `<style dangerouslySetInnerHTML>` in `app/layout.tsx`. **Do NOT move this CSS into `globals.css`** — Tailwind v4's CSS engine (Lightning CSS) silently strips any rule containing the non-standard `zoom` property, dropping the entire rule block at build time. Inline `<style>` bypasses that processing.
+- **How it works:** The `max-w-[1440px] mx-auto` wrapper in `layout.tsx` has `style={{ containerType: 'inline-size' }}` making it a CSS container. The `fluid-page` class uses `@container` rules (not `@media`) with `width: 1280px; zoom: calc(100cqw / 1280px)`. Using `100cqw` (container query width) instead of `100vw` ties the zoom to the wrapper's actual layout width, avoiding race conditions during window resize and the scrollbar-width discrepancy that `100vw` has in some browsers. At container-width=1440px+, zoom locks to 1.125 via a second `@container (min-width: 1440px)` rule.
 - **Applied to:** outer wrapper of `app/page.tsx` (homepage) and each `app/projects/*/page.tsx` (Missivio, DoorDash, Brazily).
-- **Caveats:** `zoom` is non-standard but supported in Chrome, Safari, Edge, and Firefox 126+ (May 2024). Fractional zoom values can cause minor sub-pixel rendering artifacts on text/borders. `100vw` includes scrollbar width in some browsers, which can cause minor overflow at the 1280 boundary.
+- **Caveats:** `zoom` is non-standard but supported in Chrome, Safari, Edge, and Firefox 126+ (May 2024). Fractional zoom values can cause minor sub-pixel rendering artifacts on text/borders.
 
 ## Project Structure
 ```
@@ -139,6 +139,8 @@ Figma source: node `628:112` (tablet) and `477:87` / `629:1479` (desktop) in fil
 - Two-column layout: section label (`w-full md:w-[305px]`) left, content (`w-full md:w-[622px]`) right
 - Image galleries: full-width (`h-[300px] md:h-[622px]`) and side-by-side (`md:flex-1`, `h-[240px] md:h-[460px]`) — side-by-side images use `md:flex-1` (not fixed width) so they fill the container at all breakpoints
 - Captions: italic 12px, `pl-0 md:pl-[317px]`, always `mt-4` (16px) below their image
+- **Single-image captions:** `<p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">` — do NOT use `md:w-[622px]`. At 834px tablet the content area after `pl-[317px]` is only 493px; a fixed 622px overflows and clips the right end of the text. Use `desk:w-[622px]` to cap width only at desktop.
+- **Two-image gallery captions row:** `<div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">` with each `<p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">` — `pl-[317px]` only at `desk:`, `flex-1` at tablet so each caption fills half the row width; `desk:flex-none desk:w-[305px]` restores fixed column widths at desktop.
 - All body text: `font-normal text-[13px] leading-[1.4] text-black/75` — use `leading-[1.4]` consistently, never `leading-[1.2]`
 - Section headings: `font-bold text-[14px] leading-[13.82px] text-black/75` (Missivio/DoorDash); Brazily uses `text-[15px]`
 - Spacer between heading and body: `<div className="h-[13.715px]" />`
@@ -199,7 +201,7 @@ All spacing uses responsive values: `pt-[48px] md:pt-[91px]` for major sections,
 - Callout box: `border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-full md:w-[642px]` with `#656565` text
 - GitHub CTA: `inline-flex items-center gap-[6px] border-b border-black/75` — uses `border-b` (not `underline`) so the line runs continuously under the inline GitHub SVG logo
 - Media block (two stacked images): `w-full md:w-[463px] flex flex-col gap-[8px]` (NO `overflow-hidden` — it clips the mobile bleed), each image `h-[260px] md:h-[420px] object-cover` with bleed classes `w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0`; assets at `public/images/brazily/setting-up-1.png` and `setting-up-2.png`; wrapped in `flex justify-center items-center` to center within the right column
-- Content section uses `flex flex-col gap-[64px]` with **2 blocks**, each grouping: full-width `h-[300px] md:h-[622px]` image + caption (`pl-0 md:pl-[317px] w-full md:w-[622px]`) + text section at `pt-[40px]`
+- Content section uses `flex flex-col gap-[64px]` with **2 blocks**, each grouping: full-width `h-[300px] md:h-[622px]` image + caption (`pl-0 md:pl-[317px] desk:w-[622px]`) + text section at `pt-[40px]`
   - Block 1: `research.gif` (`object-contain`) → caption → DESIGN DECISION label+content
   - Block 2: `design-decision.gif` (`object-contain`) → caption → "Other places AI shaped the work" + "What AI did and didn't do" (grouped with `gap-[48px]`, empty `w-[305px]` spacer column)
 - Animated GIFs rendered with `<img>` (not `<Image>`) to preserve animation
