@@ -45,3 +45,19 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Fluid scale pages between 1280px and 1440px viewports */
+@media (min-width: 1280px) {
+  .fluid-page {
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    zoom: calc(100vw / 1280px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .fluid-page {
+    zoom: 1.125;
+  }
+}

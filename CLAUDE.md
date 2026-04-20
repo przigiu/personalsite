@@ -1,8 +1,5 @@
 # Giulia's Portfolio Website
 
-## Known Issues
-- **Responsiveness broken (as of 2026-04-19):** Changes made in the current session broke all breakpoint behaviour across the site. The `desk:` breakpoint CSS is compiling correctly but layouts are not responding as expected at any viewport width. Root cause not yet identified — uncommitted changes across 12 files are suspects. Do not build on top of these changes until resolved.
-
 ## Project Overview
 Portfolio site for Giulia, a Product & UX Designer. Features a homepage with grid/list view toggle for projects, individual project case study pages, and an about section.
 

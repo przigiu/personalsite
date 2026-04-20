@@ -5,7 +5,7 @@ import ProjectNavbar from "@/app/components/ProjectNavbar";
 
 export default function DoorDashPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen fluid-page">
       {/* ─── 1. PROJECT NAVBAR ─────────────────────────────────────── */}
       <ProjectNavbar />
 
