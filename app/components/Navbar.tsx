@@ -14,13 +14,13 @@ export default function Navbar({ viewMode = "grid", onToggleView }: NavbarProps)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <header className="flex flex-col gap-3 pt-6 pb-[91px] px-[12px] bg-[#f9f9f9]">
+    <header className="flex flex-col gap-[40px] md:gap-3 pt-6 pb-[91px] px-[12px] bg-[#f9f9f9]">
       {/* Row 1 — Desktop */}
       <div className="hidden md:flex flex-row w-full items-start gap-4">
         {/* Left group */}
-        <div className="flex flex-row items-start gap-[171px]">
+        <div className="flex flex-row items-start gap-[12px]">
           {/* Name block */}
-          <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col gap-0.5 w-[295px]">
             <span className="font-bold text-[16px] text-black/75 leading-[13.82px]">Giulia</span>
             <span className="font-medium text-[14px] text-black/75 leading-[13.82px]">Product & UX Designer</span>
           </div>
@@ -79,10 +79,12 @@ export default function Navbar({ viewMode = "grid", onToggleView }: NavbarProps)
         </div>
       </div>
 
-      {/* Row 2 description — desktop only */}
-      <div className="hidden md:block md:pl-[635px] md:pr-[200px] text-[13px] text-black/75 leading-[1.2]">
-        <span className="font-medium">UX & Product Designer</span>
-        <span className="font-normal"> bridging brand strategy and user experience — background in marketing across D2C and B2B brands.</span>
+      {/* Row 2 description */}
+      <div className="flex md:pl-[412px] desk:pl-[635px] desk:pr-[200px] w-full">
+        <p className="w-[308px] desk:w-auto desk:flex-1 text-[13px] text-black/75 leading-[1.2]">
+          <span className="font-medium">UX & Product Designer</span>
+          <span className="font-normal"> bridging brand strategy and user experience — background in marketing across D2C and B2B brands.</span>
+        </p>
       </div>
 
       {/* Mobile drawer */}

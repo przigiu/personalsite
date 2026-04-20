@@ -27,17 +27,12 @@ export default function ProjectNavbar() {
       </div>
 
       {/* Mobile layout */}
-      <div className="flex md:hidden flex-row w-full items-center">
-        <div className="flex flex-col gap-0.5 flex-1">
-          <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
-          <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
-            ← BACK
-          </Link>
-        </div>
-        <div className="flex-1 flex justify-end">
+      <div className="flex md:hidden flex-col gap-[40px]">
+        <div className="flex flex-row w-full items-start justify-between">
+          <div className="flex flex-col gap-0.5">
+            <span className="font-bold text-[16px] leading-[13.82px] text-black/75">Giulia</span>
+            <span className="font-medium text-[14px] leading-[13.82px] text-black/75">Product & UX Designer</span>
+          </div>
           <button
             onClick={() => setIsDrawerOpen(true)}
             className="font-normal text-[13px] leading-[14px] text-black/75 uppercase"
@@ -45,6 +40,9 @@ export default function ProjectNavbar() {
             MENU
           </button>
         </div>
+        <Link href="/" className="font-normal text-[13px] leading-[14px] text-black/75">
+          ← BACK
+        </Link>
       </div>
 
       <MobileDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />

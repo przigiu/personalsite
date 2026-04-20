@@ -28,8 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${dmMono.variable} antialiased`}>
-        {children}
+      <body className={`${inter.variable} ${dmMono.variable} antialiased`} suppressHydrationWarning>
+        <div className="max-w-[1440px] mx-auto">
+          {children}
+        </div>
       </body>
     </html>
   );

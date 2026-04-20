@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-desk: 76.375rem; /* 1222px */
+}
+
 :root {
   --background: #f9f9f9;
   --foreground: rgba(0, 0, 0, 0.75);

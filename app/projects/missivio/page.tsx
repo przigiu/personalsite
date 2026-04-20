@@ -45,7 +45,7 @@ export default function MissivioPage() {
       </section>
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
-      <div className="px-[12px] mt-4">
+      <div className="mt-4 md:px-[12px]">
         <div className="relative w-full h-[300px] md:h-[622px]">
           <Image
             src="/images/missivio/hero.jpg"
@@ -60,9 +60,9 @@ export default function MissivioPage() {
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-full md:w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
           </div>
           {/* Content */}
@@ -92,7 +92,7 @@ export default function MissivioPage() {
       {/* ─── 5. IMAGE GALLERY SECTION 1 ────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
         {/* Full-width image */}
-        <div className="relative w-full h-[240px] md:h-[460px]">
+        <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
           <Image
             src="/images/missivio/gallery-full.jpg"
             alt="Missivio gallery full width"
@@ -113,31 +113,41 @@ export default function MissivioPage() {
       <section className="px-[12px] mt-[40px]">
         {/* Two images side by side */}
         <div className="flex flex-col gap-3 md:flex-row">
-          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
-            <Image
-              src="/images/missivio/gallery-left-1.jpg"
-              alt="Qualitative research"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="flex flex-col md:flex-1">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
+              <Image
+                src="/images/missivio/gallery-left-1.jpg"
+                alt="Qualitative research"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="md:hidden italic text-[12px] leading-[1.2] text-black/75 mt-4">
+              Qualitative research was used to identify core need.
+            </p>
           </div>
-          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
-            <Image
-              src="/images/missivio/gallery-right-1.jpg"
-              alt="User flows"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="flex flex-col md:flex-1">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
+              <Image
+                src="/images/missivio/gallery-right-1.jpg"
+                alt="User flows"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="md:hidden italic text-[12px] leading-[1.2] text-black/75 mt-4">
+              User flows for Onboarding and Campaign Creation.
+            </p>
           </div>
         </div>
-        {/* Captions */}
-        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
-          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
+        {/* Desktop captions */}
+        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
             Qualitative research was used to identify core need.
           </p>
-          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
             User flows for Onboarding and Campaign Creation.
           </p>
         </div>
@@ -145,9 +155,9 @@ export default function MissivioPage() {
 
       {/* ─── 7. RESEARCH ───────────────────────────────────────────── */}
       <section className="px-[12px] pt-[32px] md:pt-[56px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-full md:w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           {/* Content */}
@@ -180,9 +190,9 @@ export default function MissivioPage() {
 
       {/* ─── 8. CONSTRAINTS ────────────────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-full md:w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">CONSTRAINTS</span>
           </div>
           {/* Content */}
@@ -227,7 +237,7 @@ export default function MissivioPage() {
 
       {/* ─── 9. ITERATION IMAGE ────────────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
-        <div className="relative w-full h-[300px] md:h-[622px]">
+        <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px]">
           <Image
             src="/images/missivio/iteration.jpg"
             alt="Iteration of right side panel"
@@ -245,9 +255,9 @@ export default function MissivioPage() {
 
         {/* ─── 10. USABILITY TESTING ─────────────────────────────────── */}
         <div className="pt-[32px] md:pt-[56px] pb-[48px] md:pb-[91px]">
-          <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+          <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
             {/* Label */}
-            <div className="w-full md:w-[305px] flex flex-col">
+            <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
               <span className="font-medium text-[12px] leading-[13.82px] text-black/40">USABILITY TESTING</span>
             </div>
             {/* Content */}
@@ -287,9 +297,9 @@ export default function MissivioPage() {
 
       {/* ─── 11. FINAL DESIGN ──────────────────────────────────────── */}
       <section className="px-[12px] pt-[12px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-full md:w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">FINAL DESIGN</span>
           </div>
           {/* Content */}
@@ -338,31 +348,41 @@ export default function MissivioPage() {
       <section className="px-[12px] mt-[48px] md:mt-[86px]">
         {/* Two images */}
         <div className="flex flex-col gap-3 md:flex-row">
-          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
-            <Image
-              src="/images/missivio/gallery-left-2.jpg"
-              alt="Initial concept of onboarding flow, mid-fidelity"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="flex flex-col md:flex-1">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
+              <Image
+                src="/images/missivio/gallery-left-2.jpg"
+                alt="Initial concept of onboarding flow, mid-fidelity"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="md:hidden italic text-[12px] leading-[1.2] text-black/75 mt-4">
+              Initial concept of onboarding flow, mid-fidelity.
+            </p>
           </div>
-          <div className="relative w-full md:w-[622px] h-[240px] md:h-[460px] flex-shrink-0">
-            <Image
-              src="/images/missivio/gallery-right-2.jpg"
-              alt="Final dashboard design"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="flex flex-col md:flex-1">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
+              <Image
+                src="/images/missivio/gallery-right-2.jpg"
+                alt="Final dashboard design"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="md:hidden italic text-[12px] leading-[1.2] text-black/75 mt-4">
+              Final dashboard design focuses on User/AI interaction
+            </p>
           </div>
         </div>
-        {/* Captions */}
-        <div className="pl-0 md:pl-[317px] mt-4 flex flex-col gap-2 md:flex-row md:justify-between">
-          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
+        {/* Desktop captions */}
+        <div className="hidden md:flex pl-[317px] mt-4 flex-row justify-between">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
             Initial concept of onboarding flow, mid-fidelity.
           </p>
-          <p className="italic text-[12px] w-full md:w-[305px] leading-[1.2] text-black/75">
+          <p className="italic text-[12px] w-[305px] leading-[1.2] text-black/75">
             Final dashboard design focuses on User/AI interaction
           </p>
         </div>
@@ -370,9 +390,9 @@ export default function MissivioPage() {
 
       {/* ─── 13. LEARNINGS ─────────────────────────────────────────── */}
       <section className="px-[12px] pb-[48px] md:pb-[91px] pt-[48px] md:pt-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
           {/* Label */}
-          <div className="w-full md:w-[305px] flex flex-col">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           {/* Content */}

@@ -41,7 +41,7 @@ export default function BrazilyPage() {
       </section>
 
       {/* ─── 3. HERO IMAGE ─────────────────────────────────────────── */}
-      <div className="mt-4 flex justify-center px-[12px] md:px-0">
+      <div className="mt-4 flex justify-center md:px-0">
         <div className="relative w-full md:w-[832px] h-[300px] md:h-[622px] bg-[#f3f3f3] overflow-hidden">
           <Image
             src="/images/brazily/hero.png"
@@ -55,8 +55,8 @@ export default function BrazilyPage() {
 
       {/* ─── 4. THE PROBLEM ────────────────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
-          <div className="w-full md:w-[305px] flex flex-col">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">THE PROBLEM</span>
           </div>
           <div className="flex flex-col">
@@ -79,8 +79,8 @@ export default function BrazilyPage() {
 
       {/* ─── 5. SETTING UP CLAUDE ──────────────────────────────────── */}
       <section className="px-[12px] pt-[48px] md:pt-[64px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
-          <div className="w-full md:w-[305px] flex flex-col">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">SETTING UP CLAUDE</span>
           </div>
           <div className="flex flex-col gap-[48px] md:gap-[91px]">
@@ -170,8 +170,8 @@ export default function BrazilyPage() {
 
             {/* Media block — two stacked images */}
             <div className="flex justify-center items-center">
-            <div className="w-full md:w-[463px] flex flex-col gap-[8px] overflow-hidden">
-              <div className="relative w-full h-[260px] md:h-[420px]">
+            <div className="w-full md:w-[463px] flex flex-col gap-[8px]">
+              <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[260px] md:h-[420px]">
                 <Image
                   src="/images/brazily/setting-up-1.png"
                   alt=""
@@ -180,7 +180,7 @@ export default function BrazilyPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative w-full h-[260px] md:h-[420px]">
+              <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[260px] md:h-[420px]">
                 <Image
                   src="/images/brazily/setting-up-2.png"
                   alt=""
@@ -198,8 +198,8 @@ export default function BrazilyPage() {
 
       {/* ─── 6. RESEARCH ───────────────────────────────────────────── */}
       <section className="px-[12px] py-[48px] md:py-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
-          <div className="w-full md:w-[305px] flex flex-col">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-medium text-[12px] leading-[13.82px] text-black/40">RESEARCH</span>
           </div>
           <div className="flex flex-col">
@@ -226,7 +226,7 @@ export default function BrazilyPage() {
 
           {/* BLOCK 1: Research GIF + caption + DESIGN DECISION */}
           <div className="flex flex-col gap-[16px]">
-            <div className="relative w-full h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/brazily/research.gif"
@@ -240,8 +240,8 @@ export default function BrazilyPage() {
               </p>
             </div>
             <div className="pt-[40px]">
-              <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
-                <div className="w-full md:w-[305px] flex flex-col">
+              <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
+                <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
                   <span className="font-medium text-[12px] leading-[13.82px] text-black/40">DESIGN DECISION</span>
                 </div>
                 <div className="flex flex-col">
@@ -277,7 +277,7 @@ export default function BrazilyPage() {
 
           {/* BLOCK 2: Design Decision GIF + caption + Other places AI */}
           <div className="flex flex-col gap-[16px]">
-            <div className="relative w-full h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/brazily/design-decision.gif"
@@ -291,7 +291,7 @@ export default function BrazilyPage() {
               </p>
             </div>
             <div className="pt-[40px]">
-              <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
+              <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
                 <div className="hidden md:block md:w-[305px] md:flex-col" />
                 <div className="flex flex-col gap-[48px]">
 
@@ -355,8 +355,8 @@ export default function BrazilyPage() {
 
       {/* ─── 8. LEARNINGS ──────────────────────────────────────────── */}
       <section className="px-[12px] pt-[40px] pb-[48px] md:pb-[91px]">
-        <div className="flex flex-col gap-1 md:flex-row md:gap-3 items-start">
-          <div className="w-full md:w-[305px] flex flex-col">
+        <div className="flex flex-col gap-[12px] md:flex-row md:gap-3 items-start">
+          <div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">
             <span className="font-normal text-[12px] leading-[13.82px] text-black/40">LEARNINGS</span>
           </div>
           <div className="flex flex-col">
