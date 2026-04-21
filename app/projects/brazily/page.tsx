@@ -50,7 +50,7 @@ export default function BrazilyPage() {
       <div className="mt-4 flex justify-center md:px-0">
         <div className="relative w-full md:w-[832px] h-[300px] md:h-[622px] bg-[#f3f3f3] overflow-hidden">
           <Image
-            src="/images/brazily/hero.png"
+            src="/images/brazily/brazily-1.png"
             alt="Brazily app screens"
             fill
             sizes="100vw"
@@ -130,7 +130,7 @@ export default function BrazilyPage() {
           <div className="w-full md:w-[463px] flex flex-col gap-[8px]">
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[260px] md:h-[420px]">
               <Image
-                src="/images/brazily/setting-up-1.png"
+                src="/images/brazily/brazily-2.png"
                 alt="Claude skill infrastructure setup screenshot"
                 fill
                 sizes="(max-width: 768px) 100vw, 463px"
@@ -139,7 +139,7 @@ export default function BrazilyPage() {
             </div>
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[260px] md:h-[420px]">
               <Image
-                src="/images/brazily/setting-up-2.png"
+                src="/images/brazily/brazily-3.png"
                 alt="Claude Code and Figma MCP wireframe output"
                 fill
                 sizes="(max-width: 768px) 100vw, 463px"
@@ -175,7 +175,7 @@ export default function BrazilyPage() {
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/brazily/research.gif"
+                src="/images/brazily/brazily-4.gif"
                 alt="Navigation flow animation from dashboard to courses tab to video lesson"
                 className="absolute inset-0 w-full h-full object-contain"
               />
@@ -219,7 +219,7 @@ export default function BrazilyPage() {
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/brazily/design-decision.gif"
+                src="/images/brazily/brazily-5.gif"
                 alt="Dashboard design animation showing next lesson, community challenges, upcoming events, and freemium prompt"
                 className="absolute inset-0 w-full h-full object-contain"
               />
@@ -305,7 +305,7 @@ export default function BrazilyPage() {
         </div>
       </ProjectSection>
 
-      <NextProjectLink href="/projects/doordash" title="DOORDASH" />
+      <NextProjectLink prev={{ href: "/projects/doordash", title: "DOORDASH" }} next={{ href: "/projects/missivio", title: "MISSIVIO" }} />
     </div>
   );
 }

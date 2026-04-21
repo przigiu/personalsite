@@ -21,9 +21,9 @@ export default function DoorDashPage() {
 
       {/* Hero image */}
       <div className="mt-4 md:px-[12px]">
-        <div className="relative w-full h-[300px] md:h-[622px] bg-[#e6e6e6]">
+        <div className="relative w-full h-[300px] md:h-[622px] bg-[#F3F3F3]">
           <Image
-            src="/images/doordash/empathy-map.jpg"
+            src="/images/doordash/doordash-1.png"
             alt="Empathy map of food-delivery user behaviors and pain points"
             fill
             sizes="100vw"
@@ -53,12 +53,12 @@ export default function DoorDashPage() {
         className="pt-[48px] md:pt-[91px]"
         rightCaptionDesktopWidth="desk:w-[390px]"
         left={{
-          src: "/images/doordash/user-flow.jpg",
+          src: "/images/doordash/doordash-2.jpg",
           alt: "Empathy map",
           caption: "Empathy map helped define the user subconscious state and core needs.",
         }}
         right={{
-          src: "/images/doordash/mid-fi-to-hi-fi.jpg",
+          src: "/images/doordash/doordash-3.jpg",
           alt: "User flow",
           caption: "A comparison between the current user flow (top), discovered during research, and the user flow (bottom) with the new feature.",
         }}
@@ -119,12 +119,12 @@ export default function DoorDashPage() {
         <div className="flex flex-col">
           {/* Block A: Mid-fi to Hi-fi image */}
           <div>
-            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px]">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#F4F4F4]">
               <Image
-                src="/images/doordash/usability-testing.jpg"
+                src="/images/doordash/doordash-4.png"
                 alt="Mid-fi to High-fi progression"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="pl-0 md:pl-[317px] mt-4">
@@ -151,12 +151,12 @@ export default function DoorDashPage() {
 
           {/* Block C: Usability Testing */}
           <div className="mt-[48px] md:mt-[91px]">
-            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px]">
+            <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] overflow-hidden">
               <Image
-                src="/images/doordash/final-overlay-card.jpg"
+                src="/images/doordash/doordash-5.png"
                 alt="Usability testing panel"
                 fill
-                className="object-cover"
+                className="object-contain scale-[1.4]"
               />
             </div>
             <div className="pl-0 md:pl-[317px] mt-4">
@@ -208,12 +208,12 @@ export default function DoorDashPage() {
       <TwoImageGallery
         className="mt-[48px] md:mt-[91px]"
         left={{
-          src: "/images/doordash/final-video-indicator.jpg",
+          src: "/images/doordash/doordash-6.png",
           alt: "Final screen overlay card",
           caption: "Overlay card with restaurant information presents now a complete spelled out tag after testing.",
         }}
         right={{
-          src: "/images/doordash/hero.jpg",
+          src: "/images/doordash/doordash-7.png",
           alt: "Final screen red video indicator",
           caption: "Updated coloring (from grey to red) to give visual prominence to video indicator.",
         }}
@@ -241,7 +241,7 @@ export default function DoorDashPage() {
         </div>
       </ProjectSection>
 
-      <NextProjectLink href="/projects/brazily" title="BRAZILY" />
+      <NextProjectLink prev={{ href: "/projects/missivio", title: "MISSIVIO" }} next={{ href: "/projects/brazily", title: "BRAZILY" }} />
     </div>
   );
 }

@@ -21,13 +21,13 @@ export default function MissivioPage() {
 
       {/* Hero image */}
       <div className="mt-4 md:px-[12px]">
-        <div className="relative w-full h-[300px] md:h-[622px]">
+        <div className="relative w-full h-[300px] md:h-[622px] bg-[#F6F6F6]">
           <Image
-            src="/images/missivio/hero.jpg"
+            src="/images/missivio/missivio-1.png"
             alt="Missivio dashboard UI showing AI-led email campaign builder"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </div>
@@ -58,7 +58,7 @@ export default function MissivioPage() {
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
         <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[240px] md:h-[460px]">
           <Image
-            src="/images/missivio/gallery-full.jpg"
+            src="/images/missivio/missivio-2.png"
             alt="Missivio gallery full width"
             fill
             sizes="100vw"
@@ -75,12 +75,12 @@ export default function MissivioPage() {
       <TwoImageGallery
         className="mt-[40px]"
         left={{
-          src: "/images/missivio/gallery-left-1.jpg",
+          src: "/images/missivio/missivio-3.png",
           alt: "Qualitative research",
           caption: "Qualitative research was used to identify core need.",
         }}
         right={{
-          src: "/images/missivio/gallery-right-1.jpg",
+          src: "/images/missivio/missivio-4.png",
           alt: "User flows",
           caption: "User flows for Onboarding and Campaign Creation.",
         }}
@@ -154,7 +154,7 @@ export default function MissivioPage() {
       <section className="px-[12px] pt-[48px] md:pt-[91px]">
         <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px]">
           <Image
-            src="/images/missivio/iteration.jpg"
+            src="/images/missivio/missivio-5.png"
             alt="Iteration of right side panel"
             fill
             sizes="100vw"
@@ -242,12 +242,12 @@ export default function MissivioPage() {
       <TwoImageGallery
         className="mt-[48px] md:mt-[86px]"
         left={{
-          src: "/images/missivio/gallery-left-2.jpg",
+          src: "/images/missivio/missivio-6.png",
           alt: "Initial concept of onboarding flow, mid-fidelity",
           caption: "Initial concept of onboarding flow, mid-fidelity.",
         }}
         right={{
-          src: "/images/missivio/gallery-right-2.jpg",
+          src: "/images/missivio/missivio-1.png",
           alt: "Final dashboard design",
           caption: "Final dashboard design focuses on User/AI interaction",
         }}
@@ -271,7 +271,7 @@ export default function MissivioPage() {
         </div>
       </ProjectSection>
 
-      <NextProjectLink href="/projects/doordash" title="DOORDASH" />
+      <NextProjectLink next={{ href: "/projects/doordash", title: "DOORDASH" }} />
     </div>
   );
 }
