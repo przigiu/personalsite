@@ -39,6 +39,7 @@ Pages with the `fluid-page` class on their outer wrapper render at the 1280px de
 - **How it works:** The `max-w-[1440px] mx-auto` wrapper in `layout.tsx` has `style={{ containerType: 'inline-size' }}` making it a CSS container. The `fluid-page` class uses `@container` rules (not `@media`) with `width: 1280px; zoom: calc(100cqw / 1280px)`. Using `100cqw` (container query width) instead of `100vw` ties the zoom to the wrapper's actual layout width, avoiding race conditions during window resize and the scrollbar-width discrepancy that `100vw` has in some browsers. At container-width=1440px+, zoom locks to 1.125 via a second `@container (min-width: 1440px)` rule.
 - **Applied to:** outer wrapper of `app/page.tsx` (homepage) and each `app/projects/*/page.tsx` (Missivio, DoorDash, Brazily).
 - **Caveats:** `zoom` is non-standard but supported in Chrome, Safari, Edge, and Firefox 126+ (May 2024). Fractional zoom values can cause minor sub-pixel rendering artifacts on text/borders.
+- **Do NOT put `min-h-screen` on the `fluid-page` wrapper.** `min-height: 100vh` inside the zoom transform inflates by the zoom factor (1.125 at desktop), adding ~95px of phantom whitespace below the footer. Viewport-fill is handled by `min-height: 100vh` on `body` in `globals.css` instead — that lives outside the zoom and behaves correctly.
 
 ## Project Structure
 ```
@@ -54,6 +55,11 @@ app/
     LiveClock.tsx     # Client component — live HH:MM:SS clock
     ProjectCard.tsx   # Grid view project card
     ProjectListItem.tsx # List view project row (responsive via CSS order)
+    ProjectHeader.tsx # Project-page title + number + description + role/year/project meta row
+    ProjectSection.tsx # Shared labeled-row layout (label column + content column) used across all project pages AND the contact page
+    TwoImageGallery.tsx # Shared two-image side-by-side gallery with mobile + desktop caption handling
+    NextProjectLink.tsx # Bottom-of-page "NEXT PROJECT: …" right-aligned link, shared across all three project pages
+  contact/page.tsx    # Contact page (mailto form)
   projects/
     missivio/page.tsx # Missivio case study page
     doordash/page.tsx # DoorDash case study page
@@ -82,7 +88,7 @@ Each project has up to three image variants in `public/images/`:
 Figma source: node `628:20` (tablet) and `479:506` (desktop) in file `yYH6EOPoV2U1jaA4RwhciM`.
 - Card: `flex flex-col h-[277px] md:h-[246px] gap-2 pb-[19px]` — `h-[277px]` on mobile (Figma 390px frame), `h-[246px]` on tablet+. NO `justify-end` (image fills from top)
 - Image container: `flex-1 min-h-0 relative w-full overflow-hidden` — flexible height, not fixed. When card has `href`, the `<Link>` gets these same classes directly (no extra wrapper div).
-- `imageHeight` prop is kept in the interface for API compatibility but is no longer applied — do not restore fixed image height.
+- Image: `object-contain` (NOT `object-cover`) with `sizes="(max-width: 768px) 100vw, 33vw"` — mockups are 1920×1440 (4:3) and the card's image area becomes wide-and-short at 3-column desktop (≈410×190 → 2.16:1), so `object-cover` crops the mockup frame heavily. `object-contain` fits the full mockup and leaves neutral bleed top/bottom against the page's `#f9f9f9` background. If the desktop grid ever reverts to the original 4-column layout (≈280×190 → 1.47:1), the cropping with `object-cover` is minor — revisit only then.
 - Bodycopy row: `flex justify-between items-start desk:items-center px-0.5 shrink-0 min-h-[29px]` — `items-start` on tablet, `items-center` on desktop; `min-h-[29px]` ensures consistent 2-line height across all cards
 - Title: `font-medium text-[13px] tracking-[1px] text-black/75 uppercase leading-[10.37px] whitespace-nowrap shrink-0`
 - Caption: `font-normal text-[12px] leading-[1.2] text-black/[0.57] text-right whitespace-nowrap md:whitespace-normal md:w-[110px] desk:w-[182px] shrink-0` — `whitespace-nowrap` on mobile (no fixed width), `w-[110px]` on tablet, `w-[182px]` on desktop
@@ -112,40 +118,46 @@ Figma source: node `628:112` (tablet) and `477:87` / `629:1479` (desktop) in fil
 
 ### Homepage
 - Grid view: layout changes per breakpoint (see below)
-- List view: horizontal rows with number, title, description, tags, image (6 projects total)
+- List view: horizontal rows with number, title, description, tags, image — list numbers are auto-generated from visible-index (01, 02, …), do not hand-number
 - Toggle between views with fade animation (`animate-fade-in` class)
 - About section and footer shared between both views
+- **Project visibility (`hidden: true` flag):** `app/page.tsx` keeps all six projects in `allGridProjects` and `allListProjects`; the three without built case study pages (Brightwave, StopBugging, Roberta) have `hidden: true`. `visibleGridProjects = allGridProjects.filter(p => !p.hidden)` drives all three grid-view layouts and the list view. Flip a flag off to re-enable a project — do not delete entries.
+- **Grid row split scales with visible count.** Current code uses 3-column desktop (`desktopGrid.row1 = slice(0,3)`, `row2 = slice(3,6)`) and 3-column tablet, with spacers computed as `Math.max(0, 3 - row.length)` to keep columns equally sized. **When four or more projects are visible, restore the original 4+2 desktop design** per the Figma spec (nodes 479:506 row 1 and 479:539 row 2): change the slices to `slice(0,4)` / `slice(4,6)` and the spacer `length` expressions from `3 - row.length` to `4 - row.length`. The 4-column desktop is the intended design; 3-column is a temporary reduction for the current 3-visible-project state.
 
 **Mobile (< 768px):**
 - Navbar: name (left), view toggle icon (center), MENU text button (right) — MENU opens MobileDrawer. Gap between navbar rows: `gap-[40px]`. Description paragraph visible on mobile (no `hidden md:flex`).
-- Grid view: horizontal snap-scroll carousel (`snap-x snap-mandatory`, `hide-scrollbar`) with all 6 projects, card width `w-[calc(100vw-52px)]` (338px on 390px frame). No dot indicators.
+- Grid view: horizontal snap-scroll carousel (`snap-x snap-mandatory`, `hide-scrollbar`) over `visibleGridProjects` (currently 3 cards; 6 when all are un-hidden), card width `w-[calc(100vw-52px)]` (338px on 390px frame). No dot indicators.
 - List view: stacked per item with `gap-[20px]` between items (`md:gap-0`). Within each item, CSS `order` stacks: title (order-1) → desc+tags (order-2) → image (order-3)
 - Sections hidden via `md:hidden`
 
 **Tablet (768px – 1221px):**
 - Navbar: name block `w-[295px]`, `gap-[12px]` between name and toggle (same gap as desktop — do NOT use `desk:gap-[171px]`), CONTACT/ABOUT links right. Description row: visible on all breakpoints (no `hidden md:flex`); outer wrapper `md:pl-[412px]`, inner `<p>` has `w-[308px]` (fixed width matching Figma 834px frame — do NOT use `pr-[200px]` on the outer wrapper at tablet).
-- Grid view: two rows of 3 cards each (`hidden md:flex desk:hidden`). Row 1: Missivio/DoorDash/Brightwave. Row 2: StopBugging/Roberta/Brazily. Cards use `flex-1 min-w-0`.
+- Grid view: `tabletGrid.row1 = visibleGridProjects.slice(0,3)`, `tabletGrid.row2 = slice(3,6)`, each row `hidden md:flex desk:hidden`. Cards use `flex-1 min-w-0`. Row 2 only renders when non-empty (currently empty with 3 visible; becomes StopBugging/Roberta/Brazily when all six are un-hidden, matching the original Missivio/DoorDash/Brightwave + StopBugging/Roberta/Brazily split).
 - About section: ABOUT label column `w-[396px]`
 - List view: 3 equal `flex-1` columns per row — title+number | description+tags stacked (`gap-[12px]`, desc `pb-[20px]` = 32px visual gap) | image
 
 **Desktop (1222px+):**
 - Navbar: name block `w-[295px]` (same as tablet — do NOT use `desk:w-auto`), `gap-[12px]` between name and toggle (Figma node 477:88). Description row: `desk:pl-[635px] desk:pr-[200px]`, text uses `desk:flex-1 desk:w-auto` (not fixed `w-[308px]`).
-- Grid view (Figma node 479:506 row 1, 479:539 row 2): row 1 = 4 cards × `flex-1 min-w-0` with `items-end` on section. Row 2 = 2 cards × `flex-1 min-w-0` + two invisible `<div className="flex-1 min-w-0" />` spacers — this makes all 4 column slots share equal width so row 2 cards resize proportionally with row 1. Sections use `hidden desk:flex`.
+- Grid view (Figma node 479:506 row 1, 479:539 row 2): **current state — 3 columns.** `desktopGrid.row1 = slice(0,3)`, `row2 = slice(3,6)`, each row `hidden desk:flex flex-row items-end gap-[12px] px-[12px] pb-[69px]`. Cards use `flex-1 min-w-0`. Spacers `Math.max(0, 3 - row.length)` fill any empty slots so columns stay equal-width; row 2 only renders when non-empty (currently skipped with 3 visible). **Original (and intended) design is 4+2** — row 1 = 4 cards, row 2 = 2 cards + 2 spacers, matching the Figma nodes above. Restore by changing both slice bounds to 4/6 and both spacer `length` computations from `3 - row.length` to `4 - row.length` once four or more projects are un-hidden.
 - List view: 4 columns — title (`w-[306px]`) | description (`w-[305px]`) | tags (`w-[306px]`) | image (`flex-1`)
 - About section: ABOUT label column `w-[619px]`
 
 ### Project Pages
-- Uses shared `ProjectNavbar` component (replaces inline navbar) — BACK link + CONTACT/ABOUT
-- Two-column layout: section label (`w-full md:w-[305px]`) left, content (`w-full md:w-[622px]`) right
-- Image galleries: full-width (`h-[300px] md:h-[622px]`) and side-by-side (`md:flex-1`, `h-[240px] md:h-[460px]`) — side-by-side images use `md:flex-1` (not fixed width) so they fill the container at all breakpoints
+- Uses shared `ProjectNavbar` component — BACK link + CONTACT/ABOUT
+- **Use the shared components — do NOT inline these patterns:**
+  - `<ProjectHeader>` (`components/ProjectHeader.tsx`) — title + number + description + role/year/project meta row. Renders the canonical project-page header section.
+  - `<ProjectSection label="..." className="...">` (`components/ProjectSection.tsx`) — the labeled-row layout (label column `md:w-[305px]` + content column `md:w-[622px]`). Default outer is `<section>` with `px-[12px]`; pass `as="div"` for nested rows that don't need a `<section>` wrapper or horizontal padding (e.g. Missivio's USABILITY TESTING nested inside the iteration section, or DoorDash's FIRST ITERATION / USABILITY blocks). Pass `label=""` (omit) for label-less rows like the contact page or Brazily's BLOCK 2 spacer column. `labelClassName` overrides label typography (Brazily LEARNINGS uses `font-normal`). `contentClassName` adds classes to the content column (e.g. `gap-12` for vertically-spaced sub-blocks like FINAL DESIGN, `gap-[56px]` for DoorDash RESEARCH). The component **always** renders content in a `flex flex-col` div — when section content needs `<br>`-based prose flow, wrap it in an inner `<div>` so `<br>` works as expected (the flex parent treats children as flex items).
+  - `<TwoImageGallery>` (`components/TwoImageGallery.tsx`) — two-image side-by-side gallery with mobile-stacked + desktop-row caption rendering. Pass `className` for section spacing (e.g. `mt-[40px]` or `pt-[48px] md:pt-[91px]`), `aspectClass` to override the default `aspect-[483/343]` (e.g. `aspect-[16/9]` for the DoorDash 1920×1080 final pair), and `rightCaptionDesktopWidth` to override the default `desk:w-[305px]` (e.g. `desk:w-[390px]` for the longer DoorDash research caption).
+- Single full-width images (Missivio hero, gallery-full, iteration; DoorDash usability/final-overlay; Brazily hero & gif blocks) are kept inline because each has unique container/treatment (e.g. `bg-[#e6e6e6]` + `object-contain` on DoorDash hero, centered `md:w-[832px]` on Brazily hero, `bg-[#f4f4f4]` GIF wrappers on Brazily). Don't generalize these into a component until two of them share the *exact* same shape.
+- Image galleries: full-width (`h-[300px] md:h-[622px]`) — set inline on the wrapper. Side-by-side use `md:flex-1` + `aspect-[W/H]` matching the source image's natural ratio (handled inside `TwoImageGallery`). Side-by-side images use `md:flex-1` (not fixed width) so they fill the container at all breakpoints, and use `aspect-[W/H]` (not fixed height) so they never crop — pick the ratio from the source file: Missivio gallery pairs and DoorDash research pair (4096×2914 source) → `aspect-[483/343]` (default); DoorDash final pair (1920×1080 source) → `aspect-[16/9]`
 - Captions: italic 12px, `pl-0 md:pl-[317px]`, always `mt-4` (16px) below their image
 - **Single-image captions:** `<p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">` — do NOT use `md:w-[622px]`. At 834px tablet the content area after `pl-[317px]` is only 493px; a fixed 622px overflows and clips the right end of the text. Use `desk:w-[622px]` to cap width only at desktop.
-- **Two-image gallery captions row:** `<div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">` with each `<p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">` — `pl-[317px]` only at `desk:`, `flex-1` at tablet so each caption fills half the row width; `desk:flex-none desk:w-[305px]` restores fixed column widths at desktop.
+- **Two-image gallery captions row** (handled by `TwoImageGallery`, but if reproducing inline): `<div className="hidden md:flex desk:pl-[317px] mt-4 flex-row justify-between">` with each `<p className="italic text-[12px] flex-1 desk:flex-none desk:w-[305px] leading-[1.2] text-black/75">` — `pl-[317px]` only at `desk:`, `flex-1` at tablet so each caption fills half the row width; `desk:flex-none desk:w-[305px]` restores fixed column widths at desktop.
 - All body text: `font-normal text-[13px] leading-[1.4] text-black/75` — use `leading-[1.4]` consistently, never `leading-[1.2]`
 - Section headings: `font-bold text-[14px] leading-[13.82px] text-black/75` (Missivio/DoorDash); Brazily uses `text-[15px]`
-- Spacer between heading and body: `<div className="h-[13.715px]" />`
+- Spacer between heading and body: `<div className="h-[13.715px]" />` — exact value, not 14px (`13.715 = 13 × 1.055` matches the line-height strut for the heading; rounding to 14 visibly drifts spacing across stacked sections)
 - Reuses shared Footer component
-- **CRITICAL — section label columns:** Always use `<div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0">` for the label column. The `pb-[20px] md:pb-0` creates the correct 32px visual gap between label text and heading on mobile (12px gap from outer flex + 20px padding = 32px). Without `flex flex-col`, the `<span>` is inline in a block container and the inherited body line-height strut pushes the label text down.
+- **Section label column rendering** (now centralized in `ProjectSection`): label DOM is `<div className="w-full md:w-[305px] flex flex-col pb-[20px] md:pb-0"><span className="font-medium text-[12px] leading-[13.82px] text-black/40">{label}</span></div>`. The `pb-[20px] md:pb-0` creates the correct 32px visual gap between label text and heading on mobile (12px gap from outer flex + 20px padding = 32px). The `flex flex-col` wrapping is required — without it, the `<span>` is inline in a block container and the inherited body line-height strut pushes the label text down.
 
 **Mobile (< md):**
 - Navbar: two-row layout — Row 1: name (left) + MENU (right); Row 2: `← BACK` (left-aligned). Outer is `flex flex-col gap-[40px]`, NOT a 3-column single row.
@@ -195,18 +207,20 @@ All spacing uses responsive values: `pt-[48px] md:pt-[91px]` for major sections,
 - Section subheadings use `font-bold text-[15px] leading-[13.82px] text-black/75` (Brazily uses 15px, not the standard 14px)
 - Setting Up Claude right column uses `flex flex-col gap-[48px] md:gap-[91px]` between the text block and the media block
 - Text block uses `flex flex-col gap-[24px]`; heading group uses `flex flex-col` with `h-[13.715px]` spacer
-- Skill cards: `w-full md:w-[314px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]`
+- Skill cards: `w-full md:w-[304px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]` (two per row at 622px container with 14px gap)
 - Skill card badges: `bg-white border border-[#ee6363] rounded-[4px] px-[4px] py-[1px] font-mono text-[13px] leading-[1.4] text-[#cc4949]`
 - Skill card body text: `leading-[1.6]` (not the standard 1.4)
-- Callout box: `border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px] w-full md:w-[642px]` with `#656565` text
+- Callout box: `border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px]` with `#656565` text (inherits 622px width from parent content column)
 - GitHub CTA: `inline-flex items-center gap-[6px] border-b border-black/75` — uses `border-b` (not `underline`) so the line runs continuously under the inline GitHub SVG logo
 - Media block (two stacked images): `w-full md:w-[463px] flex flex-col gap-[8px]` (NO `overflow-hidden` — it clips the mobile bleed), each image `h-[260px] md:h-[420px] object-cover` with bleed classes `w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0`; assets at `public/images/brazily/setting-up-1.png` and `setting-up-2.png`; wrapped in `flex justify-center items-center` to center within the right column
 - Content section uses `flex flex-col gap-[64px]` with **2 blocks**, each grouping: full-width `h-[300px] md:h-[622px]` image + caption (`pl-0 md:pl-[317px] desk:w-[622px]`) + text section at `pt-[40px]`
   - Block 1: `research.gif` (`object-contain`) → caption → DESIGN DECISION label+content
   - Block 2: `design-decision.gif` (`object-contain`) → caption → "Other places AI shaped the work" + "What AI did and didn't do" (grouped with `gap-[48px]`, empty `w-[305px]` spacer column)
 - Animated GIFs rendered with `<img>` (not `<Image>`) to preserve animation
-- "Other places AI shaped the work" list item headings: `font-bold text-[13px] leading-[1.4]`; body text `text-[13px]`
+- "Other places AI shaped the work" list item headings: `font-bold text-[13px] leading-[1.4]`; body text `text-[13px]`. The `<ul>` itself has `text-[13px]` so the bullet glyphs render at 13px (matching DoorDash/Missivio); without it the discs inherit the 16px body default and look oversized next to the surrounding 13px text.
 - "What AI did and didn't do" `<ul>` elements have `mt-[18.2px]` (= 13px × 1.4 line-height) below their headings
+- All `<ul>` elements across project pages use `list-disc ml-4` (16px indent) — do NOT use `ml-[19.5px]` or other custom indents
+- Do NOT set a fixed `md:w-[622px]` on a `<ul>` that already has `ml-4` (or any margin) — the margin + width together overflow the 622px content column. Let the `<ul>` size auto inside the content column instead.
 - Both image captions: `w-[622px]`
 - LEARNINGS section label uses `font-normal` (not `font-medium`)
 
@@ -220,9 +234,12 @@ Figma source: node `628:69` in file `yYH6EOPoV2U1jaA4RwhciM`.
 - Last paragraph bold split: `<strong>beauty in function isn't a luxury, i</strong>t's what makes people trust...` — the "i" of "it's" is inside the bold span (Figma spec)
 
 ### Footer (`app/components/Footer.tsx`)
-- Always `flex-row items-end` at all breakpoints — no stacking on mobile
-- Layout: `flex flex-row items-end px-[11px] pt-[91px] pb-3 gap-[11.5px]`
-- Clock div: `md:w-[615px]`; copyright div: `md:w-[630px]` — fixed widths only apply at tablet+
+- Rendered ONCE in `app/layout.tsx` (after `{children}`) — do NOT import or render `<Footer />` from individual pages. Pages just return their content; layout handles the footer.
+- Layout: `mt-auto flex flex-row items-end justify-between gap-3 px-[12px] pt-[48px] pb-6` — clock pinned to the left edge, copyright pinned to the right edge via `justify-between`. Do NOT reintroduce fixed widths (`md:w-[615px]` / `md:w-[630px]`); they overflow at md (768–1221) viewports and leave the copyright text floating at an odd position.
+- `mt-auto` (combined with `body { display: flex; flex-direction: column; min-height: 100vh }` in `globals.css` and `flex-1 flex flex-col` on the layout's `max-w-[1440px]` wrapper) pushes the footer to the bottom of the viewport when page content is shorter than the viewport. When content overflows the viewport, the footer naturally sits at the end of content and `mt-auto` is a no-op.
+- `pb-6` (24px) intentionally mirrors the navbars' `pt-6` / `pt-[24px]` so the visual gap from the page top to the navbar text equals the gap from the page bottom to the footer text at all viewport sizes.
+- **CRITICAL — `w-full` on the layout wrapper:** the `max-w-[1440px]` wrapper has `containerType: inline-size` to drive the `@container` queries that power `fluid-page` zoom. When `body` becomes a flex container (which is required for `mt-auto` to push the footer to the viewport bottom), `containerType: inline-size` collapses the wrapper to width 0 because inline-size becomes self-determined. Adding `w-full` forces the wrapper back to full width so the container queries fire correctly. Do not remove `w-full` from that wrapper.
+- The footer is rendered OUTSIDE the `fluid-page` zoom wrapper (it lives directly in the layout's `max-w` div, as a sibling of `{children}`). This means footer text is NOT zoomed at 1280–1440 viewports, while the rest of the page is. Visually the difference is minor (12px font vs 12 × 1.125 = 13.5px) and is the necessary trade-off for getting the footer to viewport bottom — pushing the zoomed wrapper to fill the viewport vertically would inflate its visible height by 12.5% and overflow.
 
 ### layout.tsx
 - `<body>` has `suppressHydrationWarning` to silence browser-extension attribute mismatches (Grammarly, 1Password, etc. inject attributes at runtime that don't exist in server-rendered HTML)

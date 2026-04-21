@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import MobileDrawer from "@/app/components/MobileDrawer";
 
 interface NavbarProps {
@@ -20,10 +21,10 @@ export default function Navbar({ viewMode = "grid", onToggleView }: NavbarProps)
         {/* Left group */}
         <div className="flex flex-row items-start gap-[12px]">
           {/* Name block */}
-          <div className="flex flex-col gap-0.5 w-[295px]">
+          <Link href="/" className="flex flex-col gap-0.5 w-[295px]">
             <span className="font-bold text-[16px] text-black/75 leading-[13.82px]">Giulia</span>
             <span className="font-medium text-[14px] text-black/75 leading-[13.82px]">Product & UX Designer</span>
-          </div>
+          </Link>
           {/* View toggle button */}
           <button
             onClick={onToggleView}
@@ -40,18 +41,18 @@ export default function Navbar({ viewMode = "grid", onToggleView }: NavbarProps)
 
         {/* Right nav */}
         <nav className="flex-1 flex flex-row gap-3 justify-end items-center">
-          <a href="#contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</a>
-          <a href="/about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
+          <Link href="/contact" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">CONTACT</Link>
+          <a href="#about" className="font-normal text-[13px] leading-[14px] text-black/75 uppercase">ABOUT</a>
         </nav>
       </div>
 
       {/* Row 1 — Mobile */}
       <div className="flex md:hidden flex-row w-full items-center">
         {/* Name block — left */}
-        <div className="flex flex-col gap-0.5 flex-1">
+        <Link href="/" className="flex flex-col gap-0.5 flex-1">
           <span className="font-bold text-[16px] text-black/75 leading-[13.82px]">Giulia</span>
           <span className="font-medium text-[14px] text-black/75 leading-[13.82px]">Product & UX Designer</span>
-        </div>
+        </Link>
 
         {/* View toggle — center */}
         <div className="flex-1 flex justify-center">

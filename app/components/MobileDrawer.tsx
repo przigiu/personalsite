@@ -59,11 +59,11 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
         {/* Links */}
         <nav className="pt-[120px] px-[24px] flex flex-col gap-[32px]">
-          <a href="#contact" className="font-normal text-[14px] leading-[14px] text-black/75 uppercase tracking-[1px]" onClick={onClose}>
+          <a href="/contact" className="font-normal text-[14px] leading-[14px] text-black/75 uppercase tracking-[1px]" onClick={onClose}>
             Contact
           </a>
           <div className="h-px bg-black/15" />
-          <a href="/about" className="font-normal text-[14px] leading-[14px] text-black/75 uppercase tracking-[1px]" onClick={onClose}>
+          <a href="/#about" className="font-normal text-[14px] leading-[14px] text-black/75 uppercase tracking-[1px]" onClick={onClose}>
             About
           </a>
         </nav>

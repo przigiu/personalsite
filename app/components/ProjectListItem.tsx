@@ -8,7 +8,6 @@ interface ProjectListItemProps {
   tags: string;
   imageSrc: string;
   imageAlt: string;
-  overlayColor?: string;
   href?: string;
 }
 
@@ -19,7 +18,6 @@ export default function ProjectListItem({
   tags,
   imageSrc,
   imageAlt,
-  overlayColor,
   href,
 }: ProjectListItemProps) {
   const inner = (
@@ -59,7 +57,6 @@ export default function ProjectListItem({
             className="object-contain"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
-          {overlayColor && <div className={`absolute inset-0 ${overlayColor}`} />}
         </div>
       </div>
     </div>

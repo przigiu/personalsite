@@ -4,32 +4,31 @@ import { useState, useRef } from "react";
 import Navbar from "@/app/components/Navbar";
 import ProjectCard from "@/app/components/ProjectCard";
 import ProjectListItem from "@/app/components/ProjectListItem";
-import Footer from "@/app/components/Footer";
 
-const gridProjects = {
-  row1: [
-    { imageSrc: "/images/missivio-v2.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", imageHeight: "h-[208px]", href: "/projects/missivio" },
-    { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", imageHeight: "h-[208px]", href: "/projects/doordash" },
-    { imageSrc: "/images/brightwave-v2.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Brand & Web Design, Startup", imageHeight: "h-[208px]" },
-    { imageSrc: "/images/stopbugging-v2.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design, B2C", imageHeight: "h-[208px]" },
-  ],
-  row2: [
-    { imageSrc: "/images/roberta.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Brand & Web Design, Portfolio", imageHeight: "h-[208px]" },
-    { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", imageHeight: "h-[208px]", href: "/projects/brazily" },
-  ],
+const allGridProjects = [
+  { imageSrc: "/images/missivio-v2.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", href: "/projects/missivio" },
+  { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", href: "/projects/doordash" },
+  { imageSrc: "/images/brightwave-v2.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Brand & Web Design, Startup", hidden: true },
+  { imageSrc: "/images/stopbugging-v2.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design, B2C", hidden: true },
+  { imageSrc: "/images/roberta.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Brand & Web Design, Portfolio", hidden: true },
+  { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", href: "/projects/brazily" },
+];
+
+const visibleGridProjects = allGridProjects.filter((p) => !p.hidden);
+
+const desktopGrid = {
+  row1: visibleGridProjects.slice(0, 3),
+  row2: visibleGridProjects.slice(3, 6),
 };
 
-const allGridProjects = [...gridProjects.row1, ...gridProjects.row2];
-
-const tabletProjects = {
-  row1: gridProjects.row1.slice(0, 3),
-  row2: [gridProjects.row1[3], ...gridProjects.row2],
+const tabletGrid = {
+  row1: visibleGridProjects.slice(0, 3),
+  row2: visibleGridProjects.slice(3, 6),
 };
 
-const listProjects = [
+const allListProjects = [
   {
     title: "MISSIVIO",
-    number: "01",
     description: "AI-first email marketing for non-marketing founders",
     tags: "Product Design, Web App MVP",
     imageSrc: "/images/missivio-list.jpg",
@@ -38,7 +37,6 @@ const listProjects = [
   },
   {
     title: "DOORDASH",
-    number: "02",
     description: "A feature that solves app-drop rate and helps with discovery",
     tags: "Feature Design, Mobile App",
     imageSrc: "/images/doordash-list.jpg",
@@ -47,31 +45,30 @@ const listProjects = [
   },
   {
     title: "BRIGHTWAVE",
-    number: "03",
     description: "Web design for a NYC based modeling agency",
     tags: "Brand & Web Design, Startup",
     imageSrc: "/images/brightwave-list.jpg",
     imageAlt: "Brightwave project preview",
+    hidden: true,
   },
   {
     title: "STOPBUGGING",
-    number: "04",
     description: "Web design for a local business",
     tags: "Web design, B2C",
     imageSrc: "/images/stopbugging-list.jpg",
     imageAlt: "StopBugging project preview",
+    hidden: true,
   },
   {
     title: "ROBERTA",
-    number: "05",
     description: "Web design for a local business",
     tags: "Brand & Web Design, Portfolio",
     imageSrc: "/images/roberta-list.jpg",
     imageAlt: "Roberta project preview",
+    hidden: true,
   },
   {
     title: "BRAZILY",
-    number: "06",
     description: "Native iOS mobile app for discoverability and retention",
     tags: "Product Design, iOS App",
     imageSrc: "/images/brazily-list.jpg",
@@ -79,6 +76,10 @@ const listProjects = [
     href: "/projects/brazily",
   },
 ];
+
+const listProjects = allListProjects
+  .filter((p) => !p.hidden)
+  .map((p, i) => ({ ...p, number: String(i + 1).padStart(2, "0") }));
 
 export default function Home() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
@@ -89,7 +90,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f9f9f9] fluid-page">
+    <div className="flex flex-col bg-[#f9f9f9] fluid-page">
       <Navbar viewMode={viewMode} onToggleView={toggleView} />
 
       <main>
@@ -106,7 +107,7 @@ export default function Home() {
                   className="flex overflow-x-auto snap-x snap-mandatory gap-3 px-[12px] hide-scrollbar"
                   style={{ scrollPaddingLeft: 12, WebkitOverflowScrolling: "touch" }}
                 >
-                  {allGridProjects.map((p) => (
+                  {visibleGridProjects.map((p) => (
                     <ProjectCard
                       key={p.title}
                       {...p}
@@ -116,31 +117,39 @@ export default function Home() {
                 </div>
               </section>
 
-              {/* Tablet grid rows (md only: 3+3) */}
+              {/* Tablet grid rows (md only: up to 3+3) */}
               <section aria-label="Featured projects" className="hidden md:flex desk:hidden flex-row gap-3 px-[12px] pb-[69px]">
-                {tabletProjects.row1.map((p) => (
+                {tabletGrid.row1.map((p) => (
                   <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
                 ))}
               </section>
-              <section aria-label="Additional projects" className="hidden md:flex desk:hidden flex-row gap-3 px-[12px] pb-[69px]">
-                {tabletProjects.row2.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
-                ))}
-              </section>
+              {tabletGrid.row2.length > 0 && (
+                <section aria-label="Additional projects" className="hidden md:flex desk:hidden flex-row gap-3 px-[12px] pb-[69px]">
+                  {tabletGrid.row2.map((p) => (
+                    <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
+                  ))}
+                </section>
+              )}
 
-              {/* Desktop grid rows (desk+: 4+2) */}
+              {/* Desktop grid rows (desk+: up to 3+3) */}
               <section aria-label="Featured projects" className="hidden desk:flex flex-row items-end gap-[12px] px-[12px] pb-[69px]">
-                {gridProjects.row1.map((p) => (
+                {desktopGrid.row1.map((p) => (
                   <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
                 ))}
-              </section>
-              <section aria-label="Additional projects" className="hidden desk:flex flex-row items-end gap-[12px] px-[12px] pb-[69px]">
-                {gridProjects.row2.map((p) => (
-                  <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
+                {Array.from({ length: Math.max(0, 3 - desktopGrid.row1.length) }).map((_, i) => (
+                  <div key={`row1-spacer-${i}`} className="flex-1 min-w-0" />
                 ))}
-                <div className="flex-1 min-w-0" />
-                <div className="flex-1 min-w-0" />
               </section>
+              {desktopGrid.row2.length > 0 && (
+                <section aria-label="Additional projects" className="hidden desk:flex flex-row items-end gap-[12px] px-[12px] pb-[69px]">
+                  {desktopGrid.row2.map((p) => (
+                    <ProjectCard key={p.title} {...p} className="flex-1 min-w-0" />
+                  ))}
+                  {Array.from({ length: Math.max(0, 3 - desktopGrid.row2.length) }).map((_, i) => (
+                    <div key={`row2-spacer-${i}`} className="flex-1 min-w-0" />
+                  ))}
+                </section>
+              )}
             </>
           ) : (
             /* Project List View */
@@ -156,7 +165,7 @@ export default function Home() {
         </div>
 
         {/* About Section */}
-        <section aria-labelledby="about-heading" className="px-[12px] py-3 pb-[115px]">
+        <section id="about" aria-labelledby="about-heading" className="px-[12px] py-3 pb-[115px] scroll-mt-[24px]">
           <hr className="border-0 h-px bg-black/15 w-full mb-[6px]" />
           <div className="flex flex-col md:flex-row items-start gap-4">
             <p className="font-medium text-[13px] text-black/75 leading-[13.82px] md:w-[396px] desk:w-[619px] shrink-0">ABOUT</p>
@@ -182,8 +191,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

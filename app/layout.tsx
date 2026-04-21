@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, DM_Mono } from "next/font/google";
+import Footer from "@/app/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -44,8 +45,9 @@ export default function RootLayout({
         ` }} />
       </head>
       <body className={`${inter.variable} ${dmMono.variable} antialiased`} suppressHydrationWarning>
-        <div className="max-w-[1440px] mx-auto" style={{ containerType: 'inline-size' }}>
+        <div className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col" style={{ containerType: 'inline-size' }}>
           {children}
+          <Footer />
         </div>
       </body>
     </html>
