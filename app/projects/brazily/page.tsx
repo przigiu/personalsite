@@ -185,16 +185,14 @@ export default function BrazilyPage() {
           {/* BLOCK 1: Research GIF + DESIGN DECISION */}
           <div className="flex flex-col gap-[16px]">
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-label="Navigation flow animation from dashboard to courses tab to video lesson"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/brazily/brazily-4.gif"
+                alt="Navigation flow animation from dashboard to courses tab to video lesson"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-contain"
-              >
-                <source src="/images/brazily/brazily-4.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
             <div className="pl-0 md:pl-[317px]">
               <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
@@ -233,16 +231,14 @@ export default function BrazilyPage() {
           {/* BLOCK 2: Design Decision GIF + Other places AI + What AI did */}
           <div className="flex flex-col gap-[16px]">
             <div className="relative w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0 h-[300px] md:h-[622px] bg-[#f4f4f4] overflow-hidden">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-label="Dashboard design animation showing next lesson, community challenges, upcoming events, and freemium prompt"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/brazily/brazily-5.gif"
+                alt="Dashboard design animation showing next lesson, community challenges, upcoming events, and freemium prompt"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-contain"
-              >
-                <source src="/images/brazily/brazily-5.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
             <div className="pl-0 md:pl-[317px]">
               <p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">
