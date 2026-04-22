@@ -26,7 +26,7 @@ export default function ProjectCard({
   );
 
   return (
-    <article className={`flex flex-col h-[277px] md:h-[246px] gap-2 pb-[19px] ${className}`}>
+    <article className={`flex flex-col h-[310px] md:h-[360px] gap-2 pb-[19px] ${className}`}>
       {href ? (
         <Link href={href} className={wrapperClass}>{imageContent}</Link>
       ) : (
