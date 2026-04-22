@@ -1,13 +1,25 @@
 import Image from "next/image";
+import JsonLd from "@/app/components/JsonLd";
 import NextProjectLink from "@/app/components/NextProjectLink";
 import ProjectHeader from "@/app/components/ProjectHeader";
 import ProjectNavbar from "@/app/components/ProjectNavbar";
 import ProjectSection from "@/app/components/ProjectSection";
 import TwoImageGallery from "@/app/components/TwoImageGallery";
+import { projectJsonLd, projectMetadata } from "@/app/lib/projectMetadata";
+
+const INFO = {
+  slug: "missivio",
+  title: "Missivio",
+  description:
+    "Product design case study: Missivio, an AI-powered email marketing tool for non-marketing business owners. Research-first, zero to MVP.",
+};
+
+export const metadata = projectMetadata(INFO);
 
 export default function MissivioPage() {
   return (
     <div className="fluid-page">
+      <JsonLd data={projectJsonLd(INFO)} />
       <ProjectNavbar />
 
       <ProjectHeader
@@ -271,7 +283,7 @@ export default function MissivioPage() {
         </div>
       </ProjectSection>
 
-      <NextProjectLink next={{ href: "/projects/doordash", title: "DOORDASH" }} />
+      <NextProjectLink prev={{ href: "/projects/brazily", title: "BRAZILY" }} next={{ href: "/projects/doordash", title: "DOORDASH" }} />
     </div>
   );
 }

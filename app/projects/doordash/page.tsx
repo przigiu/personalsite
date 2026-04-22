@@ -1,13 +1,25 @@
 import Image from "next/image";
+import JsonLd from "@/app/components/JsonLd";
 import NextProjectLink from "@/app/components/NextProjectLink";
 import ProjectHeader from "@/app/components/ProjectHeader";
 import ProjectNavbar from "@/app/components/ProjectNavbar";
 import ProjectSection from "@/app/components/ProjectSection";
 import TwoImageGallery from "@/app/components/TwoImageGallery";
+import { projectJsonLd, projectMetadata } from "@/app/lib/projectMetadata";
+
+const INFO = {
+  slug: "doordash",
+  title: "DoorDash",
+  description:
+    "Feature design case study: a DoorDash concept that bridges the trust gap between food delivery apps and the social proof users actually rely on.",
+};
+
+export const metadata = projectMetadata(INFO);
 
 export default function DoorDashPage() {
   return (
     <div className="fluid-page">
+      <JsonLd data={projectJsonLd({ ...INFO, name: "DoorDash feature concept" })} />
       <ProjectNavbar />
 
       <ProjectHeader

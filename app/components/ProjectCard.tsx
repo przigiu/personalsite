@@ -9,6 +9,7 @@ interface ProjectCardProps {
   href?: string;
   className?: string;
   imageWrapperClassName?: string;
+  priority?: boolean;
 }
 
 export default function ProjectCard({
@@ -19,10 +20,11 @@ export default function ProjectCard({
   href,
   className = "",
   imageWrapperClassName = "",
+  priority = false,
 }: ProjectCardProps) {
   const wrapperClass = `flex-1 min-h-0 relative w-full overflow-hidden bg-[#E7E7E7] ${imageWrapperClassName}`;
   const imageContent = (
-    <Image src={imageSrc} alt={imageAlt} fill className="object-contain" sizes="(max-width: 768px) 100vw, 33vw" />
+    <Image src={imageSrc} alt={imageAlt} fill priority={priority} className="object-contain" sizes="(max-width: 768px) 100vw, 33vw" />
   );
 
   return (

@@ -1,8 +1,19 @@
 import Image from "next/image";
+import JsonLd from "@/app/components/JsonLd";
 import NextProjectLink from "@/app/components/NextProjectLink";
 import ProjectHeader from "@/app/components/ProjectHeader";
 import ProjectNavbar from "@/app/components/ProjectNavbar";
 import ProjectSection from "@/app/components/ProjectSection";
+import { projectJsonLd, projectMetadata } from "@/app/lib/projectMetadata";
+
+const INFO = {
+  slug: "brazily",
+  title: "Brazily",
+  description:
+    "Product design case study: rebuilding Brazily's iOS app after an App Store rejection, using Claude Code and Figma MCP to move faster.",
+};
+
+export const metadata = projectMetadata(INFO);
 
 const SKILL_CARD_CLASS =
   "w-full md:w-[304px] bg-[#f0f0f0] border border-[#ececec] rounded-[16px] p-[20px] flex flex-col gap-[20px]";
@@ -35,6 +46,7 @@ const skills = [
 export default function BrazilyPage() {
   return (
     <div className="fluid-page">
+      <JsonLd data={projectJsonLd(INFO)} />
       <ProjectNavbar />
 
       <ProjectHeader
@@ -177,6 +189,8 @@ export default function BrazilyPage() {
               <img
                 src="/images/brazily/brazily-4.gif"
                 alt="Navigation flow animation from dashboard to courses tab to video lesson"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
@@ -221,6 +235,8 @@ export default function BrazilyPage() {
               <img
                 src="/images/brazily/brazily-5.gif"
                 alt="Dashboard design animation showing next lesson, community challenges, upcoming events, and freemium prompt"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
