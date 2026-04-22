@@ -58,24 +58,31 @@ app/
     ProjectHeader.tsx # Project-page title + number + description + role/year/project meta row
     ProjectSection.tsx # Shared labeled-row layout (label column + content column) used across all project pages AND the contact page
     TwoImageGallery.tsx # Shared two-image side-by-side gallery with mobile + desktop caption handling
-    NextProjectLink.tsx # Bottom-of-page "NEXT PROJECT: …" right-aligned link, shared across all three project pages
+    NextProjectLink.tsx # Bottom-of-page prev/next project navigation row, shared across all three project pages
   contact/page.tsx    # Contact page (mailto form)
   projects/
     missivio/page.tsx # Missivio case study page
     doordash/page.tsx # DoorDash case study page
     brazily/page.tsx  # Brazily case study page
 public/
+  homepage/           # Homepage card images: missivio.png, doordash.png, brazily.png
   images/             # Project images (see naming convention below) + icons
-  images/missivio/    # Missivio case study images
-  images/doordash/    # DoorDash case study images
-  images/brazily/     # Brazily case study images (hero.png, setting-up-1.png, setting-up-2.png, research.gif, design-decision.gif)
+  images/missivio/    # Missivio case study images (missivio-1.png … missivio-6.png)
+  images/doordash/    # DoorDash case study images (doordash-1.png … doordash-7.png)
+  images/brazily/     # Brazily case study images (brazily-1.png … brazily-5.gif)
 ```
 
 ## Image Naming Convention
-Each project has up to three image variants in `public/images/`:
-- `{name}.jpg` — used in grid view (row 2 projects) or as base image
-- `{name}-v2.jpg` — used in grid view (row 1 projects)
-- `{name}-list.jpg` — used in list view
+**Homepage cards** (`public/homepage/`): one PNG per project — `missivio.png`, `doordash.png`, `brazily.png`. Both grid and list views reference the same file. Background color `#E7E7E7` is set on the card image wrapper; override per-card via `imageWrapperClassName` prop on `ProjectCard`.
+
+**Case study page images** (`public/images/{project}/`): numbered in page-appearance order — `missivio-1.png` … `missivio-6.png`, `doordash-1.png` … `doordash-7.png`, `brazily-1.png` … `brazily-5.gif`. Add new images by incrementing the counter.
+
+**Hidden projects** (Brightwave, StopBugging, Roberta) still use the legacy naming in `public/images/`:
+- `{name}.jpg` — grid view (row 2)
+- `{name}-v2.jpg` — grid view (row 1)
+- `{name}-list.jpg` — list view
+
+**Note:** `*.png` is in `.gitignore` with a `!public/**/*.png` exception so project images are tracked. Do not remove that exception.
 
 ## Component Conventions
 - Function components with default exports
@@ -87,8 +94,8 @@ Each project has up to three image variants in `public/images/`:
 ### ProjectCard (`app/components/ProjectCard.tsx`)
 Figma source: node `628:20` (tablet) and `479:506` (desktop) in file `yYH6EOPoV2U1jaA4RwhciM`.
 - Card: `flex flex-col h-[277px] md:h-[246px] gap-2 pb-[19px]` — `h-[277px]` on mobile (Figma 390px frame), `h-[246px]` on tablet+. NO `justify-end` (image fills from top)
-- Image container: `flex-1 min-h-0 relative w-full overflow-hidden` — flexible height, not fixed. When card has `href`, the `<Link>` gets these same classes directly (no extra wrapper div).
-- Image: `object-contain` (NOT `object-cover`) with `sizes="(max-width: 768px) 100vw, 33vw"` — mockups are 1920×1440 (4:3) and the card's image area becomes wide-and-short at 3-column desktop (≈410×190 → 2.16:1), so `object-cover` crops the mockup frame heavily. `object-contain` fits the full mockup and leaves neutral bleed top/bottom against the page's `#f9f9f9` background. If the desktop grid ever reverts to the original 4-column layout (≈280×190 → 1.47:1), the cropping with `object-cover` is minor — revisit only then.
+- Image container: `flex-1 min-h-0 relative w-full overflow-hidden bg-[#E7E7E7]` — flexible height, not fixed. Background `#E7E7E7` is the default; pass `imageWrapperClassName` prop to override per-card (e.g. a different bg color). When card has `href`, the `<Link>` gets these same classes directly (no extra wrapper div).
+- Image: `object-contain` (NOT `object-cover`) with `sizes="(max-width: 768px) 100vw, 33vw"` — mockups are 1920×1440 (4:3) and the card's image area becomes wide-and-short at 3-column desktop (≈410×190 → 2.16:1), so `object-cover` crops the mockup frame heavily. `object-contain` fits the full mockup and leaves neutral bleed top/bottom against the `#E7E7E7` background. If the desktop grid ever reverts to the original 4-column layout (≈280×190 → 1.47:1), the cropping with `object-cover` is minor — revisit only then.
 - Bodycopy row: `flex justify-between items-start desk:items-center px-0.5 shrink-0 min-h-[29px]` — `items-start` on tablet, `items-center` on desktop; `min-h-[29px]` ensures consistent 2-line height across all cards
 - Title: `font-medium text-[13px] tracking-[1px] text-black/75 uppercase leading-[10.37px] whitespace-nowrap shrink-0`
 - Caption: `font-normal text-[12px] leading-[1.2] text-black/[0.57] text-right whitespace-nowrap md:whitespace-normal md:w-[110px] desk:w-[182px] shrink-0` — `whitespace-nowrap` on mobile (no fixed width), `w-[110px]` on tablet, `w-[182px]` on desktop
@@ -148,7 +155,8 @@ Figma source: node `628:112` (tablet) and `477:87` / `629:1479` (desktop) in fil
   - `<ProjectHeader>` (`components/ProjectHeader.tsx`) — title + number + description + role/year/project meta row. Renders the canonical project-page header section.
   - `<ProjectSection label="..." className="...">` (`components/ProjectSection.tsx`) — the labeled-row layout (label column `md:w-[305px]` + content column `md:w-[622px]`). Default outer is `<section>` with `px-[12px]`; pass `as="div"` for nested rows that don't need a `<section>` wrapper or horizontal padding (e.g. Missivio's USABILITY TESTING nested inside the iteration section, or DoorDash's FIRST ITERATION / USABILITY blocks). Pass `label=""` (omit) for label-less rows like the contact page or Brazily's BLOCK 2 spacer column. `labelClassName` overrides label typography (Brazily LEARNINGS uses `font-normal`). `contentClassName` adds classes to the content column (e.g. `gap-12` for vertically-spaced sub-blocks like FINAL DESIGN, `gap-[56px]` for DoorDash RESEARCH). The component **always** renders content in a `flex flex-col` div — when section content needs `<br>`-based prose flow, wrap it in an inner `<div>` so `<br>` works as expected (the flex parent treats children as flex items).
   - `<TwoImageGallery>` (`components/TwoImageGallery.tsx`) — two-image side-by-side gallery with mobile-stacked + desktop-row caption rendering. Pass `className` for section spacing (e.g. `mt-[40px]` or `pt-[48px] md:pt-[91px]`), `aspectClass` to override the default `aspect-[483/343]` (e.g. `aspect-[16/9]` for the DoorDash 1920×1080 final pair), and `rightCaptionDesktopWidth` to override the default `desk:w-[305px]` (e.g. `desk:w-[390px]` for the longer DoorDash research caption).
-- Single full-width images (Missivio hero, gallery-full, iteration; DoorDash usability/final-overlay; Brazily hero & gif blocks) are kept inline because each has unique container/treatment (e.g. `bg-[#e6e6e6]` + `object-contain` on DoorDash hero, centered `md:w-[832px]` on Brazily hero, `bg-[#f4f4f4]` GIF wrappers on Brazily). Don't generalize these into a component until two of them share the *exact* same shape.
+- Single full-width images (Missivio hero, gallery-full, iteration; DoorDash images 1/4/5; Brazily hero & gif blocks) are kept inline because each has unique container/treatment. Don't generalize these into a component until two of them share the *exact* same shape.
+- **`NextProjectLink`** accepts optional `prev?: { href, title }` and `next?: { href, title }` props. Renders a `flex justify-between pt-[60px]` row — prev link (← PREVIOUS PROJECT: TITLE) on the left, next link (NEXT PROJECT: TITLE →) on the right. Omit either prop to leave that side empty. Current order: Missivio → DoorDash → Brazily → Missivio (circular).
 - Image galleries: full-width (`h-[300px] md:h-[622px]`) — set inline on the wrapper. Side-by-side use `md:flex-1` + `aspect-[W/H]` matching the source image's natural ratio (handled inside `TwoImageGallery`). Side-by-side images use `md:flex-1` (not fixed width) so they fill the container at all breakpoints, and use `aspect-[W/H]` (not fixed height) so they never crop — pick the ratio from the source file: Missivio gallery pairs and DoorDash research pair (4096×2914 source) → `aspect-[483/343]` (default); DoorDash final pair (1920×1080 source) → `aspect-[16/9]`
 - Captions: italic 12px, `pl-0 md:pl-[317px]`, always `mt-4` (16px) below their image
 - **Single-image captions:** `<p className="italic text-[12px] leading-[1.2] text-black/75 desk:w-[622px]">` — do NOT use `md:w-[622px]`. At 834px tablet the content area after `pl-[317px]` is only 493px; a fixed 622px overflows and clips the right end of the text. Use `desk:w-[622px]` to cap width only at desktop.
@@ -187,14 +195,18 @@ All spacing uses responsive values: `pt-[48px] md:pt-[91px]` for major sections,
 - Learnings section: `pt-[48px] md:pt-[91px]`
 
 ### Missivio (`app/projects/missivio/page.tsx`)
-- Hero image: `h-[300px] md:h-[622px]` full-width, `object-cover`
-- Iteration image: `h-[300px] md:h-[622px]` full-width
+- Hero image: `h-[300px] md:h-[622px]` full-width, `object-contain` + `bg-[#F6F6F6]`; asset `missivio-1.png` (also reused as `gallery-right-2`)
+- Iteration image: `h-[300px] md:h-[622px]` full-width; asset `missivio-5.png`
+- Image order: missivio-1 (hero) → missivio-2 (gallery-full) → missivio-3/4 (TwoImageGallery 1) → missivio-5 (iteration) → missivio-6/missivio-1 (TwoImageGallery 2)
 - Sections: The Problem (`pt-[48px] md:pt-[91px]`), image gallery (`pt-[48px] md:pt-[91px]`), two-image gallery (`mt-[40px]`), Research (`pt-[32px] md:pt-[56px]`), Constraints (`pt-[48px] md:pt-[91px]`), Iteration image (`pt-[48px] md:pt-[91px]`), Usability Testing div (`pt-[32px] md:pt-[56px] pb-[48px] md:pb-[91px]`), Final Design (`pt-[12px]`), Final image gallery (`mt-[48px] md:mt-[86px]`), Learnings (`pt-[48px] md:pt-[91px] pb-[48px] md:pb-[91px]`)
 - Final Design content uses `flex flex-col gap-12` between subsections
 - Usability Testing Round 2 uses `flex flex-col gap-12` for its two paragraphs
 
 ### DoorDash (`app/projects/doordash/page.tsx`)
-- Hero image: `h-[300px] md:h-[622px]`, `object-contain` + `bg-[#e6e6e6]` (empathy map needs contain treatment)
+- Hero image (doordash-1.png): `h-[300px] md:h-[622px]`, `object-contain` + `bg-[#F3F3F3]`
+- Image 4 (doordash-4.png): `h-[300px] md:h-[622px]`, `object-contain` + `bg-[#F4F4F4]`
+- Image 5 (doordash-5.png): `h-[300px] md:h-[622px]`, `object-contain scale-[1.4]` + `overflow-hidden` on wrapper (zoomed to fill container)
+- Image order: doordash-1 (hero) → doordash-2/3 (TwoImageGallery research) → doordash-4 (mid-fi progression) → doordash-5 (usability testing) → doordash-6/7 (TwoImageGallery final screens)
 - Sections: The Problem (`pt-[48px] md:pt-[91px]`), Research image gallery (`pt-[48px] md:pt-[91px]`), Research (`pt-[32px] md:pt-[56px]`), User Personas (`py-[48px] md:py-[91px]`), First Iteration+Usability Testing (gaps controlled individually), Final Screens gallery (`mt-[48px] md:mt-[91px]`), Learnings (`pt-[48px] md:pt-[91px] pb-[48px] md:pb-[91px]`)
 - Research subsections: `gap-[56px]` (not 91px)
 - Right research caption: `w-full md:w-[390px]` (wider than standard w-[305px])
@@ -202,7 +214,8 @@ All spacing uses responsive values: `pt-[48px] md:pt-[91px]` for major sections,
 - Usability Testing content div: `pt-[32px] md:pt-[56px]`
 
 ### Brazily (`app/projects/brazily/page.tsx`)
-- Hero image: `w-full md:w-[832px] h-[300px] md:h-[622px]` centered (`flex justify-center` wrapper), `object-contain` on `bg-[#f3f3f3]`; asset at `public/images/brazily/hero.png`
+- Hero image (brazily-1.png): `w-full md:w-[832px] h-[300px] md:h-[622px]` centered (`flex justify-center` wrapper), `object-contain` on `bg-[#f3f3f3]`
+- Image order: brazily-1 (hero) → brazily-2/3 (setting-up stacked pair) → brazily-4.gif (research) → brazily-5.gif (design-decision)
 - Sections: The Problem (`pt-[48px] md:pt-[91px]`), Setting Up Claude (`pt-[48px] md:pt-[64px]`), Research (`py-[48px] md:py-[91px]`), Content with images (`pb-[48px] md:pb-[91px]`), Learnings (`pt-[40px] pb-[48px] md:pb-[91px]`)
 - Section subheadings use `font-bold text-[15px] leading-[13.82px] text-black/75` (Brazily uses 15px, not the standard 14px)
 - Setting Up Claude right column uses `flex flex-col gap-[48px] md:gap-[91px]` between the text block and the media block
@@ -212,10 +225,10 @@ All spacing uses responsive values: `pt-[48px] md:pt-[91px]` for major sections,
 - Skill card body text: `leading-[1.6]` (not the standard 1.4)
 - Callout box: `border-t border-[#c8c8c8] pt-[20px] pb-[12px] flex flex-col gap-[8px]` with `#656565` text (inherits 622px width from parent content column)
 - GitHub CTA: `inline-flex items-center gap-[6px] border-b border-black/75` — uses `border-b` (not `underline`) so the line runs continuously under the inline GitHub SVG logo
-- Media block (two stacked images): `w-full md:w-[463px] flex flex-col gap-[8px]` (NO `overflow-hidden` — it clips the mobile bleed), each image `h-[260px] md:h-[420px] object-cover` with bleed classes `w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0`; assets at `public/images/brazily/setting-up-1.png` and `setting-up-2.png`; wrapped in `flex justify-center items-center` to center within the right column
+- Media block (two stacked images): `w-full md:w-[463px] flex flex-col gap-[8px]` (NO `overflow-hidden` — it clips the mobile bleed), each image `h-[260px] md:h-[420px] object-cover` with bleed classes `w-[calc(100%+24px)] -ml-[12px] md:w-full md:ml-0`; assets `brazily-2.png` and `brazily-3.png`; wrapped in `flex justify-center items-center` to center within the right column
 - Content section uses `flex flex-col gap-[64px]` with **2 blocks**, each grouping: full-width `h-[300px] md:h-[622px]` image + caption (`pl-0 md:pl-[317px] desk:w-[622px]`) + text section at `pt-[40px]`
-  - Block 1: `research.gif` (`object-contain`) → caption → DESIGN DECISION label+content
-  - Block 2: `design-decision.gif` (`object-contain`) → caption → "Other places AI shaped the work" + "What AI did and didn't do" (grouped with `gap-[48px]`, empty `w-[305px]` spacer column)
+  - Block 1: `brazily-4.gif` (`object-contain`) → caption → DESIGN DECISION label+content
+  - Block 2: `brazily-5.gif` (`object-contain`) → caption → "Other places AI shaped the work" + "What AI did and didn't do" (grouped with `gap-[48px]`, empty `w-[305px]` spacer column)
 - Animated GIFs rendered with `<img>` (not `<Image>`) to preserve animation
 - "Other places AI shaped the work" list item headings: `font-bold text-[13px] leading-[1.4]`; body text `text-[13px]`. The `<ul>` itself has `text-[13px]` so the bullet glyphs render at 13px (matching DoorDash/Missivio); without it the discs inherit the 16px body default and look oversized next to the surrounding 13px text.
 - "What AI did and didn't do" `<ul>` elements have `mt-[18.2px]` (= 13px × 1.4 line-height) below their headings

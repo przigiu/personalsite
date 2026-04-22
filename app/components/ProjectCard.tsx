@@ -8,6 +8,7 @@ interface ProjectCardProps {
   caption: string;
   href?: string;
   className?: string;
+  imageWrapperClassName?: string;
 }
 
 export default function ProjectCard({
@@ -17,8 +18,9 @@ export default function ProjectCard({
   caption,
   href,
   className = "",
+  imageWrapperClassName = "",
 }: ProjectCardProps) {
-  const wrapperClass = "flex-1 min-h-0 relative w-full overflow-hidden";
+  const wrapperClass = `flex-1 min-h-0 relative w-full overflow-hidden bg-[#E7E7E7] ${imageWrapperClassName}`;
   const imageContent = (
     <Image src={imageSrc} alt={imageAlt} fill className="object-contain" sizes="(max-width: 768px) 100vw, 33vw" />
   );

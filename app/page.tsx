@@ -6,12 +6,12 @@ import ProjectCard from "@/app/components/ProjectCard";
 import ProjectListItem from "@/app/components/ProjectListItem";
 
 const allGridProjects = [
-  { imageSrc: "/images/missivio-v2.jpg", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", href: "/projects/missivio" },
-  { imageSrc: "/images/doordash-v2.jpg", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", href: "/projects/doordash" },
+  { imageSrc: "/homepage/missivio.png", imageAlt: "Missivio project preview", title: "MISSIVIO", caption: "Product Design, Web App MVP", href: "/projects/missivio" },
+  { imageSrc: "/homepage/doordash.png", imageAlt: "DoorDash project preview", title: "DOORDASH", caption: "Feature Design, Mobile App", href: "/projects/doordash" },
   { imageSrc: "/images/brightwave-v2.jpg", imageAlt: "Brightwave project preview", title: "BRIGHTWAVE", caption: "Brand & Web Design, Startup", hidden: true },
   { imageSrc: "/images/stopbugging-v2.jpg", imageAlt: "StopBugging project preview", title: "STOPBUGGING", caption: "Web design, B2C", hidden: true },
   { imageSrc: "/images/roberta.jpg", imageAlt: "Roberta project preview", title: "ROBERTA", caption: "Brand & Web Design, Portfolio", hidden: true },
-  { imageSrc: "/images/brazily.jpg", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", href: "/projects/brazily" },
+  { imageSrc: "/homepage/brazily.png", imageAlt: "Brazily project preview", title: "BRAZILY", caption: "Product Design, iOS App", href: "/projects/brazily" },
 ];
 
 const visibleGridProjects = allGridProjects.filter((p) => !p.hidden);
@@ -31,7 +31,7 @@ const allListProjects = [
     title: "MISSIVIO",
     description: "AI-first email marketing for non-marketing founders",
     tags: "Product Design, Web App MVP",
-    imageSrc: "/images/missivio-list.jpg",
+    imageSrc: "/homepage/missivio.png",
     imageAlt: "Missivio project preview",
     href: "/projects/missivio",
   },
@@ -39,7 +39,7 @@ const allListProjects = [
     title: "DOORDASH",
     description: "A feature that solves app-drop rate and helps with discovery",
     tags: "Feature Design, Mobile App",
-    imageSrc: "/images/doordash-list.jpg",
+    imageSrc: "/homepage/doordash.png",
     imageAlt: "DoorDash project preview",
     href: "/projects/doordash",
   },
@@ -71,7 +71,7 @@ const allListProjects = [
     title: "BRAZILY",
     description: "Native iOS mobile app for discoverability and retention",
     tags: "Product Design, iOS App",
-    imageSrc: "/images/brazily-list.jpg",
+    imageSrc: "/homepage/brazily.png",
     imageAlt: "Brazily project preview",
     href: "/projects/brazily",
   },
