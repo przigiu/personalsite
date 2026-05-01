@@ -83,8 +83,7 @@ export default function Navbar({ viewMode = "grid", onToggleView }: NavbarProps)
       {/* Row 2 description */}
       <div className="flex md:pl-[412px] desk:pl-[635px] desk:pr-[200px] w-full">
         <p className="w-[308px] desk:w-auto desk:flex-1 text-[13px] text-black/75 leading-[1.2]">
-          <span className="font-medium">UX & Product Designer</span>
-          <span className="font-normal"> bridging brand strategy and user experience — background in marketing across D2C and B2B brands.</span>
+          <span className="font-normal">Product designer focused on research-driven experiences and AI-augmented workflows.</span>
         </p>
       </div>
 
